@@ -1,0 +1,8 @@
+# -neko www/index.n
+-php www
+-main Index
+-cp tracks
+-cp app
+-lib mdown
+-lib mongodb
+--macro core.Macro.include()

@@ -1,0 +1,35 @@
+{% extends template.html %}
+
+{% block title %}Games | HaxePunk{% end %}
+
+{% block slideshow %}
+	<div class="centered">
+		<p>A collection of games made in HaxePunk.</p>
+	</div>
+{% end %}
+
+{% block content %}
+	{% for game in games %}
+	<div class="game" itemscope="" itemtype="http://www.schema.org/CreativeWork">
+		<h3 itemprop="name">{{ game.title }}</h3>
+		<meta itemprop="thumbnailUrl" content="http://haxepunk.com{{ game.image_url }}">
+		<meta itemprop="contentLocation" content="{{ game.play_url }}">
+		<p itemprop="author" itemscope="" itemtype="http://www.schema.org/Person">
+			<span>By {{ game.author }}</span>
+		</p>
+		<a href="{{ game.play_url }}"><img src="http://haxepunk.com{{ game.image_url }}" alt="{{ game.title }}"></a>
+	</div>
+	{% end %}
+	<div style="clear:both"></div>
+</section>
+<section class="orange" style="margin:3em 0 1em">
+	<div class="centered">
+		<p>If you've made a game, using HaxePunk, you can submit it to the list by filling out the form below.</p>
+		<form method="POST" action="">
+			<label>Game Title:<input type="text" name="title" tabindex="1" placeholder="The title of the game." /></label>
+			<label>Play URL:<input type="text" name="play_url" tabindex="3" placeholder="Where can we play the game?" /></label>
+			<label>Author:<input type="text" name="author" tabindex="2" placeholder="Full name of the game's author." /></label>
+			<label>Image:<input type="file" tabindex="4" name="image_url" /></label>
+			<input type="submit" value="Add Game" tabindex="5" />
+		</form>
+{% end %}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>{% block title %}HaxePunk{% end %}</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+	<meta name="generator" content="Haxe">
+
+	<link rel="icon" type="image/png" href="http://haxepunk.com/images/favicon.png" />
+	<link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
+	<link href="css/style.css" rel="stylesheet" media="all" />
+	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+	<header>
+		<div class="centered">
+			<a href="/" class="title">
+				<img src="http://haxepunk.com/images/HaxePunk.gif" alt="HaxePunk" />
+			</a>
+			<nav>
+				<a href="/"{% if (name=="home") %} class="active"{% end %}>Home</a>
+				<a href="?uri=learn"{% if (name=="learn") %} class="active"{% end %}>Learn</a>
+				<a href="?uri=games"{% if (name=="games") %} class="active"{% end %}>Games</a>
+				<a href="http://forum.haxepunk.com">Community</a>
+			</nav>
+		</div>
+		<div class="github">
+			<a href="https://github.com/HaxePunk/HaxePunk">Fork me on GitHub</a>
+		</div>
+	</header>
+
+	<div class="main">
+		<section class="gray">
+			{% block slideshow %}{% include slideshow.html %}{% end %}
+		</section>
+
+		<section>
+			<div class="centered">{% block content %}{% end %}</div>
+		</section>
+
+		<footer class="centered">
+			<p>Copyright &copy; 2011-2013 HaxePunk.com | <a href="http://haxe.org">Powered by Haxe</a></p>
+		</footer>
+	</div>
+
+	<script type="text/javascript">
+		window._gaq = [['_setAccount','UA-5069201-6'],['_trackPageview'],['_trackPageLoadTime']];
+		Modernizr.load([
+			{
+				load: '//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js',
+				complete: function () {
+					if ( !window.jQuery ) {
+						Modernizr.load('js/vendor/jquery-1.8.2.min.js');
+					}
+				}
+			},
+			{
+				load: [
+					'/css/highlight/shCore.css',
+					'/css/highlight/shThemeDefault.css',
+					'/js/vendor/highlight/shCore.js',
+					'/js/vendor/highlight/shAutoloader.js'
+				],
+				complete: function () {
+					function path() {
+						var len = arguments.length,
+							result = [];
+
+						for(var i = 0; i < len; i++) {
+							result.push(arguments[i].replace('@', '/js/vendor/highlight/'));
+						}
+
+						return result;
+					};
+
+					SyntaxHighlighter.autoloader.apply(null, path(
+					  'actionscript3 as3      @shBrushAS3.js',
+					  'bash shell             @shBrushBash.js',
+					  'cpp c                  @shBrushCpp.js',
+					  'c# c-sharp csharp      @shBrushCSharp.js',
+					  'css                    @shBrushCss.js',
+					  'diff patch pas         @shBrushDiff.js',
+					  'haxe                   @shBrushHaXe.js',
+					  'js jscript javascript  @shBrushJScript.js',
+					  'php                    @shBrushPhp.js',
+					  'text plain             @shBrushPlain.js',
+					  'py python              @shBrushPython.js',
+					  'sql                    @shBrushSql.js',
+					  'xml xhtml xslt html    @shBrushXml.js'
+					));
+					SyntaxHighlighter.all();
+				}
+			},
+			'/js/script.js',
+			('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+		]);
+	</script>
+	<!--[if lt IE 8 ]>
+		<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+		<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+	<![endif]-->
+</body>
+</html>

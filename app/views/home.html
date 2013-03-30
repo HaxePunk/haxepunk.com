@@ -1,0 +1,63 @@
+{% extends template.html %}
+
+{% block content %}
+	<div class="sidebar">
+		<div>
+			<h3>What is HaxePunk?</h3>
+			<p>HaxePunk is a 2d game engine written in Haxe for cross-platform deployment. It has a ton of features to help you develop games quickly.</p>
+		</div>
+		{% if showcase %}
+		<div>
+			<h3>Showcase</h3>
+			<a href="{{ showcase.play_url }}">
+				<img src="http://haxepunk.com{{ showcase.image_url }}" alt="{{ showcase.title }}" class="showcase" />
+			</a>
+			<p style="font-size:12px">{{ showcase.title }} - By {{ showcase.author }} </p>
+			<a href="/games">See more HaxePunk games</a>
+		</div>
+		{% end %}
+		<nav id="links">
+			<h3>Links</h3>
+			<ul>
+				<li><a href="http://haxe.org" title="HaxePunk is written in the Haxe language">Haxe Language</a></li>
+				<li><a href="http://haxenme.org" title="HaxePunk uses NME for asset handling and hardware acceleration">Haxe NME</a></li>
+				<li><a href="http://flashpunk.net" title="HaxePunk was originally ported from FlashPunk">FlashPunk AS3 Framework</a></li>
+			</ul>
+		</nav>
+	</div>
+	<div class="content">
+		<section id="about">
+			<article id="features">
+				<h2>What can HaxePunk do?</h2>
+				<p>Here are some of the key features:</p>
+				<ul>
+					<li>Entity Management</li>
+					<li>Images, Spritemaps, Particle Emitters, Tilemaps, and more</li>
+					<li>Mask based collision (Box, Circle, Polygon)</li>
+					<li>Joystick and Multi-touch support</li>
+					<li>Tweens</li>
+					<li>Debug Console with mask overlays</li>
+				</ul>
+				<p>Have a look at the <a href="/api">API docs</a> for more details.</p>
+			</article>
+		</section>
+		<hr />
+		<section id="faq">
+			<article>
+				<h2>Simple AND Powerful</h2>
+				<p>If you have experience developing games in AS3 or any other scripting language you'll have no trouble getting started with HaxePunk. Easy enough for new programmers to learn and powerful enough for masters. It will handle hundreds of entities with complex collisions and animations without a hiccup!</p>
+			</article>
+			<article>
+				<h2>Develop Once, Deploy Anywhere</h2>
+				<p>HaxePunk runs on Windows, Mac, Flash, iOS, and Android without the need to rewrite your entire code base. In many cases you won't have to change a single line!</p>
+				<p>Each target is tuned for maximum performance. The Flash target uses blitted rendering similar to how FlashPunk works. Native targets, mobile and PC, use hardware accelerated tiles in OpenGL.</p>
+				<p><a href="/learn#cross-platform">Learn more about cross-platform deployment</a></p>
+			</article>
+			<article>
+				<h2>Open Source and Community Driven</h2>
+				<p>The code for HaxePunk is open source and available under the MIT license. This means there are no restrictions for developing commercial games. Although if you make something great with HaxePunk we'd love to hear about it!</p>
+				<p><a href="http://forum.haxepunk.com">Join the discussion in the forum</a></p>
+			</article>
+		</section>
+	</div>
+{% end %}

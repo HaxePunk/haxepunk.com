@@ -1,0 +1,30 @@
+{% extends template.html %}
+
+{% block title %}Learn | HaxePunk{% end %}
+
+{% block slideshow %}
+	<div class="centered">
+		<ul>
+		{% for tutorial in tutorials %}
+			<li><a href="#{{ tutorial.slug }}">{{ tutorial.title }}</a></li>
+		{% end %}
+		</ul>
+	</div>
+{% end %}
+
+{% block content %}
+	<div class="social">
+		<a href="http://feeds.feedburner.com/HaxepunkTutorials">
+			<img src="http://haxepunk.com/images/rss-feed.png" alt="RSS Feed" />
+		</a>
+	</div>
+	{% for tutorial in tutorials %}
+	<div class="tutorial" id="{{ tutorial.slug }}">
+		{% if (tutorial.thumb_url) %}
+		<img class="thumbnail" src="{{ tutorial.thumb_url }}" alt="{{ tutorial.title }}" />
+		{% end %}
+		<h2>{{ tutorial.title }}</h2>
+		{{ tutorial.content|markdown }}
+	</div>
+	{% end %}
+{% end %}

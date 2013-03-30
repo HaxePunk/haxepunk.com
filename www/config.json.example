@@ -1,0 +1,14 @@
+{
+	"db": {
+		"provider": "sqlite",
+		"file": "tracks.db"
+	},
+	"dbPrefix": "",
+	"rewrite": false,
+	"baseUrl": "http://localhost:2000/",
+	"viewsFolder": "../app/views/",
+	"defaultController": "Home",
+	"defaultMethod": "index",
+	"controllerPackage": "controllers"
+
+}
