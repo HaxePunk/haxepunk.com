@@ -19,7 +19,8 @@ class Learn extends core.Controller
 	{
 		var tutorials = db.posts.find({
 			publish_ts: { '$lt': Date.now() }
-		}, ["id", "title", "slug", "content", "publish_ts"], 10);
+		}, ["id", "title", "slug", "content", "publish_ts"], 10)
+		.sort({ publish_ts: -1 });
 
 		view("learn/feed", {
 			build_dt: Date.now(),

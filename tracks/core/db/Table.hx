@@ -1,7 +1,6 @@
 package core.db;
 
 import sys.db.Connection;
-import sys.db.ResultSet;
 
 enum ColumnDataType
 {
@@ -25,8 +24,8 @@ class Table
 
 	public function new(connection:Connection, name:String)
 	{
-		table = Tracks.settings.dbPrefix + name;
-		cnx = connection;
+		_table = Tracks.settings.dbPrefix + name;
+		_cnx = connection;
 	}
 
 	public function create(types:Array<ColumnDataType>)
@@ -59,7 +58,7 @@ class Table
 					defs.push(n + " DECIMAL(" + len + ", " + dec + ")");
 			}
 		}
-		cnx.request("CREATE TABLE IF NOT EXISTS " + table + " (" + defs.join(",") + ")");
+		_cnx.request("CREATE TABLE IF NOT EXISTS " + _table + " (" + defs.join(",") + ")");
 	}
 
 	private inline function whereFromObject(query:Dynamic):String
@@ -107,7 +106,7 @@ class Table
 		return " WHERE " + where.join(' AND ');
 	}
 
-	public function find(?query:Dynamic, ?returnFields:Array<String>, number:Int = 0, skip:Int = 0):ResultSet
+	public function find(?query:Dynamic, ?returnFields:Array<String>, number:Int = 0, skip:Int = 0):Cursor
 	{
 		var fieldList = "", where = "", limit = "";
 		if (returnFields == null)
@@ -128,8 +127,8 @@ class Table
 		{
 			limit = " LIMIT " + skip + "," + number;
 		}
-		var sql = "SELECT " + fieldList + " FROM " + table + where + limit;
-		return cnx.request(sql);
+		var sql = "SELECT " + fieldList + " FROM " + _table + where;
+		return new Cursor(_cnx, sql, limit);
 	}
 
 	public function findOne(?query:Dynamic, ?returnFields:Array<String>):Dynamic
@@ -150,7 +149,7 @@ class Table
 		}
 		fieldList = fieldList.substr(0, fieldList.length - 2);
 		fieldList += ") VALUES (" + fieldValues.substr(0, fieldValues.length - 2) + ")";
-		cnx.request("INSERT INTO " + table + fieldList);
+		_cnx.request("INSERT INTO " + _table + fieldList);
 	}
 
 	public inline function update(select:Dynamic, setFields:Dynamic)
@@ -166,7 +165,7 @@ class Table
 		}
 		set = set.substr(0, set.length - 2);
 
-		cnx.request("UPDATE " + table + set + where);
+		_cnx.request("UPDATE " + _table + set + where);
 	}
 
 	public inline function remove(select:Dynamic)
@@ -176,10 +175,10 @@ class Table
 		{
 			where = whereFromObject(select);
 		}
-		cnx.request("DELETE FROM " + table + where);
+		_cnx.request("DELETE FROM " + _table + where);
 	}
 
-	private var table:String;
-	private var cnx:Connection;
+	private var _table:String;
+	private var _cnx:Connection;
 
 }
