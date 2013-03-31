@@ -31,6 +31,11 @@ class Database implements core.db.Database
 		}
 	}
 
+	public inline function query(sql:String)
+	{
+		return cnx.request(sql);
+	}
+
 	public function resolve(name:String):Table
 	{
 		if (tablePool.exists(name))

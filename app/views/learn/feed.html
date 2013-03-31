@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+	<channel>
+		<title>HaxePunk Tutorials</title>
+		<link>http://haxepunk.com/learn</link>
+		<description />
+		<language>en-us</language>
+		<pubDate>{{ build_dt|datetime:"%a, %d %h %Y %T %Z" }}</pubDate>
+		<lastBuildDate>{{ build_dt|datetime:"%a, %d %h %Y %T %Z" }}</lastBuildDate>
+		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
+		<generator>Haxe Feed Generator</generator>
+		<managingEditor>heardtheword@gmail.com</managingEditor>
+		<webMaster>heardtheword@gmail.com</webMaster>
+		{% for tutorial in tutorials %}
+		<item>
+			<title>{{ tutorial.title }}</title>
+			<link>http://haxepunk.com/learn/#{{ tutorial.slug }}</link>
+			<description>{{ tutorial.content|escape }}</description>
+			<pubDate>{{ tutorial.publish_ts|datetime:"%a, %d %h %Y %T %Z" }}</pubDate>
+			<guid>http://haxepunk.com/learn/#{{ tutorial.slug }}</guid>
+		</item>
+		{% end %}
+	</channel>
+</rss>

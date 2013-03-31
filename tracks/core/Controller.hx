@@ -31,7 +31,7 @@ class Controller
 		};
 	}
 
-	private function view(path:String, ?data:Dynamic, ?print:Bool = true):String
+	private function view(path:String, ?data:Dynamic, ?print:Bool = true, ?contentType:String = "text/html"):String
 	{
 		var tpl = null, out = "";
 
@@ -54,9 +54,10 @@ class Controller
 		if (print)
 		{
 			Web.setReturnCode(200);
-			Web.setHeader("X-Powered-By", "Tracks");
-			Web.setHeader("Content-type", "text/html");
-			Lib.print("\n");
+			Web.setHeader("X-Powered-By", "Haxe");
+			Web.setHeader("Content-type", contentType);
+			if (contentType == "text/html")
+				Lib.print("\n");
 			Lib.print(out);
 		}
 		return out;

@@ -1,4 +1,13 @@
-# -neko www/index.n
+-neko www/index.n
+-main Index
+-cp tracks
+-cp app
+-lib mdown
+-lib mongodb
+--macro core.Macro.include()
+
+--next
+
 -php www
 -main Index
 -cp tracks

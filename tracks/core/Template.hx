@@ -19,12 +19,14 @@ private enum Filter
 	FAddSlashes;
 	FCapFirst;
 	FCut(p:String);
+	FEscape;
 	FFirst;
 	FJoin(p:String);
 	FLast;
 	FLength;
 	FMarkdown;
 	FStripTags;
+	FDateTime(p:String);
 	FUrlEncode;
 }
 
@@ -239,12 +241,14 @@ class Template
 			case "addslashes": filters.push(FAddSlashes);
 			case "capfirst":   filters.push(FCapFirst);
 			case "cut":        filters.push(FCut(param));
+			case "escape":     filters.push(FEscape);
 			case "first":      filters.push(FFirst);
 			case "join":       filters.push(FJoin(param));
 			case "last":       filters.push(FLast);
 			case "length":     filters.push(FLength);
 			case "markdown":   filters.push(FMarkdown);
 			case "striptags":  filters.push(FStripTags);
+			case "datetime":   filters.push(FDateTime(param));
 			case "urlencode":  filters.push(FUrlEncode);
 			default: throw "Filter '" + name + "' does not exist";
 		}
@@ -294,6 +298,15 @@ class Template
 						{
 							val = val.split(p).join('');
 						}
+					case FEscape:
+						if (Std.is(val, String))
+						{
+							val = StringTools.replace(val, "<", "&lt;");
+							val = StringTools.replace(val, ">", "&gt;");
+							val = StringTools.replace(val, "'", "&#39;");
+							val = StringTools.replace(val, "\"", "&quot;");
+							val = StringTools.replace(val, "&", "&amp;");
+						}
 					case FFirst:
 						if (Std.is(val, Array))
 						{
@@ -327,6 +340,17 @@ class Template
 #else
 						val = html_tag_re.customReplace(val, function(e:EReg) { return ""; });
 #end
+					case FDateTime(p):
+						var date;
+						if (Std.is(val, Date))
+						{
+							date = val;
+						}
+						else
+						{
+							date = Date.fromString(val);
+						}
+						val = DateTools.format(date, p);
 					case FUrlEncode:
 						val = StringTools.urlEncode(val);
 				}
@@ -634,7 +658,7 @@ class Template
 		}
 	}
 
-	private static inline var TAG_CHARS = '[A-Za-z0-9_ ()&|!+=/><*.:"-]+';
+	private static inline var TAG_CHARS = '[A-Za-z0-9_ ()%&|!+=/><*,.:"-]+';
 	private static inline var BLOCK_TAG_START = '{%';
 	private static inline var BLOCK_TAG_END = '%}';
 	private static inline var VARIABLE_TAG_START = '{{';

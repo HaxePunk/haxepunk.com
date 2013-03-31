@@ -62,9 +62,54 @@ class Table
 		cnx.request("CREATE TABLE IF NOT EXISTS " + table + " (" + defs.join(",") + ")");
 	}
 
-	public function find(?query:Dynamic, ?returnFields:Array<String>, skip:Int = 0, number:Int = 0):ResultSet
+	private inline function whereFromObject(query:Dynamic):String
 	{
-		var fieldList = "", where = "", limit = "", fields = null;
+		function compare(field:String, operator:String, value:Dynamic):String
+		{
+			if (Std.is(value, String))
+			{
+				value = "'" + value + "'";
+			}
+			else if (Std.is(value, Date))
+			{
+				value = "'" + DateTools.format(value, '%F %T') + "'";
+			}
+			return field + operator + value;
+		}
+		var where = new Array<String>();
+		var fields = Reflect.fields(query);
+		for (field in fields)
+		{
+			var value = Reflect.field(query, field);
+			if (Std.is(value, String) || Std.is(value, Int))
+			{
+				where.push(compare(field, '=', value));
+			}
+			else
+			{
+				for (comparison in Reflect.fields(value))
+				{
+					var v = Reflect.field(value, comparison);
+					switch (comparison)
+					{
+						case '$gt': where.push(compare(field, ' > ', v));
+						case '$gte': where.push(compare(field, ' >= ', v));
+						case '$lt': where.push(compare(field, ' < ', v));
+						case '$lte': where.push(compare(field, ' <= ', v));
+						case '$eq': where.push(compare(field, ' = ', v));
+						case '$ne': where.push(compare(field, ' != ', v));
+						default: throw "comparison not supported";
+					}
+
+				}
+			}
+		}
+		return " WHERE " + where.join(' AND ');
+	}
+
+	public function find(?query:Dynamic, ?returnFields:Array<String>, number:Int = 0, skip:Int = 0):ResultSet
+	{
+		var fieldList = "", where = "", limit = "";
 		if (returnFields == null)
 		{
 			fieldList = "*";
@@ -76,19 +121,15 @@ class Table
 		// where clause
 		if (query != null)
 		{
-			where = " WHERE ";
-			fields = Reflect.fields(query);
-			for (field in fields)
-			{
-				where += field + "='" + Reflect.field(query, field) + "' ";
-			}
+			where = whereFromObject(query);
 		}
 		// limit clause
 		if (number > 0)
 		{
-			limit = " LIMIT " + number + "," + skip;
+			limit = " LIMIT " + skip + "," + number;
 		}
-		return cnx.request("SELECT " + fieldList + " FROM " + table + where + limit);
+		var sql = "SELECT " + fieldList + " FROM " + table + where + limit;
+		return cnx.request(sql);
 	}
 
 	public function findOne(?query:Dynamic, ?returnFields:Array<String>):Dynamic
@@ -96,11 +137,6 @@ class Table
 		var rows = find(query, returnFields);
 		if (rows.length > 0) return rows.next();
 		return null;
-	}
-
-	public inline function query(sql:String)
-	{
-		return cnx.request(sql);
 	}
 
 	public inline function insert(fields:Dynamic)
@@ -119,14 +155,9 @@ class Table
 
 	public inline function update(select:Dynamic, setFields:Dynamic)
 	{
-		var where = " WHERE ", set = " SET ", fields = null;
+		var set = " SET ", fields = null;
 
-		fields = Reflect.fields(select);
-		for (field in fields)
-		{
-			where += field + "='" + Reflect.field(select, field) + "' AND ";
-		}
-		where = where.substr(0, where.length - 5);
+		var where = whereFromObject(select);
 
 		fields = Reflect.fields(setFields);
 		for (field in fields)
@@ -143,12 +174,7 @@ class Table
 		var where = "";
 		if (select != null)
 		{
-			where = " WHERE ";
-			var fields = Reflect.fields(select);
-			for (field in fields)
-			{
-				where += field + "='" + Reflect.field(select, field) + "' ";
-			}
+			where = whereFromObject(select);
 		}
 		cnx.request("DELETE FROM " + table + where);
 	}
