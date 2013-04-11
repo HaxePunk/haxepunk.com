@@ -40,18 +40,20 @@ class Router
 				}
 			}
 
-			var route:Array<String> = uri.split('/');
+			var route:Array<String> = uri.split('/'), val:String;
 
 			// Controller
 			if (route.length > 0)
 			{
-				controllerName = route.shift();
+				val = route.shift();
+				if (val != "") controllerName = val;
 			}
 
 			// Method
 			if (route.length > 0)
 			{
-				method = route.shift();
+				val = route.shift();
+				if (val != "") method = val;
 			}
 
 			args = route;
