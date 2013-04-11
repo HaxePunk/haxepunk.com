@@ -26,10 +26,15 @@ class Router
 		var controllerName:String = Tracks.settings.defaultController;
 		var method:String = Tracks.settings.defaultMethod;
 
-		var args:Array<String> = [];
+		var args:Array<String> = [], val:String;
 		if (params.exists('uri'))
 		{
-			var uri = params.get('uri');
+			var uri = StringTools.rtrim(params.get('uri'));
+			// remove trailing slash
+			if (StringTools.endsWith(uri, "/"))
+			{
+				uri = uri.substr(0, uri.length - 1);
+			}
 
 			// search for user defined routes
 			for (r in _routes)
@@ -40,23 +45,19 @@ class Router
 				}
 			}
 
-			var route:Array<String> = uri.split('/'), val:String;
+			args = uri.split('/');
 
 			// Controller
-			if (route.length > 0)
+			if (args.length > 0)
 			{
-				val = route.shift();
-				if (val != "") controllerName = val;
+				controllerName = args.shift();
 			}
 
 			// Method
-			if (route.length > 0)
+			if (args.length > 0)
 			{
-				val = route.shift();
-				if (val != "") method = val;
+				method = args.shift();
 			}
-
-			args = route;
 		}
 
 		controllerName = controllerName.toLowerCase();
