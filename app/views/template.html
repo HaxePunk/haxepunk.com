@@ -24,8 +24,8 @@
 			</a>
 			<nav>
 				<a href="/"{% if (name=="home") %} class="active"{% end %}>Home</a>
-				<a href="?uri=learn"{% if (name=="learn") %} class="active"{% end %}>Learn</a>
-				<a href="?uri=games"{% if (name=="games") %} class="active"{% end %}>Games</a>
+				<a href="{% url learn %}"{% if (name=="learn") %} class="active"{% end %}>Learn</a>
+				<a href="{% url games %}"{% if (name=="games") %} class="active"{% end %}>Games</a>
 				<a href="http://forum.haxepunk.com">Community</a>
 			</nav>
 		</div>
