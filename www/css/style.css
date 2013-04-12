@@ -217,6 +217,24 @@ section {
 	width: 25%;
 }
 
+a.button {
+	border-radius: 3px;
+	background: #FDBC00;
+	-webkit-box-shadow: 1px 1px 3px #BE992F;
+	-moz-box-shadow: 1px 1px 3px #BE992F;
+	box-shadow: 1px 1px 3px #BE992F;
+	padding: 0.2em 1em;
+	color: #FFF;
+	text-decoration: none;
+	font-size: 1.6em;
+	margin: 0.4em 0.2em;
+	display: inline-block;
+}
+
+a.button:hover {
+	background: #FD8F00;
+}
+
 .content {
 	float: right;
 	width: 70%;

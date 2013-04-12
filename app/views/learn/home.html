@@ -1,0 +1,24 @@
+{% extends learn/template.html %}
+
+{% block content %}
+	<div class="social">
+		<a href="http://feeds.feedburner.com/HaxepunkTutorials">
+			<img src="http://haxepunk.com/images/rss-feed.png" alt="RSS Feed" />
+		</a>
+	</div>
+	<h2 id="tutorials">Tutorials</h2>
+	{% for category in categories %}
+		<h3>{{ category }}</h3>
+		<ul>
+		{% for tutorial in tutorials %}
+			{% if (tutorial.category==category) %}
+			<li><a href="{% url learn/tutorial %}/{{ tutorial.slug }}">{{ tutorial.title }}</a></li>
+			{% end %}
+		{% end %}
+		</ul>
+	{% end %}
+	<hr />
+	<h2 id="examples">Examples</h2>
+	<div>
+	</div>
+{% end %}
