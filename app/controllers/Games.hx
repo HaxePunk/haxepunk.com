@@ -28,11 +28,35 @@ class Games extends core.Controller
 			games.push(game);
 		}
 
-		view("games", { games: games });
+		view("games", {
+			games: games,
+			gameForm: new forms.GameForm()
+		});
 	}
 
 	public function submit()
 	{
+		var form = new forms.GameForm();
+
+		if (form.validate())
+		{
+			var authorId = db.authors.insert({
+				username: form.author.value
+			});
+			db.games.insert({
+				title: form.title.value,
+				play_url: form.playUrl.value,
+				image_url: form.image.value,
+				platform_id: form.platform.value,
+				author_id: authorId,
+				status: 3 // awaiting approval
+			});
+			redirect('games/index');
+		}
+		else
+		{
+			redirect('games/index');
+		}
 	}
 
 }

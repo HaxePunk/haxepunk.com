@@ -36,7 +36,7 @@ class Admin extends core.Controller
 	private inline function add_post()
 	{
 		var form = new Form('admin/posts/new');
-		form.addTextField("title").label = "Post Title";
+		form.addTextField("title", { label: "Post Title" });
 		form.addTextArea("body");
 		form.addSubmit("Create Post");
 
@@ -59,10 +59,8 @@ class Admin extends core.Controller
 		}
 
 		var form = new Form("admin/login");
-		var user = form.addTextField("username");
-		user.label = "Username";
-		var pass = form.addPassword("password");
-		pass.label = "Password";
+		var user = form.addTextField("username", { label: "Username" });
+		var pass = form.addPassword("password", { label: "Password" });
 		form.addSubmit("Login");
 
 		if (form.validate())

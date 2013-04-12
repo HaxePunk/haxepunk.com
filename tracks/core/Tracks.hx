@@ -28,12 +28,36 @@ class Tracks
 			throw "Failed to load configuration file: " + configFile;
 		}
 
+		loadMultipart();
+
 		if (settings.dbPrefix == null) settings.dbPrefix = "";
 
 		// if we have a database, set it up
 		if (settings.db != null)
 		{
 			configureDatabase(settings.db);
+		}
+	}
+
+	private static function loadMultipart()
+	{
+		var buffer:haxe.io.BytesBuffer = null;
+		var currentName = null;
+		Web.parseMultipart(function(name, filename) {
+			if (currentName != null)
+			{
+				// write to file
+				//h.set(currentName, neko.Lib.stringReference(buffer.getBytes()));
+			}
+			trace("part: " + name + ", " + filename);
+			currentName = name;
+			buffer = new haxe.io.BytesBuffer();
+		}, function(data, position, length) {
+			buffer.addBytes(data, position, length);
+		});
+		if (currentName != null)
+		{
+			//h.set(currentName, neko.Lib.stringReference(buffer.getBytes()));
 		}
 	}
 

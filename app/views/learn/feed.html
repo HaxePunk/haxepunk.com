@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>HaxePunk Tutorials</title>
 		<link>http://haxepunk.com/learn</link>
+		<atom:link href="http://haxepunk.com/learn/feed" rel="self" type="application/rss+xml" />
 		<description />
 		<language>en-us</language>
-		<pubDate>{{ build_dt|datetime:"%a, %d %h %Y %T %Z" }}</pubDate>
-		<lastBuildDate>{{ build_dt|datetime:"%a, %d %h %Y %T %Z" }}</lastBuildDate>
+		<pubDate>{{ build_dt|datetime:"%a, %d %h %Y %T GMT" }}</pubDate>
+		<lastBuildDate>{{ build_dt|datetime:"%a, %d %h %Y %T GMT" }}</lastBuildDate>
 		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
 		<generator>Haxe Feed Generator</generator>
-		<managingEditor>heardtheword@gmail.com</managingEditor>
-		<webMaster>heardtheword@gmail.com</webMaster>
+		<managingEditor>heardtheword@gmail.com (Matt Tuttle)</managingEditor>
+		<webMaster>heardtheword@gmail.com (Matt Tuttle)</webMaster>
 		{% for tutorial in tutorials %}
 		<item>
 			<title>{{ tutorial.title }}</title>
-			<link>http://haxepunk.com/learn/#{{ tutorial.slug }}</link>
+			<link>{% url learn/tutorial %}/{{ tutorial.slug }}</link>
 			<description>{{ tutorial.content|escape }}</description>
-			<pubDate>{{ tutorial.publish_ts|datetime:"%a, %d %h %Y %T %Z" }}</pubDate>
-			<guid>http://haxepunk.com/learn/#{{ tutorial.slug }}</guid>
+			<pubDate>{{ tutorial.publish_ts|datetime:"%a, %d %h %Y %T GMT" }}</pubDate>
+			<guid>{% url learn/tutorial %}/{{ tutorial.slug }}</guid>
 		</item>
 		{% end %}
 	</channel>

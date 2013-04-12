@@ -21,10 +21,9 @@ class Form
 		this.method = method;
 	}
 
-	public inline function addTextField(name:String, placeholder:String=""):TextField
+	public inline function addTextField(name:String, ?options:Dynamic):TextField
 	{
-		var field = new TextField(name);
-		field.placeholder = placeholder;
+		var field = new TextField(name, options);
 		fields.push(field);
 		return field;
 	}
@@ -36,10 +35,9 @@ class Form
 		return field;
 	}
 
-	public inline function addPassword(name:String, placeholder:String=""):Password
+	public inline function addPassword(name:String, ?options:Dynamic):Password
 	{
-		var field = new Password(name);
-		field.placeholder = placeholder;
+		var field = new Password(name, options);
 		fields.push(field);
 		return field;
 	}
@@ -51,9 +49,16 @@ class Form
 		return field;
 	}
 
-	public inline function addSelect(name:String, ?options:Dynamic):Select
+	public inline function addSelect(name:String, values:Dynamic, defaultValue:Dynamic, ?options:Dynamic):Select
 	{
-		var field = new Select(name, options);
+		var field = new Select(name, values, defaultValue, options);
+		fields.push(field);
+		return field;
+	}
+
+	public inline function addFile(name:String, ?options:Dynamic):FileInput
+	{
+		var field = new FileInput(name, options);
 		fields.push(field);
 		return field;
 	}
@@ -76,29 +81,7 @@ class Form
 
 		for (field in fields)
 		{
-			//html += '<div class="form-field">';
 			html += Std.string(field);
-			// if (field.label != null && field.label != "")
-			// {
-			// 	html += '<label for="field-' + field.name + '">' + field.label + '</label>';
-			// }
-			// switch (field.type) {
-			// 	case FormType.Text:
-			// 		html += '<input type="text" value="' + field.value + '" name="' + field.name + '" class="form-text" id="field-' + field.name + '" />';
-			// 	case FormType.Password:
-			// 		html += '<input type="password" value="' + field.value + '" name="' + field.name + '" class="form-password" id="field-' + field.name + '" />';
-			// 	case FormType.Submit:
-			// 		html += '<input type="submit" value="' + field.value + '" class="form-submit" />';
-			// 	case FormType.TextArea:
-			// 		html += '<textarea name="' + field.name + '" class="form-textarea" id="field-' + field.name + '">' + field.value + '</textarea>';
-			// 	case FormType.Select:
-			// 		html += htmlSelect(field);
-			// 	case FormType.Checkbox:
-			// 		html += '<input type="checkbox" name="' + field.name + '" class="form-checkbox" id="field-' + field.name + '" />';
-			// 	case FormType.Radio:
-			// 		html += '<input type="radio" name="' + field.name + '" class="form-radio" id="field-' + field.name + '" />';
-			// }
-			//html += '</div>';
 		}
 
 		return html + '</form>';

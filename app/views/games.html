@@ -25,11 +25,5 @@
 <section class="orange" style="margin:3em 0 1em">
 	<div class="centered">
 		<p>If you've made a game, using HaxePunk, you can submit it to the list by filling out the form below.</p>
-		<form method="POST" action="">
-			<label>Game Title:<input type="text" name="title" tabindex="1" placeholder="The title of the game." /></label>
-			<label>Play URL:<input type="text" name="play_url" tabindex="3" placeholder="Where can we play the game?" /></label>
-			<label>Author:<input type="text" name="author" tabindex="2" placeholder="Full name of the game's author." /></label>
-			<label>Image:<input type="file" tabindex="4" name="image_url" /></label>
-			<input type="submit" value="Add Game" tabindex="5" />
-		</form>
+		{{ gameForm }}
 {% end %}

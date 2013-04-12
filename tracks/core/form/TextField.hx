@@ -3,10 +3,14 @@ package core.form;
 class TextField extends FormField
 {
 
-	public function new(name:String, value:String="")
+	public function new(name:String, ?options:Dynamic)
 	{
-		super(name, value);
+		super(name, options);
 		this.placeholder = "";
+		if (options != null)
+		{
+			if (Reflect.hasField(options, 'placeholder')) placeholder = options.placeholder;
+		}
 	}
 
 	private override function control():String

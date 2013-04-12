@@ -5,7 +5,7 @@ class Submit extends FormField
 
 	public function new(value:String)
 	{
-		super("", value);
+		super("", { value: value });
 	}
 
 	private override function control():String

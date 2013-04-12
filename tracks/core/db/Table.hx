@@ -61,19 +61,28 @@ class Table
 		_cnx.request("CREATE TABLE IF NOT EXISTS " + _table + " (" + defs.join(",") + ")");
 	}
 
+	private inline function valueFromDynamic(value:Dynamic):String
+	{
+		if (Std.is(value, String))
+		{
+			// TODO: ignore functions
+			return "'" + value + "'";
+		}
+		else if (Std.is(value, Date))
+		{
+			return "'" + DateTools.format(value, '%F %T') + "'";
+		}
+		else
+		{
+			return Std.string(value);
+		}
+	}
+
 	private inline function whereFromObject(query:Dynamic):String
 	{
 		function compare(field:String, operator:String, value:Dynamic):String
 		{
-			if (Std.is(value, String))
-			{
-				value = "'" + value + "'";
-			}
-			else if (Std.is(value, Date))
-			{
-				value = "'" + DateTools.format(value, '%F %T') + "'";
-			}
-			return field + operator + value;
+			return field + operator + valueFromDynamic(value);
 		}
 		var where = new Array<String>();
 		var fields = Reflect.fields(query);
@@ -145,11 +154,13 @@ class Table
 		for (field in fieldNames)
 		{
 			fieldList += field + ", ";
-			fieldValues += "'" + Reflect.field(fields, field) + "', ";
+			fieldValues += valueFromDynamic(Reflect.field(fields, field)) + ", ";
 		}
 		fieldList = fieldList.substr(0, fieldList.length - 2);
 		fieldList += ") VALUES (" + fieldValues.substr(0, fieldValues.length - 2) + ")";
 		_cnx.request("INSERT INTO " + _table + fieldList);
+		var results = _cnx.request("SELECT LAST_INSERT_ID()");
+		return results.getIntResult(0);
 	}
 
 	public inline function update(select:Dynamic, setFields:Dynamic)
@@ -161,7 +172,7 @@ class Table
 		fields = Reflect.fields(setFields);
 		for (field in fields)
 		{
-			set += field + "='" + Reflect.field(setFields, field) + "', ";
+			set += field + "=" + valueFromDynamic(Reflect.field(setFields, field)) + ", ";
 		}
 		set = set.substr(0, set.length - 2);
 

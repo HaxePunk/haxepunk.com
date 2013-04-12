@@ -104,9 +104,8 @@ input[type="file"]::-webkit-file-upload-button {
 	cursor: pointer;
 }
 
-input[type="submit"], input[type="button"] {
-	margin: 1em 0;
-}
+input[type="submit"], input[type="button"] { margin: 1em 0; }
+select { width: 90%; }
 
 header nav {
 	position: absolute;

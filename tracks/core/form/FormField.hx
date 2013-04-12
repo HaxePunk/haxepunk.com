@@ -5,11 +5,16 @@ import sys.Web;
 class FormField
 {
 
-	public function new(name:String, value:String="")
+	public function new(name:String, ?options:Dynamic)
 	{
 		var params = Web.getParams();
 		this.name = name;
-		this.label = "";
+		this.value = this.label = "";
+		if (options != null)
+		{
+			if (Reflect.hasField(options, 'label')) label = options.label;
+			if (Reflect.hasField(options, 'value')) value = options.value;
+		}
 		this.value = params.exists(name) ? params.get(name) : value;
 	}
 
@@ -35,7 +40,7 @@ class FormField
 		}
 	}
 
-	public var label:String;
+	private var label:String;
 #if php
 	public var value(default, null):Dynamic;
 #else
