@@ -51,12 +51,8 @@ class Games extends core.Controller
 				author_id: authorId,
 				status: 3 // awaiting approval
 			});
-			redirect('games/index');
 		}
-		else
-		{
-			redirect('games/index');
-		}
+		redirect('games/index');
 	}
 
 }
