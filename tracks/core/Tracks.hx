@@ -28,7 +28,7 @@ class Tracks
 			throw "Failed to load configuration file: " + configFile;
 		}
 
-		loadMultipart();
+		loadParameters();
 
 		if (settings.dbPrefix == null) settings.dbPrefix = "";
 
@@ -39,26 +39,55 @@ class Tracks
 		}
 	}
 
-	private static function loadMultipart()
+	public static function getParam(name:String, ?defaultValue:Dynamic):Dynamic
+	{
+		return params != null && params.exists(name) ? params.get(name) : defaultValue;
+	}
+
+	public static function moveUploadedFile(name:String, newPath:String):Bool
+	{
+		var oldPath = "/tmp/tracks_upload_" + name;
+		if (sys.FileSystem.exists(oldPath))
+		{
+			sys.FileSystem.rename(oldPath, newPath);
+			return true;
+		}
+		return false;
+	}
+
+	private static function loadParameters()
 	{
 		var file:sys.io.FileOutput = null;
-		var filename = null;
+		var name = "", filename = "";
+		params = Web.getParams();
 		Web.parseMultipart(function(pn:String, fn:String) {
-			if (fn == "")
+			name = pn;
+			filename = fn;
+			if (filename == "")
 			{
-				filename = null;
+				if (file != null)
+				{
+					file.close();
+					file = null;
+				}
 			}
 			else
 			{
-				filename = fn;
 				file = sys.io.File.write("/tmp/tracks_upload_" + filename);
+				params.set(name, filename);
 			}
 		}, function(data:haxe.io.Bytes, position:Int, length:Int) {
-			if (null != filename)
+			if (filename != "")
 			{
 				file.write(data);
 			}
+			else
+			{
+				// TODO: concatenate post data if it extends max data length
+				params.set(name, data.toString());
+			}
 		});
+		if (file != null) file.close();
 	}
 
 	private static inline function configureDatabase(db:Dynamic)
@@ -154,4 +183,6 @@ class Tracks
 				}
 		}
 	}
+
+	private static var params:Hash<String>;
 }

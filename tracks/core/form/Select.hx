@@ -3,10 +3,10 @@ package core.form;
 class Select extends FormField
 {
 
-	public function new(name:String, options:Dynamic, defaultValue:Dynamic, ?selected:String)
+	public function new(name:String, values:Dynamic, defaultValue:Dynamic, ?options:FieldOptions)
 	{
-		super(name, selected);
-		this.options = options;
+		super(name, options);
+		this.options = values;
 		this.defaultValue = defaultValue;
 	}
 

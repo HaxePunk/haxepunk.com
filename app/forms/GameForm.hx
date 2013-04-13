@@ -14,28 +14,32 @@ class GameForm extends Form
 
 	public function new()
 	{
-		super("games/submit", true);
+		super("games", true);
 
 		title = addTextField("title", {
 				label: "Game Title",
 				placeholder: "The title of the game.",
-				tabIndex: 1
+				tabIndex: 1,
+				validate: "required"
 			});
 
 		playUrl = addTextField("play_url", {
 				label: "Play URL",
 				placeholder: "Where can we play the game?",
-				tabIndex: 3
+				tabIndex: 3,
+				validate: "required"
 			});
 
 		author = addTextField("author", {
 				label: "Author",
 				placeholder: "Name or internet handle of the game's author.",
-				tabIndex: 2
+				tabIndex: 2,
+				validate: "required"
 			});
 
 		image = addFile("image_url", {
-				label: "Image"
+				label: "Image",
+				validate: "required"
 			});
 
 		var result = core.Tracks.database.platforms.find(null, ["id", "name"]).results();
@@ -44,7 +48,10 @@ class GameForm extends Form
 		{
 			platforms.set(platform.id, platform.name);
 		}
-		platform = addSelect("platform", platforms, 1, { label: "Platform" });
+		platform = addSelect("platform", platforms, 1, {
+			label: "Platform",
+			validate: "required|alpha"
+		});
 
 		addSubmit("Add Game");
 	}

@@ -15,7 +15,7 @@ class Form
 		this.multipart = multipart;
 	}
 
-	public inline function addTextField(name:String, ?options:Dynamic):TextField
+	public inline function addTextField(name:String, ?options:FieldOptions):TextField
 	{
 		var field = new TextField(name, options);
 		fields.push(field);
@@ -29,7 +29,7 @@ class Form
 		return field;
 	}
 
-	public inline function addPassword(name:String, ?options:Dynamic):Password
+	public inline function addPassword(name:String, ?options:FieldOptions):Password
 	{
 		var field = new Password(name, options);
 		fields.push(field);

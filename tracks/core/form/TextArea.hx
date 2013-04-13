@@ -5,7 +5,7 @@ class TextArea extends FormField
 
 	public function new(name:String, value:String="")
 	{
-		super(name, value);
+		super(name, { value: value });
 	}
 
 	private override function control():String

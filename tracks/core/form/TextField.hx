@@ -3,13 +3,13 @@ package core.form;
 class TextField extends FormField
 {
 
-	public function new(name:String, ?options:Dynamic)
+	public function new(name:String, ?options:FieldOptions)
 	{
 		super(name, options);
 		this.placeholder = "";
 		if (options != null)
 		{
-			if (Reflect.hasField(options, 'placeholder')) placeholder = options.placeholder;
+			if (options.placeholder != null) placeholder = options.placeholder;
 		}
 	}
 
