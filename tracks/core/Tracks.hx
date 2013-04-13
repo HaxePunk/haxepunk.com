@@ -73,7 +73,7 @@ class Tracks
 			}
 			else
 			{
-				file = sys.io.File.write("/tmp/tracks_upload_" + filename);
+				file = sys.io.File.write("/home/ccc/haxepunk_html/uploads/" + filename);
 				params.set(name, filename);
 			}
 		}, function(data:haxe.io.Bytes, position:Int, length:Int) {

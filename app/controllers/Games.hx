@@ -13,19 +13,17 @@ class Games extends core.Controller
 
 		if (form.validate())
 		{
-			var uploadUri = "uploads/" + form.image.value;
 			var authorId = db.authors.insert({
 				username: form.author.value
 			});
 			db.games.insert({
 				title: form.title.value,
 				play_url: form.playUrl.value,
-				image_url: "/" + uploadUri,
+				image_url: "/uploads/" + form.image.value,
 				platform_id: form.platform.value,
 				author_id: authorId,
 				status: 3 // awaiting approval
 			});
-			Tracks.moveUploadedFile(form.image.value, uploadUri);
 			redirect('games');
 		}
 		else
