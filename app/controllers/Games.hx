@@ -16,7 +16,11 @@ class Games extends core.Controller
 		// 	INNER JOIN authors a
 		// 		ON a.id = g.author_id");
 
-		var results = db.games.find(null, ["title", "play_url", "image_url", "author_id"]).results();
+		var results = db.games.find({
+			status: {'$ne': 3}
+		}, ["title", "play_url", "image_url", "author_id"]).sort({
+			id: -1
+		}).results();
 		var games = new Array<Dynamic>();
 		for (game in results)
 		{
@@ -40,19 +44,20 @@ class Games extends core.Controller
 
 		if (form.validate())
 		{
-			var authorId = db.authors.insert({
-				username: form.author.value
-			});
-			db.games.insert({
-				title: form.title.value,
-				play_url: form.playUrl.value,
-				image_url: form.image.value,
-				platform_id: form.platform.value,
-				author_id: authorId,
-				status: 3 // awaiting approval
-			});
+			// var authorId = db.authors.insert({
+			// 	username: form.author.value
+			// });
+			// db.games.insert({
+			// 	title: form.title.value,
+			// 	play_url: form.playUrl.value,
+			// 	image_url: form.image.value,
+			// 	platform_id: form.platform.value,
+			// 	author_id: authorId,
+			// 	status: 3 // awaiting approval
+			// });
+
 		}
-		redirect('games/index');
+		//redirect('games/index');
 	}
 
 }

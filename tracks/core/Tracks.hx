@@ -41,24 +41,24 @@ class Tracks
 
 	private static function loadMultipart()
 	{
-		var buffer:haxe.io.BytesBuffer = null;
-		var currentName = null;
-		Web.parseMultipart(function(name, filename) {
-			if (currentName != null)
+		var file:sys.io.FileOutput = null;
+		var filename = null;
+		Web.parseMultipart(function(pn:String, fn:String) {
+			if (fn == "")
 			{
-				// write to file
-				//h.set(currentName, neko.Lib.stringReference(buffer.getBytes()));
+				filename = null;
 			}
-			trace("part: " + name + ", " + filename);
-			currentName = name;
-			buffer = new haxe.io.BytesBuffer();
-		}, function(data, position, length) {
-			buffer.addBytes(data, position, length);
+			else
+			{
+				filename = fn;
+				file = sys.io.File.write("/tmp/tracks_upload_" + filename);
+			}
+		}, function(data:haxe.io.Bytes, position:Int, length:Int) {
+			if (null != filename)
+			{
+				file.write(data);
+			}
 		});
-		if (currentName != null)
-		{
-			//h.set(currentName, neko.Lib.stringReference(buffer.getBytes()));
-		}
 	}
 
 	private static inline function configureDatabase(db:Dynamic)

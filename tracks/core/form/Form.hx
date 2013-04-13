@@ -7,18 +7,12 @@ class Form
 	/**
 	 * helper that generates form html
 	 */
-	public function new(?action:String="", ?method:String="POST", ?fields:Array<FormField>)
+	public function new(?action:String="", multipart:Bool = false, ?method:String="POST")
 	{
-		if (fields == null)
-		{
-			this.fields = new Array<FormField>();
-		}
-		else
-		{
-			this.fields = fields;
-		}
+		this.fields = new Array<FormField>();
 		this.action = Tracks.siteUrl(action);
 		this.method = method;
+		this.multipart = multipart;
 	}
 
 	public inline function addTextField(name:String, ?options:Dynamic):TextField
@@ -77,7 +71,7 @@ class Form
 
 	public function toString():String
 	{
-		var html = '<form method="' + method + '" action="' + action + '">';
+		var html = '<form method="' + method + '" action="' + action + (multipart ? '" enctype="multipart/form-data' : '') + '">';
 
 		for (field in fields)
 		{
@@ -90,5 +84,6 @@ class Form
 	private var fields:Array<FormField>;
 	private var action:String;
 	private var method:String;
+	private var multipart:Bool;
 
 }

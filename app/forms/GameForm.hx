@@ -14,7 +14,7 @@ class GameForm extends Form
 
 	public function new()
 	{
-		super("games/submit");
+		super("games/submit", true);
 
 		title = addTextField("title", {
 				label: "Game Title",
@@ -38,9 +38,9 @@ class GameForm extends Form
 				label: "Image"
 			});
 
-		var result = core.Tracks.database.platforms.find(null, ["id", "name"]);
+		var result = core.Tracks.database.platforms.find(null, ["id", "name"]).results();
 		var platforms = new IntHash<String>();
-		for (platform in result.results())
+		for (platform in result)
 		{
 			platforms.set(platform.id, platform.name);
 		}
