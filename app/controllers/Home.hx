@@ -8,7 +8,10 @@ class Home extends core.Controller
 	public function index()
 	{
 		var data = { showcase: null };
-		var showcase = db.games.findOne({status: 1}, ["title", "play_url", "image_url", "author_id"]);
+		var showcase = db.query("SELECT title, play_url, image_url, author_id
+			FROM hxp_games
+			WHERE id >= (SELECT FLOOR(MAX(id) * RAND()) FROM hxp_games)
+			ORDER BY id LIMIT 1;").next();
 		if (showcase != null)
 		{
 			showcase.author = db.authors.findOne({id: showcase.author_id}, ["username"]).username;

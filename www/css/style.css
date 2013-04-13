@@ -164,6 +164,13 @@ section {
 .gray { background: #333; color: #F0F0F0; }
 .orange { background: #FD8F00; color: #F0F0F0; }
 
+.pixelated {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+}
+
 .slideshow {
 	position: relative;
 	color: #FD8F00;
@@ -348,6 +355,17 @@ div.social {
 
 .tutorial {
 	border-bottom: 1px dotted #888;
+}
+
+.tutorial img {
+	padding: 0.2em;
+	border: 1px solid #AAA;
+	background: #FAFAFA;
+	-webkit-box-shadow: 1px 1px 3px #999;
+	-moz-box-shadow: 1px 1px 3px #999;
+	box-shadow: 1px 1px 3px #999;
+	margin:0 auto;
+	display: block;
 }
 
 .tutorial:last-child {
