@@ -22,9 +22,9 @@ class Form
 		return field;
 	}
 
-	public inline function addTextArea(name:String):TextArea
+	public inline function addTextArea(name:String, ?options:FieldOptions):TextArea
 	{
-		var field = new TextArea(name);
+		var field = new TextArea(name, options);
 		fields.push(field);
 		return field;
 	}

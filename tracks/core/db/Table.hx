@@ -159,8 +159,7 @@ class Table
 		fieldList = fieldList.substr(0, fieldList.length - 2);
 		fieldList += ") VALUES (" + fieldValues.substr(0, fieldValues.length - 2) + ")";
 		_cnx.request("INSERT INTO " + _table + fieldList);
-		var results = _cnx.request("SELECT LAST_INSERT_ID()");
-		return results.getIntResult(0);
+		return _cnx.lastInsertId();
 	}
 
 	public inline function update(select:Dynamic, setFields:Dynamic)

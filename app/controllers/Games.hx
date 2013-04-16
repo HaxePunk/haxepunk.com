@@ -2,6 +2,7 @@ package controllers;
 
 import core.Tracks;
 import core.db.Table;
+import core.email.Email;
 import sys.Web;
 
 class Games extends core.Controller
@@ -24,6 +25,13 @@ class Games extends core.Controller
 				author_id: authorId,
 				status: 3 // awaiting approval
 			});
+
+			// send an email
+			var email = new Email();
+			email.from("admin@haxepunk.com");
+			email.to("heardtheword@gmail.com");
+			email.send("New game submitted!", "The game " + form.title.value + " has been submitted and is ready for approval.");
+
 			redirect('games');
 		}
 		else

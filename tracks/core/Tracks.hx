@@ -152,7 +152,7 @@ class Tracks
 		Lib.print('<pre class="msg">' + e + '</pre>');
 #else
 		Lib.print('<p class="msg">Message: ' + e + "</p>");
-		Lib.print('<a href="#" onclick="toggle(\'stack\')">Click to see stack trace</a>');
+		Lib.print('<a href="javascript:void(0);" onclick="toggle(\'stack\')">Click to see stack trace</a>');
 		Lib.print('<div id="stack" style="display:none">');
 		for (item in Stack.exceptionStack())
 		{

@@ -1,0 +1,10 @@
+{% extends template.html %}
+
+{% block slideshow %}{% end %}
+
+{% block content %}
+<div style="padding:20px">{{ post.content|markdown }}</div>
+<script>
+	Modernizr.load(['/css/style.css']);
+</script>
+{% end %}

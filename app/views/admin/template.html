@@ -1,14 +1,66 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>HaxePunk Admin</title>
-	<meta name="viewport" content="width=device-width">
+	<title>HaxePunk.com Admin</title>
 
-	<link rel="stylesheet" href="css/admin.css" media="screen" />
+	<link rel="stylesheet" href="/css/admin.css" />
+	<script src="/js/libs/modernizr-2.06.min.js"></script>
 </head>
 <body>
-	{{content}}
+	{% block content %}{% end %}
+	<script>
+	Modernizr.load([
+		{
+			load: '//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js',
+			complete: function () {
+				if ( !window.jQuery ) {
+					Modernizr.load('/js/libs/jquery-1.6.2.min.js');
+				}
+			}
+		},
+		{
+			load: [
+				'/css/highlight/shCore.css',
+				'/css/highlight/shThemeDefault.css',
+				'/js/libs/highlight/shCore.js',
+				'/js/libs/highlight/shAutoloader.js'
+			],
+			complete: function () {
+				function path() {
+					var len = arguments.length,
+						result = [];
+
+					for(var i = 0; i < len; i++)
+						result.push(arguments[i].replace('@', '/js/libs/highlight/'));
+
+					return result;
+				};
+
+				SyntaxHighlighter.autoloader.apply(null, path(
+				  'actionscript3 as3      @shBrushAS3.js',
+				  'bash shell             @shBrushBash.js',
+				  'cpp c                  @shBrushCpp.js',
+				  'c# c-sharp csharp      @shBrushCSharp.js',
+				  'css                    @shBrushCss.js',
+				  'diff patch pas         @shBrushDiff.js',
+				  'haxe                   @shBrushHaXe.js',
+				  'js jscript javascript  @shBrushJScript.js',
+				  'php                    @shBrushPhp.js',
+				  'text plain             @shBrushPlain.js',
+				  'py python              @shBrushPython.js',
+				  'sql                    @shBrushSql.js',
+				  'xml xhtml xslt html    @shBrushXml.js'
+				));
+				SyntaxHighlighter.all();
+			}
+		},
+		'/js/admin.js'
+	]);
+	</script>
 </body>
 </html>

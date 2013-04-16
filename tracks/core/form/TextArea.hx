@@ -3,9 +3,9 @@ package core.form;
 class TextArea extends FormField
 {
 
-	public function new(name:String, value:String="")
+	public function new(name:String, options:Dynamic)
 	{
-		super(name, { value: value });
+		super(name, options);
 	}
 
 	private override function control():String

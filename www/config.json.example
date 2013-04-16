@@ -3,6 +3,11 @@
 		"provider": "sqlite",
 		"file": "tracks.db"
 	},
+	"email": {
+		"host": "smtp.gmail.com",
+		"username": "myemail@gmail.com",
+		"password": "mypassword"
+	},
 	"dbPrefix": "",
 	"rewrite": false,
 	"baseUrl": "http://localhost:2000/",
@@ -10,5 +15,4 @@
 	"defaultController": "Home",
 	"defaultMethod": "index",
 	"controllerPackage": "controllers"
-
 }

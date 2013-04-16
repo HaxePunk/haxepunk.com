@@ -341,14 +341,14 @@ class Template
 						val = html_tag_re.customReplace(val, function(e:EReg) { return ""; });
 #end
 					case FDateTime(p):
-						var date;
+						var date:Date;
 						if (Std.is(val, Date))
 						{
 							date = val;
 						}
 						else
 						{
-							date = Date.fromString(val);
+							date = Date.fromString(Std.string(val));
 						}
 						val = DateTools.format(date, p);
 					case FUrlEncode:

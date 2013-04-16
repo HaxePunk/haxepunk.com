@@ -1,3 +1,21 @@
-Admin home
-<a href="$$url(admin/posts/new)">New Post</a>
-<a href="$$url(admin/logout)">Logout</a>
+{% extends admin/template.html %}
+
+{% block content %}
+<h2><a href="{% url learn %}">Posts</a></h2>
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Scheduled</th>
+	</tr>
+	{% for post in posts %}
+		<tr>
+			<td><a href="{% url admin/posts/edit %}/{{ post.id }}">{{ post.title }}</a></td>
+			<td>{{ post.publish_ts|datetime:"%B %d, %Y %T" }}</td>
+		</tr>
+	{% end %}
+</table>
+<div style="margin-top: 10px">
+	<a href="{% url admin/posts/new %}" class="button">Add New Post</a>
+	<a href="{% url admin/logout %}" class="button">Logout</a>
+</div>
+{% end %}
