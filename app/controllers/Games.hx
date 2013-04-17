@@ -14,17 +14,18 @@ class Games extends core.Controller
 
 		if (form.validate())
 		{
-			var authorId = db.authors.insert({
-				username: form.author.value
-			});
-			db.games.insert({
-				title: form.title.value,
-				play_url: form.playUrl.value,
-				image_url: "/uploads/" + form.image.value,
-				platform_id: form.platform.value,
-				author_id: authorId,
-				status: 3 // awaiting approval
-			});
+			trace("hi");
+			// var authorId = db.authors.insert({
+			// 	username: form.author.value
+			// });
+			// db.games.insert({
+			// 	title: form.title.value,
+			// 	play_url: form.playUrl.value,
+			// 	image_url: "/uploads/" + form.image.value,
+			// 	platform_id: form.platform.value,
+			// 	author_id: authorId,
+			// 	status: 3 // awaiting approval
+			// });
 
 			// send an email
 			var email = new Email();
@@ -54,7 +55,7 @@ class Games extends core.Controller
 
 			view("games", {
 				games: games,
-				gameForm: new forms.GameForm()
+				gameForm: form
 			});
 		}
 	}

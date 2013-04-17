@@ -59,14 +59,15 @@ class Form
 
 	public function validate():Bool
 	{
+		var status = true;
 		for (field in fields)
 		{
 			if (field.validate() == false)
 			{
-				return false;
+				status = false;
 			}
 		}
-		return true;
+		return status;
 	}
 
 	public function toString():String

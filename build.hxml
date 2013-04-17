@@ -4,7 +4,6 @@
 -cp app
 -lib mdown
 -lib mongodb
---dead-code-elimination
 --macro core.Macro.include()
 
 --next
