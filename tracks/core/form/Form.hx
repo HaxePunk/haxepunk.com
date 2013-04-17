@@ -59,6 +59,9 @@ class Form
 
 	public function validate():Bool
 	{
+		// only run validation after we've submitted the form
+		if (Web.getMethod() != this.method) return false;
+
 		var status = true;
 		for (field in fields)
 		{

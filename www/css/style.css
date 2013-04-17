@@ -75,16 +75,35 @@ body {
 	font-size: 100%;
 }
 
-label {
-	float: left;
-	width: 50%;
-	height: 3.5em;
+form:after {
+	content: "";
+	clear: both;
+	display: block;
 }
 
-label input {
-	display: block;
+.form-field {
+	padding: 0.5em 0;
+}
+
+.form-field:last-child {
+	clear: left
+}
+
+.form-field .error {
+	position: absolute;
+	right: 0;
+	color: #FF0000;
+}
+
+label {
+	position: relative;
+}
+
+label > input, label > select {
+	position: absolute;
+	left: 90px;
 	margin-bottom: 0.5em;
-	width: 90%;
+	width: 55vw;
 }
 
 input[type="text"] {

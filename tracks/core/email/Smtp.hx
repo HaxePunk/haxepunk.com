@@ -34,7 +34,7 @@ class Smtp
 			port = this.port;
 		}
 
-		cnx.setTimeout(timeout);
+		//cnx.setTimeout(timeout);
 		cnx.connect(new Host(host), port);
 		expectedReply(220, "Expected an SMTP announcement");
 		return true;

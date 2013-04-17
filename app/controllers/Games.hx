@@ -14,22 +14,21 @@ class Games extends core.Controller
 
 		if (form.validate())
 		{
-			trace("hi");
-			// var authorId = db.authors.insert({
-			// 	username: form.author.value
-			// });
-			// db.games.insert({
-			// 	title: form.title.value,
-			// 	play_url: form.playUrl.value,
-			// 	image_url: "/uploads/" + form.image.value,
-			// 	platform_id: form.platform.value,
-			// 	author_id: authorId,
-			// 	status: 3 // awaiting approval
-			// });
+			var authorId = db.authors.insert({
+				username: form.author.value
+			});
+			db.games.insert({
+				title: form.title.value,
+				play_url: form.playUrl.value,
+				image_url: "/uploads/" + form.image.value,
+				platform_id: form.platform.value,
+				author_id: authorId,
+				status: 3 // awaiting approval
+			});
 
 			// send an email
 			var email = new Email();
-			email.from("admin@haxepunk.com");
+			email.from("contact@haxepunk.com");
 			email.to("heardtheword@gmail.com");
 			email.send("New game submitted!", "The game " + form.title.value + " has been submitted and is ready for approval.");
 

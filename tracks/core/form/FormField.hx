@@ -108,7 +108,7 @@ class FormField
 		{
 			str += control();
 		}
-		return '<div class="input">' + str + '</div>';
+		return '<div class="form-field">' + str + '</div>';
 	}
 
 	private var errors:Array<String>;
