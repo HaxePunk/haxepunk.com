@@ -2,3 +2,4 @@
 *.neko
 .DS_Store
 Thumbs.db
+sftp-config.json

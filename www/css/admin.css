@@ -41,6 +41,15 @@ form div {
 	width: 30px;
 }
 
+.form-text-area, .form-text, .form-file {
+	display: block;
+	width: 40%;
+}
+
+.form-text-area {
+	height: 250px;
+}
+
 .button {
 	background: #D06100;
 	background-image: -webkit-linear-gradient(top, #F49B4F 0%, #B55400 100%);

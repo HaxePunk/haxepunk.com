@@ -2,7 +2,7 @@
 -main Index
 -cp tracks
 -cp app
--lib mdown
+-lib markdown
 -lib mongodb
 --macro core.Macro.include()
 
@@ -12,6 +12,6 @@
 -main Index
 -cp tracks
 -cp app
--lib mdown
+-lib markdown
 -lib mongodb
 --macro core.Macro.include()

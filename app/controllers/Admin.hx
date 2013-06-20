@@ -1,7 +1,12 @@
 package controllers;
 
-import core.Auth;
 import core.form.Form;
+#if php
+import php.SMF;
+typedef Auth = SMF;
+#else
+import core.Auth;
+#end
 
 class Admin extends core.Controller
 {
@@ -96,6 +101,9 @@ class Admin extends core.Controller
 			return;
 		}
 
+#if php
+		auth.login();
+#else
 		var form = new Form("admin/login");
 		var user = form.addTextField("username", { label: "Username" });
 		var pass = form.addPassword("password", { label: "Password" });
@@ -110,8 +118,10 @@ class Admin extends core.Controller
 			}
 		}
 		view("admin/login", {loginForm: form});
+#end
 	}
 
+#if !php
 	public function register()
 	{
 		if (auth.loggedIn)
@@ -136,6 +146,7 @@ class Admin extends core.Controller
 			view("admin/template", {content: form}, true);
 		}
 	}
+#end
 
 	public function logout()
 	{
