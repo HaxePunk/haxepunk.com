@@ -9,7 +9,7 @@
 	<title>HaxePunk.com Admin</title>
 
 	<link rel="stylesheet" href="/css/admin.css" />
-	<script src="/js/libs/modernizr-2.06.min.js"></script>
+	<script src="/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
 	{% block content %}{% end %}
@@ -27,8 +27,8 @@
 			load: [
 				'/css/highlight/shCore.css',
 				'/css/highlight/shThemeDefault.css',
-				'/js/libs/highlight/shCore.js',
-				'/js/libs/highlight/shAutoloader.js'
+				'/js/vendor/highlight/shCore.js',
+				'/js/vendor/highlight/shAutoloader.js'
 			],
 			complete: function () {
 				function path() {
@@ -36,7 +36,7 @@
 						result = [];
 
 					for(var i = 0; i < len; i++)
-						result.push(arguments[i].replace('@', '/js/libs/highlight/'));
+						result.push(arguments[i].replace('@', '/js/vendor/highlight/'));
 
 					return result;
 				};

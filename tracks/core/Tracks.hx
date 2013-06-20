@@ -184,5 +184,9 @@ class Tracks
 		}
 	}
 
+#if haxe3
+	private static var params:Map<String,String>;
+#else
 	private static var params:Hash<String>;
+#end
 }

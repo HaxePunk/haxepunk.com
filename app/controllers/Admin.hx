@@ -109,7 +109,7 @@ class Admin extends core.Controller
 				return;
 			}
 		}
-		view("admin/template", {content: form}, true);
+		view("admin/login", {loginForm: form});
 	}
 
 	public function register()

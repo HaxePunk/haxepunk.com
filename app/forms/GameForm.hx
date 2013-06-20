@@ -43,7 +43,11 @@ class GameForm extends Form
 			});
 
 		var result = core.Tracks.database.platforms.find(null, ["id", "name"]).results();
+#if haxe3
+		var platforms = new Map<Int,String>();
+#else
 		var platforms = new IntHash<String>();
+#end
 		for (platform in result)
 		{
 			platforms.set(platform.id, platform.name);

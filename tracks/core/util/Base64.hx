@@ -1,6 +1,10 @@
 package core.util;
 
+#if haxe3
+import haxe.crypto.BaseCode;
+#else
 import haxe.BaseCode;
+#end
 import haxe.io.Bytes;
 import haxe.io.BytesData;
 

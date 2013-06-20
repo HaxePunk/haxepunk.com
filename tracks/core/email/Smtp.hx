@@ -1,7 +1,11 @@
 package core.email;
 
-import core.util.Base64;
+#if haxe3
+import haxe.crypto.Md5;
+#else
 import haxe.Md5;
+#end
+import core.util.Base64;
 import sys.net.Socket;
 import sys.net.Host;
 
@@ -76,19 +80,8 @@ class Smtp
 				cnx.write(Base64.encode(password) + CRLF);
 				if (!expectedReply(235, "Password not accepted from server"))
 					return false;
-			case "NTLM":
+			default:
 				throw "Not supported";
-			case "CRAM-MD5":
-				cnx.write("AUTH CRAM-MD5" + CRLF);
-				if (!expectedReply(334, "AUTH not accepted from server"))
-					return false;
-
-				var challenge = Base64.decode(reply.substr(4));
-				var response = username + " " + hmac(challenge, password);
-				cnx.write(Base64.encode(response) + CRLF);
-
-				if (!expectedReply(334, "Credentials not accepted from server"))
-					return false;
 		}
 
 		return true;
@@ -219,29 +212,6 @@ class Smtp
 	{
 		cnx.write("SAML FROM:" + from + CRLF);
 		return expectedReply(250, "SAML not accepted from server");
-	}
-
-	private function hmac(data:String, key:String):String
-	{
-		// var B = 64;
-		// var K:String = key;
-
-		// if (K.length > B) {
-		// 	K = HexUtil.bytesToHex(encode(K));
-		// }
-		// K = ByteString.nullPadString(K, B).substr(0, B);
-
-		// var Ki = new StringBuf();
-		// var Ko = new StringBuf();
-		// for (i in 0...K.length) {
-		// 	Ki.addChar(K.charCodeAt(i) ^ 0x36);
-		// 	Ko.addChar(K.charCodeAt(i) ^ 0x5c);
-		// }
-		// // hash(Ko + hash(Ki + message))
-		// Ki.add(msg);
-		// Ko.add(HexUtil.bytesToHex(encode(Ki.toString())));
-		// return HexUtil.bytesToHex(encode(Ko.toString()));
-		return key;
 	}
 
 	private function sendHello(hello:String, host:String):Bool

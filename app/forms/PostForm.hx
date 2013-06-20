@@ -19,6 +19,6 @@ class PostForm extends Form
 		slug = addTextField("slug", { label: "Slug", value: post.slug });
 		content = addTextArea("content", { label: "Content", value: post.content });
 		thumb = addFile("thumbnail", { label: "Thumbnail" });
-		addSubmit("Add Post");
+		addSubmit(post == null ? "Add Post" : "Edit Post");
 	}
 }
