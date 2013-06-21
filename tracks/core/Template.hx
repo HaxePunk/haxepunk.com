@@ -333,26 +333,25 @@ class Template
 					case FLength:
 						val = val.length;
 					case FMarkdown:
-						// don't parse <pre> blocks
-						var markdown_re = ~/(<pre[a-z=:" ]*>[^<]*<\/pre>)/;
-						var final:String = "";
-						while (markdown_re.match(val))
+						var blocks:Array<String> = val.split("</pre>");
+						val = "";
+						for (block in blocks)
 						{
-							var p = markdown_re.matchedPos();
-							var k = p.pos + p.len;
-							if (p.pos != 0)
+							var index = block.indexOf("<pre");
+							if (index == 0)
 							{
-								final += Markdown.markdownToHtml(val.substr(0, p.pos));
+								val += block + "</pre>";
 							}
-							var p = StringTools.trim(markdown_re.matched(0));
-							final += p;
-							val = markdown_re.matchedRight();
+							else if (index > 0)
+							{
+								val += Markdown.markdownToHtml(block.substr(0, index));
+								val += block.substr(index, block.length - index) + "</pre>";
+							}
+							else
+							{
+								val += Markdown.markdownToHtml(block);
+							}
 						}
-						if (val.length != 0)
-						{
-							final += Markdown.markdownToHtml(val);
-						}
-						val = final;
 					case FStripTags:
 #if haxe3
 						val = html_tag_re.map(val, function(e:EReg) { return ""; });
