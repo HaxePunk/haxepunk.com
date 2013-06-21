@@ -16,10 +16,10 @@ class PostForm extends Form
 	{
 		super(post == null ? "admin/posts/add" : "admin/posts/edit/" + post.id);
 
-		title = addTextField("title", { label: "Title", value: post.title });
-		slug = addTextField("slug", { label: "Slug", value: post.slug });
-		time = addTextField("time", { label: "Publish Time", value: post.publish_ts });
-		content = addTextArea("content", { label: "Content", value: post.content });
+		title = addTextField("title", { label: "Title", value: post == null ? "" : post.title });
+		slug = addTextField("slug", { label: "Slug", value: post == null ? "" : post.slug });
+		time = addTextField("time", { label: "Publish Time", value: post == null ? "" : post.publish_ts });
+		content = addTextArea("content", { label: "Content", value: post == null ? "" : post.content });
 		thumb = addFile("thumbnail", { label: "Thumbnail" });
 		addSubmit(post == null ? "Add Post" : "Edit Post");
 	}

@@ -40,9 +40,9 @@ class Admin extends core.Controller
 		switch (method)
 		{
 			case "new":
-				addPost();
+				postForm(-1);
 			case "edit":
-				editPost(id);
+				postForm(id);
 			case "preview":
 				previewPost(id);
 		}
@@ -55,7 +55,7 @@ class Admin extends core.Controller
 		});
 	}
 
-	private inline function editPost(id:Int)
+	private inline function postForm(id:Int)
 	{
 		var post = db.posts.findOne({ id: id }, ["id", "slug", "title", "publish_ts", "content"]);
 		var form = new forms.PostForm(post);
@@ -73,23 +73,6 @@ class Admin extends core.Controller
 		else
 		{
 			view("admin/post/form", { post: post, postForm: form });
-		}
-	}
-
-	private inline function addPost()
-	{
-		var form = new Form('admin/posts/new');
-		form.addTextField("title", { label: "Post Title" });
-		form.addTextArea("body");
-		form.addSubmit("Create Post");
-
-		if (form.validate())
-		{
-			view("admin/post/form", {content: "hiho"}, true);
-		}
-		else
-		{
-			view("admin/post/form", {content: form}, true);
 		}
 	}
 

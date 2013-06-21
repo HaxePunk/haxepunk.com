@@ -21,9 +21,9 @@ class Select extends FormField
 			}
 		}
 #if haxe3
-		else if (Std.is(options, Map))
+		else if (Std.is(options, haxe.ds.StringMap))
 		{
-			var options:Map<String,Dynamic> = options;
+			var options:haxe.ds.StringMap<Dynamic> = options;
 #else
 		else if (Std.is(options, Hash))
 		{
@@ -34,16 +34,20 @@ class Select extends FormField
 				control += '<option value="' + key + (key == defaultValue ? '" selected="selected' : "") + '">' + options.get(key) + '</option>';
 			}
 		}
-#if !haxe3
+#if haxe3
+		else if (Std.is(options, haxe.ds.IntMap))
+		{
+			var options:haxe.ds.IntMap<Dynamic> = options;
+#else
 		else if (Std.is(options, IntHash))
 		{
 			var options = cast(options, IntHash<Dynamic>);
+#end
 			for (key in options.keys())
 			{
 				control += '<option value="' + key + (key == defaultValue ? '" selected="selected' : "") + '">' + options.get(key) + '</option>';
 			}
 		}
-#end
 		else
 		{
 			for (key in Reflect.fields(options))

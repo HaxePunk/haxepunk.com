@@ -1,5 +1,6 @@
 body {
 	background: #FAFAFA;
+	height: 100%;
 }
 
 table {
@@ -43,7 +44,7 @@ form div {
 
 .form-text-area, .form-text, .form-file {
 	display: block;
-	width: 40%;
+	width: 45%;
 }
 
 .form-text-area {

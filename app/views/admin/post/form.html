@@ -1,4 +1,9 @@
 {% extends admin/template.html %}
 
-<iframe src="{% url admin/posts/preview %}/{{post.id}}" style="width:50%;float:right;height:500px"></iframe>
+{% block content %}
+{% if post %}
+<iframe src="{% url admin/posts/preview %}/{{post.id}}" style="width:50%;float:right;height:95%"></iframe>
+{% end %}
+
 {{ postForm }}
+{% end %}
