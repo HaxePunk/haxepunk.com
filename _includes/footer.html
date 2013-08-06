@@ -2,7 +2,7 @@
 		<p>Copyright &copy; 2011-2013 HaxePunk.com</p>
 	</footer>
 
-	<script src="/js/vendor/modernizr-2.6.2.min.js"></script>
+	<script src="{{site.baseUrl}}js/vendor/modernizr-2.6.2.min.js"></script>
 	<script type="text/javascript">
 		Modernizr.load([
 			{
@@ -15,10 +15,10 @@
 			},
 			{
 				load: [
-					'/css/highlight/shCore.css',
-					'/css/highlight/shThemeDefault.css',
-					'/js/vendor/highlight/shCore.js',
-					'/js/vendor/highlight/shAutoloader.js'
+					'{{site.baseUrl}}css/highlight/shCore.css',
+					'{{site.baseUrl}}css/highlight/shThemeDefault.css',
+					'{{site.baseUrl}}js/vendor/highlight/shCore.js',
+					'{{site.baseUrl}}js/vendor/highlight/shAutoloader.js'
 				],
 				complete: function () {
 					function path() {
@@ -26,7 +26,7 @@
 							result = [];
 
 						for(var i = 0; i < len; i++) {
-							result.push(arguments[i].replace('@', '/js/vendor/highlight/'));
+							result.push(arguments[i].replace('@', '{{site.baseUrl}}js/vendor/highlight/'));
 						}
 
 						return result;
