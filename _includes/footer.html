@@ -1,0 +1,47 @@
+<footer class="centered">
+		<p>Copyright &copy; 2011-2013 HaxePunk.com</p>
+	</footer>
+
+	<script src="/js/vendor/modernizr-2.6.2.min.js"></script>
+	<script type="text/javascript">
+		Modernizr.load([
+			{
+				load: '//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js',
+				complete: function () {
+					if ( !window.jQuery ) {
+						Modernizr.load('js/vendor/jquery-1.8.2.min.js');
+					}
+				}
+			},
+			{
+				load: [
+					'/css/highlight/shCore.css',
+					'/css/highlight/shThemeDefault.css',
+					'/js/vendor/highlight/shCore.js',
+					'/js/vendor/highlight/shAutoloader.js'
+				],
+				complete: function () {
+					function path() {
+						var len = arguments.length,
+							result = [];
+
+						for(var i = 0; i < len; i++) {
+							result.push(arguments[i].replace('@', '/js/vendor/highlight/'));
+						}
+
+						return result;
+					};
+
+					SyntaxHighlighter.autoloader.apply(null, path(
+					  'haxe                   @shBrushHaXe.js',
+					  'text plain             @shBrushPlain.js'
+					));
+					SyntaxHighlighter.all();
+				}
+			}
+		]);
+	</script>
+	<!--[if lt IE 8 ]>
+		<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+		<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+	<![endif]-->

@@ -1,0 +1,3 @@
+pygments: true
+relative_permalinks: false
+permalink: /news/:year/:month/:day/:title
