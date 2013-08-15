@@ -1,6 +1,6 @@
 -neko www/index.n
 -main Index
--cp tracks
+-cp lib
 -cp app
 -lib markdown
 -lib mongodb
@@ -10,7 +10,7 @@
 
 -php www
 -main Index
--cp tracks
+-cp lib
 -cp app
 -lib markdown
 -lib mongodb
