@@ -1,5 +1,5 @@
 import core.Router;
-import core.Tracks;
+import core.Lib;
 
 class Index
 {
@@ -14,7 +14,7 @@ class Index
 	{
 		try
 		{
-			Tracks.init("config.json");
+			Lib.init("config.json");
 
 			var router = new Router();
 			// router.add(~/^route\/([a-z]+)?$/, 'home/$1');
@@ -22,7 +22,7 @@ class Index
 		}
 		catch (e:Dynamic)
 		{
-			Tracks.printErrorMsg(e);
+			Lib.printErrorMsg(e);
 		}
 	}
 

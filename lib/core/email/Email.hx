@@ -7,7 +7,7 @@ class Email
 
 	public function new()
 	{
-		var settings = Tracks.settings.email; // grab email settings
+		var settings = Lib.settings.email; // grab email settings
 		if (settings == null) throw "Email settings not in config file";
 
 		_hostname = settings.host;

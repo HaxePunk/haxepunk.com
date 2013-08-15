@@ -10,7 +10,7 @@ class Form
 	public function new(?action:String="", multipart:Bool = false, ?method:String="POST")
 	{
 		this.fields = new Array<FormField>();
-		this.action = Tracks.siteUrl(action);
+		this.action = Lib.siteUrl(action);
 		this.method = method;
 		this.multipart = multipart;
 	}

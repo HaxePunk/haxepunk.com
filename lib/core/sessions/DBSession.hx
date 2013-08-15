@@ -8,7 +8,7 @@ class DBSession implements Session
 
 	public function new()
 	{
-		sessionTbl = Tracks.database.sessions;
+		sessionTbl = Lib.database.sessions;
 		sessionTbl.create([
 			DChar("_id", 32),
 			DText("data"),

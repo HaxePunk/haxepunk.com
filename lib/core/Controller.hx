@@ -1,7 +1,6 @@
 package core;
 
 import sys.Web;
-import sys.Lib;
 import sys.io.File;
 import core.db.Database;
 
@@ -12,12 +11,12 @@ class Controller
 
 	public function new()
 	{
-		db = Tracks.database;
+		db = Lib.database;
 	}
 
 	private function redirect(url:String)
 	{
-		url = Tracks.siteUrl(url);
+		url = Lib.siteUrl(url);
 		Web.setReturnCode(303);
 		Web.setHeader("Location", url);
 	}
@@ -26,7 +25,7 @@ class Controller
 	{
 		return {
 			url: function(resolve:String->Dynamic, url:String):String {
-				return Tracks.siteUrl(url);
+				return Lib.siteUrl(url);
 			}
 		};
 	}
@@ -35,14 +34,14 @@ class Controller
 	{
 		var tpl = null, out = "";
 
-		Template.viewsFolder = Tracks.settings.viewsFolder;
+		Template.viewsFolder = Lib.settings.viewsFolder;
 		if (templates.exists(path))
 		{
 			tpl = templates.get(path);
 		}
 		else
 		{
-			var tplFile = File.getContent(Tracks.settings.viewsFolder + path + ".html");
+			var tplFile = File.getContent(Lib.settings.viewsFolder + path + ".html");
 			tpl = new Template(tplFile);
 			templates.set(path, tpl);
 		}
@@ -57,8 +56,8 @@ class Controller
 			Web.setHeader("X-Powered-By", "Haxe");
 			Web.setHeader("Content-type", contentType);
 			if (contentType == "text/html")
-				Lib.print("\n");
-			Lib.print(out);
+				sys.Lib.print("\n");
+			sys.Lib.print(out);
 		}
 		return out;
 	}

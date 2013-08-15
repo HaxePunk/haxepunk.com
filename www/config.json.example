@@ -1,7 +1,7 @@
 {
 	"db": {
 		"provider": "sqlite",
-		"file": "tracks.db"
+		"file": "haxepunk.db"
 	},
 	"email": {
 		"host": "smtp.example.com",

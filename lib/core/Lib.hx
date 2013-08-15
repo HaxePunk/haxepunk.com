@@ -2,7 +2,6 @@ package core;
 
 import core.db.Database;
 import haxe.Json;
-import sys.Lib;
 import sys.Web;
 #if haxe3
 import haxe.CallStack;
@@ -11,7 +10,7 @@ typedef Stack = haxe.CallStack;
 import haxe.Stack;
 #end
 
-class Tracks
+class Lib
 {
 	public static var database:Database;
 	public static var settings:Dynamic;
@@ -131,8 +130,8 @@ class Tracks
 	{
 		Web.setReturnCode(500);
 		Web.setHeader("Content-type", "text/html");
-		Lib.print("\n");
-		Lib.print("<html><head><title>Error Encountered</title><style>
+		sys.Lib.print("\n");
+		sys.Lib.print("<html><head><title>Error Encountered</title><style>
 	body { width:80%;margin:0 auto;font-family:Helvetica,Arial,sans-serif }
 	pre { margin: 0;font-family:Inconsolata,Consolas,monospace }
 	.error { background:#FFC8C8;border:1px solid #FD4B4B;padding:1em;overflow:scroll }
@@ -146,21 +145,21 @@ class Tracks
 			e.style.display = 'block';
 	}
 </script></head><body>");
-		Lib.print('<h1>An Error Occurred</h1>');
-		Lib.print('<div class="error">');
+		sys.Lib.print('<h1>An Error Occurred</h1>');
+		sys.Lib.print('<div class="error">');
 #if php
-		Lib.print('<pre class="msg">' + e + '</pre>');
+		sys.Lib.print('<pre class="msg">' + e + '</pre>');
 #else
-		Lib.print('<p class="msg">Message: ' + e + "</p>");
-		Lib.print('<a href="javascript:void(0);" onclick="toggle(\'stack\')">Click to see stack trace</a>');
-		Lib.print('<div id="stack" style="display:none">');
+		sys.Lib.print('<p class="msg">Message: ' + e + "</p>");
+		sys.Lib.print('<a href="javascript:void(0);" onclick="toggle(\'stack\')">Click to see stack trace</a>');
+		sys.Lib.print('<div id="stack" style="display:none">');
 		for (item in Stack.exceptionStack())
 		{
 			printStackItem(item);
 		}
-		Lib.print("</div>");
+		sys.Lib.print("</div>");
 #end
-		Lib.print("</div></body></html>");
+		sys.Lib.print("</div></body></html>");
 	}
 
 	private static function printStackItem(item:StackItem)
@@ -168,15 +167,15 @@ class Tracks
 		switch(item)
 		{
 			case CFunction:
-				Lib.print('<pre class="function">' + item + '</pre>');
+				sys.Lib.print('<pre class="function">' + item + '</pre>');
 			case Module(module):
-				Lib.print('<pre class="module">' + module + '</pre>');
+				sys.Lib.print('<pre class="module">' + module + '</pre>');
 			case Method(classname, method):
-				Lib.print('<pre class="method">' + classname + ': ' + method + '</pre>');
+				sys.Lib.print('<pre class="method">' + classname + ': ' + method + '</pre>');
 			case Lambda(v):
-				Lib.print('<pre class="lambda">' + v + '</pre>');
+				sys.Lib.print('<pre class="lambda">' + v + '</pre>');
 			case FilePos(s, file, line):
-				Lib.print('<pre class="line">' + file + ': ' + line + '</pre>');
+				sys.Lib.print('<pre class="line">' + file + ': ' + line + '</pre>');
 				if (s != null)
 				{
 					printStackItem(s);

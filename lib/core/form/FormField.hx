@@ -23,7 +23,7 @@ class FormField
 			if (options.value != null) value = options.value;
 			if (options.validate != null) validationRules = options.validate.split("|");
 		}
-		this.value = Tracks.getParam(name, value);
+		this.value = Lib.getParam(name, value);
 	}
 
 	public function validate():Bool

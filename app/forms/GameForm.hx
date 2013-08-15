@@ -42,7 +42,7 @@ class GameForm extends Form
 				validate: "required"
 			});
 
-		var result = core.Tracks.database.platforms.find(null, ["id", "name"]).results();
+		var result = core.Lib.database.platforms.find(null, ["id", "name"]).results();
 #if haxe3
 		var platforms = new haxe.ds.IntMap<String>();
 #else

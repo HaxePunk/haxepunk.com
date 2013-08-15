@@ -23,8 +23,8 @@ class Router
 	public function route()
 	{
 		var params = Web.getParams();
-		var controllerName:String = Tracks.settings.defaultController;
-		var method:String = Tracks.settings.defaultMethod;
+		var controllerName:String = Lib.settings.defaultController;
+		var method:String = Lib.settings.defaultMethod;
 
 		var args:Array<String> = [], val:String;
 		if (params.exists('uri'))
@@ -63,7 +63,7 @@ class Router
 		controllerName = controllerName.toLowerCase();
 
 		// convert to haxe name (poSts = Posts)
-		var controllerClass = Tracks.settings.controllerPackage + "." + controllerName.charAt(0).toUpperCase() + controllerName.substr(1);
+		var controllerClass = Lib.settings.controllerPackage + "." + controllerName.charAt(0).toUpperCase() + controllerName.substr(1);
 
 		// Find the controller and run the appropriate method
 		var proto = Type.resolveClass(controllerClass);

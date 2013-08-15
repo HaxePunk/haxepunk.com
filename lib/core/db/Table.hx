@@ -24,7 +24,7 @@ class Table
 
 	public function new(connection:Connection, name:String)
 	{
-		_table = Tracks.settings.dbPrefix + name;
+		_table = Lib.settings.dbPrefix + name;
 		_cnx = connection;
 	}
 

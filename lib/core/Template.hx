@@ -492,8 +492,8 @@ class Template
 		if (StringTools.startsWith(p, "url "))
 		{
 			var uri = p.substr(4);
-			if (!Tracks.settings.rewrite) uri = "?uri=" + uri;
-			return OpStr(Tracks.settings.baseUrl + uri);
+			if (!Lib.settings.rewrite) uri = "?uri=" + uri;
+			return OpStr(Lib.settings.baseUrl + uri);
 		}
 
 		if (StringTools.startsWith(p, "block "))

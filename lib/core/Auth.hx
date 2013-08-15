@@ -8,14 +8,14 @@ class Auth
 
 	public function new()
 	{
-		if (Tracks.database == null)
+		if (Lib.database == null)
 		{
 			session = new core.sessions.FileSession();
 		}
 		else
 		{
 			session = new core.sessions.DBSession();
-			users = Tracks.database.users;
+			users = Lib.database.users;
 			users.create([
 				DInt("id"),
 				DVarChar("username", 80),
