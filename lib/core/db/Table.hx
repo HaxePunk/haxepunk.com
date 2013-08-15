@@ -66,7 +66,7 @@ class Table
 		if (Std.is(value, String))
 		{
 			// TODO: ignore functions
-			return "'" + value + "'";
+			return "'" + _cnx.escape(value) + "'";
 		}
 		else if (Std.is(value, Date))
 		{
@@ -74,7 +74,7 @@ class Table
 		}
 		else
 		{
-			return Std.string(value);
+			return _cnx.escape(Std.string(value));
 		}
 	}
 
