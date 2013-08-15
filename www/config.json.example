@@ -4,8 +4,8 @@
 		"file": "tracks.db"
 	},
 	"email": {
-		"host": "smtp.gmail.com",
-		"username": "myemail@gmail.com",
+		"host": "smtp.example.com",
+		"username": "myemail@example.com",
 		"password": "mypassword"
 	},
 	"dbPrefix": "",

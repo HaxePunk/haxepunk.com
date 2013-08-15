@@ -60,15 +60,15 @@ class Admin extends core.Controller
 		var post = db.posts.findOne({ id: id }, ["id", "slug", "title", "publish_ts", "content"]);
 		var form = new forms.PostForm(post);
 
-		if (form.validate() && false)
+		if (form.validate())
 		{
 			db.posts.update({ id: id }, {
 				slug: form.slug.value,
 				title: form.title.value,
-				content: form.content.value
-				// publish_ts: form.publish_ts.value
+				content: form.content.value,
+				publish_ts: form.publishDt.value
 			});
-			// redirect("admin");
+			redirect("admin/posts/edit/" + id);
 		}
 		else
 		{

@@ -10,7 +10,7 @@ class PostForm extends Form
 	public var slug:FormField;
 	public var content:FormField;
 	public var thumb:FormField;
-	public var time:FormField;
+	public var publishDt:FormField;
 
 	public function new(?post:Dynamic)
 	{
@@ -18,7 +18,7 @@ class PostForm extends Form
 
 		title = addTextField("title", { label: "Title", value: post == null ? "" : post.title });
 		slug = addTextField("slug", { label: "Slug", value: post == null ? "" : post.slug });
-		time = addTextField("time", { label: "Publish Time", value: post == null ? "" : post.publish_ts });
+		publishDt = addTextField("time", { label: "Publish Time", value: post == null ? "" : post.publish_ts });
 		content = addTextArea("content", { label: "Content", value: post == null ? "" : post.content });
 		thumb = addFile("thumbnail", { label: "Thumbnail" });
 		addSubmit(post == null ? "Add Post" : "Edit Post");
