@@ -88,6 +88,22 @@ class Router
 				}
 				else
 				{
+					// get number of arguments for a function
+					var numArgs:Int = args.length;
+					#if neko
+					numArgs = untyped $nargs(func);
+					#end
+
+					if (numArgs < args.length)
+					{
+						throw "Received too many arguments for '" + controllerClass + ":" + method + "()'";
+					}
+
+					// fill arguments array with nulls if nothing was passed
+					while (args.length < numArgs)
+					{
+						args.push(null);
+					}
 					Reflect.callMethod(inst, func, args);
 				}
 			}
