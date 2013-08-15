@@ -45,6 +45,8 @@ class Admin extends core.Controller
 				postForm(id);
 			case "preview":
 				previewPost(id);
+			default:
+				redirect("admin");
 		}
 	}
 
