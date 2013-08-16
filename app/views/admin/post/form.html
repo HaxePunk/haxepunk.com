@@ -1,14 +1,11 @@
 {% extends admin/template.html %}
 
 {% block content %}
-<!-- {% if post %}
-<iframe src="{% url admin/posts/preview %}/{{post.id}}" style="width:50%;float:right;height:95%"></iframe>
-{% end %} -->
 
-<div style="width:60%;margin:0 auto">
+<div style="width:60%;margin:0 auto;position:relative">
 {{ postForm }}
 
-<p><a href="{% url admin/posts %}">Go Back</a></p>
+<a href="{% url admin %}" class="button" style="position:absolute;bottom:2px;right:2px">Go Back</a>
 </div>
 
 <script>
