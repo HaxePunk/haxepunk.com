@@ -31,8 +31,14 @@ class Learn extends core.Controller
 		});
 	}
 
-	public function tutorial(slug:String)
+	public function tutorial(?slug:String)
 	{
+		if (slug == null)
+		{
+			redirect("learn");
+			return;
+		}
+
 		var tutorial = db.posts.findOne({
 			slug: slug
 		}, ["id", "title", "slug", "content"]);

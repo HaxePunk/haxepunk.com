@@ -35,30 +35,22 @@ class Admin extends core.Controller
 		new core.email.Smtp();
 	}
 
-	public function posts(method:String, ?id:Int)
+	public function posts(?method:String, ?id:Int)
 	{
 		switch (method)
 		{
 			case "new":
-				postForm(-1);
+				postForm();
 			case "edit":
 				postForm(id);
-			case "preview":
-				previewPost(id);
 			default:
 				redirect("admin");
 		}
 	}
 
-	private inline function previewPost(id:Int)
+	private inline function postForm(?id:Int)
 	{
-		view("admin/post/preview", {
-			post: db.posts.findOne({id: id}, ["content"])
-		});
-	}
-
-	private inline function postForm(id:Int)
-	{
+		if (id == null) id = -1;
 		var post = db.posts.findOne({ id: id }, ["id", "slug", "title", "publish_ts", "content"]);
 		var form = new forms.PostForm(post);
 
