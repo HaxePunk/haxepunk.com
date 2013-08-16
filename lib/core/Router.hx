@@ -92,6 +92,9 @@ class Router
 					var numArgs:Int = args.length;
 					#if neko
 					numArgs = untyped $nargs(func);
+					#elseif php
+					untyped __php__("$rfl = $proto->__rfl__();
+					$numArgs = $rfl->getMethod($method)->getNumberOfParameters()");
 					#end
 
 					if (numArgs < args.length)
