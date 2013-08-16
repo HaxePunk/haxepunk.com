@@ -285,7 +285,7 @@ div.social {
 .game a:hover:after {
 	width: 80%;
 	max-width: 220px;
-	height: auto;
+	height: 120px;
 }
 .game a:hover:after {
 	content: 'Play Game';
@@ -299,7 +299,26 @@ div.social {
 	background: #333;
 	opacity: 0.9;
 }
-.game p { margin: 0; }
+.game p, .game h3 {
+	cursor: default;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	display: inline-block;
+	width: 100%;
+	white-space: nowrap;
+}
+.game p {
+	margin: 0;
+}
+.game:hover {
+	z-index: 10;
+}
+.game p:hover {
+	background: #EEE;
+	display: inline-block;
+	overflow: visible;
+	width: auto;
+}
 .game h3 {
 	margin: 2em 0 0;
 }

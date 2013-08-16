@@ -1,6 +1,7 @@
 body {
-	background: #FAFAFA;
+	background: #EEE;
 	height: 100%;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 table {
@@ -34,7 +35,7 @@ a:hover {
 	text-decoration: underline;
 }
 
-form div {
+form > div {
 	margin-top: 10px;
 }
 
@@ -44,7 +45,13 @@ form div {
 
 .form-text-area, .form-text, .form-file {
 	display: block;
-	width: 45%;
+	box-sizing: border-box;
+	width: 100%;
+	border: 0;
+	padding: 10px;
+	font-size:14px;
+	background:rgb(41,41,41);
+	color: #DDD;
 }
 
 .form-text-area {

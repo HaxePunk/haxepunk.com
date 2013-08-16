@@ -1,9 +1,40 @@
 {% extends admin/template.html %}
 
 {% block content %}
-{% if post %}
+<!-- {% if post %}
 <iframe src="{% url admin/posts/preview %}/{{post.id}}" style="width:50%;float:right;height:95%"></iframe>
-{% end %}
+{% end %} -->
 
+<div style="width:60%;margin:0 auto">
 {{ postForm }}
+
+<p><a href="{% url admin/posts %}">Go Back</a></p>
+</div>
+
+<script>
+	Modernizr.load([
+		{
+			load: '/js/vendor/epiceditor.min.js',
+			complete: function() {
+				var textarea = document.getElementsByTagName('textarea')[0];
+				textarea.style.display = 'none';
+				var div = document.createElement('div');
+				div.style.height = '400px';
+				textarea.parentNode.appendChild(div);
+				var editor = new EpicEditor({
+					container: div,
+					textarea: textarea,
+					file: {
+						name: '{% post.slug %}'
+					},
+					basePath: '/css',
+					theme: {
+						preview: 'themes/preview/github.css'
+					}
+				});
+				editor.load();
+			}
+		}
+	]);
+</script>
 {% end %}
