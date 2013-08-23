@@ -130,8 +130,9 @@ class Lib
 	{
 		Web.setReturnCode(500);
 		Web.setHeader("Content-type", "text/html");
-		sys.Lib.print("\n");
-		sys.Lib.print("<html><head><title>Error Encountered</title><style>
+		var print = sys.Lib.print; // shorten print code
+		print("\n");
+		print("<html><head><title>Error Encountered</title><style>
 	body { width:80%;margin:0 auto;font-family:Helvetica,Arial,sans-serif }
 	pre { margin: 0;font-family:Inconsolata,Consolas,monospace }
 	.error { background:#FFC8C8;border:1px solid #FD4B4B;padding:1em;overflow:scroll }
@@ -145,21 +146,21 @@ class Lib
 			e.style.display = 'block';
 	}
 </script></head><body>");
-		sys.Lib.print('<h1>An Error Occurred</h1>');
-		sys.Lib.print('<div class="error">');
+		print('<h1>An Error Occurred</h1>');
+		print('<div class="error">');
 #if php
-		sys.Lib.print('<pre class="msg">' + e + '</pre>');
+		print('<pre class="msg">' + e + '</pre>');
 #else
-		sys.Lib.print('<p class="msg">Message: ' + e + "</p>");
-		sys.Lib.print('<a href="javascript:void(0);" onclick="toggle(\'stack\')">Click to see stack trace</a>');
-		sys.Lib.print('<div id="stack" style="display:none">');
+		print('<p class="msg">Message: ' + e + "</p>");
+		print('<a href="javascript:void(0);" onclick="toggle(\'stack\')">Click to see stack trace</a>');
+		print('<div id="stack" style="display:none">');
 		for (item in Stack.exceptionStack())
 		{
 			printStackItem(item);
 		}
-		sys.Lib.print("</div>");
+		print("</div>");
 #end
-		sys.Lib.print("</div></body></html>");
+		print("</div></body></html>");
 	}
 
 	private static function printStackItem(item:StackItem)

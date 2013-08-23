@@ -16,7 +16,7 @@
 		<item>
 			<title>{{ tutorial.title }}</title>
 			<link>{% url learn/tutorial %}/{{ tutorial.slug }}</link>
-			<description>{{ tutorial.content|escape }}</description>
+			<description><![CDATA[{{ tutorial.content|markdown }}]]></description>
 			<pubDate>{{ tutorial.publish_ts|datetime:"%a, %d %h %Y %T GMT" }}</pubDate>
 			<guid>{% url learn/tutorial %}/{{ tutorial.slug }}</guid>
 		</item>

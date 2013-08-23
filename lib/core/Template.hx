@@ -164,12 +164,24 @@ class Template
 			case OpNone:
 				// do nothing
 			case OpVar(v):
-				var_re.match(v);
-				v = var_re.matched(1);
-				var filter = var_re.matched(2);
-				if (filter != null) { addFilter(filter, var_re.matched(3)); }
+				var filterCount = 0;
+				if (v.indexOf("|") > 0)
+				{
+					var parts = v.split("|");
+					v = StringTools.trim(parts.shift());
+					for (filter in parts)
+					{
+						filter = StringTools.trim(filter);
+						if (filter_re.match(filter))
+							addFilter(filter_re.matched(1), filter_re.matched(2));
+						else
+							addFilter(filter);
+						filterCount += 1;
+					}
+				}
 				buf.add(Std.string(applyFilters(resolve(v))));
-				if (filter != null) { filters.pop(); }
+				// pop any added filters
+				for (i in 0...filterCount) { filters.pop(); }
 			case OpExpr(e):
 				buf.add(Std.string(e()));
 			case OpIf(e,eif,eelse):
@@ -693,6 +705,7 @@ class Template
 
 	private static var tag_re = null;
 	private static var var_re = ~/([A-Za-z][A-Za-z0-9_\.]*)(?:\|([a-z]+)(?::"(.*)")?)?/;
+	private static var filter_re = ~/([a-z]+):"(.*)"/;
 	private static var for_re = ~/for ([A-Za-z][A-Za-z0-9_]*) in (.*)/;
 	private static var expr_re = ~/([ \r\n\t]*\([ \r\n\t]*|[ \r\n\t]*\)[ \r\n\t]*|[ \r\n\t]*"[^"]*"[ \r\n\t]*|[!+=\/><*.&|-]+)/;
 	private static var expr_int_re = ~/^[0-9]+$/;
