@@ -60,7 +60,7 @@ class Admin extends core.Controller
 				slug: form.slug.value,
 				title: form.title.value,
 				content: form.content.value,
-				publish_ts: form.publishDt.value
+				publish_ts: form.publishDate.value
 			});
 			redirect("admin/posts/edit/" + id);
 		}

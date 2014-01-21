@@ -1,0 +1,50 @@
+{% extends template.html %}
+
+{% block slideshow %}{% end %}
+
+{% block footer %}
+<script>
+	Modernizr.load([
+		{
+			load: '/js/vendor/epiceditor.min.js',
+			complete: function() {
+				var textarea = document.getElementsByTagName('textarea')[0];
+				textarea.style.display = 'none';
+				var div = document.createElement('div');
+				div.style.height = '400px';
+				textarea.parentNode.appendChild(div);
+				var editor = new EpicEditor({
+					container: div,
+					textarea: textarea,
+					file: {
+						name: '{% post.slug %}'
+					},
+					basePath: '/css',
+					theme: {
+						preview: 'themes/preview/github.css'
+					}
+				});
+				editor.load();
+			}
+		}
+	]);
+</script>
+{% end %}
+
+{% block content %}
+<h1>Edit "{{ title }}"</h1>
+<form role="form" action="{% url wiki/edit %}/{{ link }}" method="post">
+	<div>
+		<label for="content">Page Content</label><br />
+		<textarea name="content" id="content" class="form-field" cols="40" rows="20">{{ page.content }}</textarea>
+	</div>
+	<div class="form-group">
+		<a href="{% url wiki/page %}/{{ link }}" class="button">Back</a>
+		<input type="submit" value="Edit" />
+	</div>
+</form>
+<div>
+	<h2>Editing Instructions</h2>
+	<p>The HaxePunk wiki uses Markdown for styles, adding links, and other formatting details. If you need a refresher on the syntax or have never used Markdown before <a href="">this tutorial</a> is a good start.</p>
+</div>
+{% end %}

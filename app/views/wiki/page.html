@@ -1,0 +1,22 @@
+{% extends template.html %}
+
+{% block slideshow %}
+	<div class="centered">
+		<a href="{% url wiki %}" class="button">Wiki Home</a>
+		<a href="{% url wiki/page/Help %}" class="button">Wiki Help</a>
+		<a href="http://haxepunk.com/api" class="button">API Docs</a>
+		<a href="http://github.com/HaxePunk" class="button">GitHub</a>
+	</div>
+{% end %}
+
+{% block content %}
+	<h1>{{ title }}</h1>
+	{% if content %}
+		<p>{{ content|markdown }}</p>
+	{% else %}
+		<p>This wiki does not contain an article with that name. You can edit the page to add it.</p>
+	{% end %}
+	{% if loggedIn %}
+		<a href="{% url wiki/edit %}/{{ link }}" class="button">Edit Page</a>
+	{% end %}
+{% end %}

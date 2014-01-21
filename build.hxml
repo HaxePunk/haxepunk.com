@@ -4,6 +4,7 @@
 -cp app
 -lib markdown
 -lib mongodb
+-debug
 --macro core.Macro.include()
 
 --next

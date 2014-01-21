@@ -179,7 +179,7 @@ class Template
 						filterCount += 1;
 					}
 				}
-				buf.add(Std.string(applyFilters(resolve(v))));
+				buf.add(applyFilters(resolve(v)));
 				// pop any added filters
 				for (i in 0...filterCount) { filters.pop(); }
 			case OpExpr(e):
@@ -266,127 +266,126 @@ class Template
 		}
 	}
 
-	private inline function applyFilters(val:Dynamic):Dynamic
+	private function applyFilters(val:Dynamic):String
 	{
-		if (val != null)
+		if (val == null) return "";
+
+		for (filter in filters)
 		{
-			for (filter in filters)
+			switch (filter)
 			{
-				switch (filter)
-				{
-					case FAdd(p):
-						if (Std.is(val, List) || Std.is(val, Array))
+				case FAdd(p):
+					if (Std.is(val, List) || Std.is(val, Array))
+					{
+						val.push(p);
+					}
+					else if (Std.is(val, Int))
+					{
+						val = val + Std.parseInt(p);
+					}
+					else if (Std.is(val, Float))
+					{
+						val = val + Std.parseFloat(p);
+					}
+					else
+					{
+						val = val + p;
+					}
+				case FAddSlashes:
+					if (Std.is(val, String))
+					{
+						for (esc in ['\\', '"', '\''])
 						{
-							val.push(p);
+							val = StringTools.replace(val, esc, '\\' + esc);
 						}
-						else if (Std.is(val, Int))
+					}
+				case FCapFirst:
+					if (Std.is(val, String))
+					{
+						var str = cast(val, String);
+						val = str.substr(0, 1).toUpperCase() + str.substr(1);
+					}
+				case FCut(p):
+					if (Std.is(val, String))
+					{
+						val = val.split(p).join('');
+					}
+				case FEscape:
+					if (Std.is(val, String))
+					{
+						val = StringTools.replace(val, "<", "&lt;");
+						val = StringTools.replace(val, ">", "&gt;");
+						val = StringTools.replace(val, "'", "&#39;");
+						val = StringTools.replace(val, "\"", "&quot;");
+						val = StringTools.replace(val, "&", "&amp;");
+					}
+				case FFirst:
+					if (Std.is(val, Array))
+					{
+						val = val.shift();
+					}
+					else if (Std.is(val, List))
+					{
+						val = val.first();
+					}
+				case FJoin(p):
+					if (Std.is(val, Array))
+					{
+						val = val.join(p);
+					}
+				case FLast:
+					if (Std.is(val, Array))
+					{
+						val = val.pop();
+					}
+					else if (Std.is(val, List))
+					{
+						val = val.last();
+					}
+				case FLength:
+					val = val.length;
+				case FMarkdown:
+					var blocks:Array<String> = val.split("</pre>");
+					val = "";
+					for (block in blocks)
+					{
+						var index = block.indexOf("<pre");
+						if (index == 0)
 						{
-							val = val + Std.parseInt(p);
+							val += block + "</pre>";
 						}
-						else if (Std.is(val, Float))
+						else if (index > 0)
 						{
-							val = val + Std.parseFloat(p);
+							val += Markdown.markdownToHtml(block.substr(0, index));
+							val += block.substr(index, block.length - index) + "</pre>";
 						}
 						else
 						{
-							val = val + p;
+							val += Markdown.markdownToHtml(block);
 						}
-					case FAddSlashes:
-						if (Std.is(val, String))
-						{
-							for (esc in ['\\', '"', '\''])
-							{
-								val = StringTools.replace(val, esc, '\\' + esc);
-							}
-						}
-					case FCapFirst:
-						if (Std.is(val, String))
-						{
-							var str = cast(val, String);
-							val = str.substr(0, 1).toUpperCase() + str.substr(1);
-						}
-					case FCut(p):
-						if (Std.is(val, String))
-						{
-							val = val.split(p).join('');
-						}
-					case FEscape:
-						if (Std.is(val, String))
-						{
-							val = StringTools.replace(val, "<", "&lt;");
-							val = StringTools.replace(val, ">", "&gt;");
-							val = StringTools.replace(val, "'", "&#39;");
-							val = StringTools.replace(val, "\"", "&quot;");
-							val = StringTools.replace(val, "&", "&amp;");
-						}
-					case FFirst:
-						if (Std.is(val, Array))
-						{
-							val = val.shift();
-						}
-						else if (Std.is(val, List))
-						{
-							val = val.first();
-						}
-					case FJoin(p):
-						if (Std.is(val, Array))
-						{
-							val = val.join(p);
-						}
-					case FLast:
-						if (Std.is(val, Array))
-						{
-							val = val.pop();
-						}
-						else if (Std.is(val, List))
-						{
-							val = val.last();
-						}
-					case FLength:
-						val = val.length;
-					case FMarkdown:
-						var blocks:Array<String> = val.split("</pre>");
-						val = "";
-						for (block in blocks)
-						{
-							var index = block.indexOf("<pre");
-							if (index == 0)
-							{
-								val += block + "</pre>";
-							}
-							else if (index > 0)
-							{
-								val += Markdown.markdownToHtml(block.substr(0, index));
-								val += block.substr(index, block.length - index) + "</pre>";
-							}
-							else
-							{
-								val += Markdown.markdownToHtml(block);
-							}
-						}
-					case FStripTags:
+					}
+				case FStripTags:
 #if haxe3
-						val = html_tag_re.map(val, function(e:EReg) { return ""; });
+					val = html_tag_re.map(val, function(e:EReg) { return ""; });
 #else
-						val = html_tag_re.customReplace(val, function(e:EReg) { return ""; });
+					val = html_tag_re.customReplace(val, function(e:EReg) { return ""; });
 #end
-					case FDateTime(p):
-						var date:Date;
-						if (Std.is(val, Date))
-						{
-							date = val;
-						}
-						else
-						{
-							date = Date.fromString(Std.string(val));
-						}
-						val = DateTools.format(date, p);
-					case FUrlEncode:
-						val = StringTools.urlEncode(val);
-				}
+				case FDateTime(p):
+					var date:Date;
+					if (Std.is(val, Date))
+					{
+						date = val;
+					}
+					else
+					{
+						date = Date.fromString(Std.string(val));
+					}
+					val = DateTools.format(date, p);
+				case FUrlEncode:
+					val = StringTools.urlEncode(val);
 			}
 		}
-		return val;
+		return Std.string(val);
 	}
 
 	private function parseBlock(tokens:List<Token>):Expression
@@ -593,6 +592,26 @@ class Template
 		return makePath(makeExpr2(l), l);
 	}
 
+	function opFunc(p:String, e1:Void->Dynamic, e2:Void->Dynamic)
+	{
+		return switch (p)
+		{
+			case "+": function() { return cast e1() + e2(); };
+			case "-": function() { return cast e1() - e2(); };
+			case "*": function() { return cast e1() * e2(); };
+			case "/": function() { return cast e1() / e2(); };
+			case ">": function() { return cast e1() > e2(); };
+			case "<": function() { return cast e1() < e2(); };
+			case ">=": function() { return cast e1() >= e2(); };
+			case "<=": function() { return cast e1() <= e2(); };
+			case "==": function() { return cast e1() == e2(); };
+			case "!=": function() { return cast e1() != e2(); };
+			case "&&": function() { return cast e1() && e2(); };
+			case "||": function() { return cast e1() || e2(); };
+			default: throw "Unknown operation " + p;
+		}
+	}
+
 	function makeExpr2(l:List<Token>):Void->Dynamic
 	{
 		var p = l.pop();
@@ -608,10 +627,10 @@ class Template
 		{
 			case "(":
 				var e1 = makeExpr(l);
-				var p = l.pop();
-				if (p == null || p.t == TknString)
-					throw p.p;
-				if (p.p == ")")
+				var p1 = l.pop();
+				if (p1 == null || p1.t == TknString)
+					throw p1.p;
+				if (p1.p == ")")
 					return e1;
 				var e2 = makeExpr(l);
 				var p2 = l.pop();
@@ -619,22 +638,7 @@ class Template
 				{
 					throw p2.p;
 				}
-				return switch (p.p)
-				{
-					case "+": function() { return cast e1() + e2(); };
-					case "-": function() { return cast e1() - e2(); };
-					case "*": function() { return cast e1() * e2(); };
-					case "/": function() { return cast e1() / e2(); };
-					case ">": function() { return cast e1() > e2(); };
-					case "<": function() { return cast e1() < e2(); };
-					case ">=": function() { return cast e1() >= e2(); };
-					case "<=": function() { return cast e1() <= e2(); };
-					case "==": function() { return cast e1() == e2(); };
-					case "!=": function() { return cast e1() != e2(); };
-					case "&&": function() { return cast e1() && e2(); };
-					case "||": function() { return cast e1() || e2(); };
-					default: throw "Unknown operation "+p.p;
-				}
+				return opFunc(p1.p, e1, e2);
 			case "!":
 				var e = makeExpr(l);
 				return function() {

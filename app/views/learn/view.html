@@ -6,6 +6,7 @@
 		<img class="thumbnail" src="{{ tutorial.thumb_url }}" alt="{{ tutorial.title }}" />
 		{% end %}
 		<h2>{{ tutorial.title }}</h2>
+        <a href="{% url learn/edit %}/{{ tutorial.slug }}">Edit</a>
 		{{ tutorial.content|markdown }}
 	</div>
 	<div id="disqus_thread"></div>

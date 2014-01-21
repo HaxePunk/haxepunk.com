@@ -14,10 +14,16 @@ class SMF
 	{
 	}
 
-	public var loggedIn(get_loggedIn, never):Bool;
+	public var loggedIn(get, never):Bool;
 	private inline function get_loggedIn():Bool
 	{
 		return checkUserInfo("is_logged") && checkUserInfo("is_admin");
+	}
+
+	public var id(get, never):Int;
+	private inline function get_id():Int
+	{
+		return untyped __var__("GLOBALS", "context", "user", "id");
 	}
 
 	public function checkUserInfo(name:String):Bool

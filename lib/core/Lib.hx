@@ -173,7 +173,7 @@ class Lib
 				sys.Lib.print('<pre class="module">' + module + '</pre>');
 			case Method(classname, method):
 				sys.Lib.print('<pre class="method">' + classname + ': ' + method + '</pre>');
-			case Lambda(v):
+			case LocalFunction(v):
 				sys.Lib.print('<pre class="lambda">' + v + '</pre>');
 			case FilePos(s, file, line):
 				sys.Lib.print('<pre class="line">' + file + ': ' + line + '</pre>');

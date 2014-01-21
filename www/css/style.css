@@ -116,7 +116,7 @@ label > input, label > select {
 	width: 55vw;
 }
 
-input[type="text"] {
+input[type="text"], textarea {
 	background: #333;
 	border: 1px solid #555;
 	color: #F0F0F0;
