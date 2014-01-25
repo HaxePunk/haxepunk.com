@@ -1,3 +1,4 @@
 name: HaxePunk
+markdown: redcarpet
 pygments: true
-baseUrl: http://ibilon.github.io/HaxePunk/
+baseUrl: /
