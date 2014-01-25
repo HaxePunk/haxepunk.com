@@ -13,13 +13,13 @@
         <meta name="MobileOptimized" content="320">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         
-        <link rel="shortcut icon" type="image/png" href="/img/favicon.png">
+        <link rel="shortcut icon" type="image/png" href="{{site.baseUrl}}/img/favicon.png">
         
-        <link rel="stylesheet" type="text/css" href="/css/ink.css">
+        <link rel="stylesheet" type="text/css" href="{{site.baseUrl}}/css/ink.css">
         <!--[if IE 7 ]>
             <link rel="stylesheet" href="/css/ink-ie7.css" type="text/css" media="screen" title="no title" charset="utf-8">
         <![endif]-->
-        <link rel="stylesheet" type="text/css" href="/css/custom.css">
+        <link rel="stylesheet" type="text/css" href="{{site.baseUrl}}/css/custom.css">
     </head>
     
     <body>
@@ -27,13 +27,27 @@
             <div class="top-menu">
                 <nav class="ink-navigation ink-grid">
                     <ul class="menu horizontal orange flat">
-                        <li class="logo"><a href="/"></a></li>
-                        <li class="{% if page.home %}active{% endif %}"><a href="/">Home</a></li>
-                        <li class="{% if page.url contains '/features/' %}active{% endif %}"><a href="/features/">Features</a></li>
-                        <li class="{% if page.url contains '/demos/' %}active{% endif %}"><a href="/demos/">Demos</a></li>
-                        <li class="{% if page.url contains '/documentation/' %}active{% endif %}"><a href="/documentation/">Documentation</a></li>
-                        <li class="{% if page.url contains '/games/' %}active{% endif %}"><a href="/games/">Games</a></li>
-                        <li><a href="http://forum.haxepunk.com/">Forum</a></li>
+                        <li class="logo">
+							<a href="{{site.baseUrl}}"></a>
+						</li>
+                        <li class="{% if page.home %}active{% endif %}">
+							<a href="{{site.baseUrl}}">Home</a>
+						</li>
+                        <li class="{% if page.url contains '/features/' %}active{% endif %}">
+							<a href="{{site.baseUrl}}/features/">Features</a>
+						</li>
+                        <li class="{% if page.url contains '/demos/' %}active{% endif %}">
+							<a href="{{site.baseUrl}}/demos/">Demos</a>
+						</li>
+                        <li class="{% if page.url contains '/documentation/' %}active{% endif %}">
+							<a href="{{site.baseUrl}}/documentation/">Documentation</a>
+						</li>
+                        <li class="{% if page.url contains '/games/' %}active{% endif %}">
+							<a href="{{site.baseUrl}}/games/">Games</a>
+						</li>
+                        <li>
+							<a href="http://forum.haxepunk.com/">Forum</a>
+						</li>
                     </ul>
                 </nav>
             </div>
@@ -60,12 +74,12 @@
         </div>
         </footer>
         
-        <script type="text/javascript" src="js/holder.js"></script>
-        <script type="text/javascript" src="js/ink.min.js"></script>
-        <script type="text/javascript" src="js/ink-ui.min.js"></script>
-        <script type="text/javascript" src="js/ink.gallery.js"></script>
-        <script type="text/javascript" src="js/autoload.js"></script>
-        <script type="text/javascript" src="js/html5shiv.js"></script>
+        <script type="text/javascript" src="{{site.baseUrl}}/js/holder.js"></script>
+        <script type="text/javascript" src="{{site.baseUrl}}/js/ink.min.js"></script>
+        <script type="text/javascript" src="{{site.baseUrl}}/js/ink-ui.min.js"></script>
+        <script type="text/javascript" src="{{site.baseUrl}}/js/ink.gallery.js"></script>
+        <script type="text/javascript" src="{{site.baseUrl}}/js/autoload.js"></script>
+        <script type="text/javascript" src="{{site.baseUrl}}/js/html5shiv.js"></script>
     </body>
 
 </html>

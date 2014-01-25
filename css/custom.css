@@ -80,9 +80,8 @@ footer .ink-grid {
 	color: orange;
 	font-weight: bold;
 }
-
 .logo {
-	background: url(/img/HaxePunk.gif) bottom center no-repeat;
+	background: url(../img/HaxePunk.gif) bottom center no-repeat;
 	display: inline-block;
 	width: 400px;
 	height: 100px;
@@ -95,7 +94,7 @@ footer .ink-grid {
 	height: 100%;
 }
 .logo:hover {
-	background: url(/img/HaxePunk.gif) bottom center no-repeat;
+	background: url(../img/HaxePunk.gif) bottom center no-repeat;
 }
 .logo a:hover {
 	background: none !important;
