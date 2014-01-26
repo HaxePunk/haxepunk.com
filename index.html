@@ -4,76 +4,25 @@ title: HaxePunk
 home: true
 ---
 
-<div class="caroussel">
-	<div>
-		<ul class="ink-gallery-source">
-			<li class="hentry hmedia">
-				<a rel="enclosure" href="http://haxepunk.com/images/slides/learn.jpg">
-					<img alt="s1" src="http://haxepunk.com/images/slides/learn.jpg">
-				</a>
-				<a class="bookmark" href="http://haxepunk.com/images/slides/learn.jpg">
-					<span class="entry-title">s1</span>
-				</a>
-				<span class="entry-content"><p>hello world 1</p></span>
-			</li>
-
-			<li class="hentry hmedia">
-				<a rel="enclosure" href="http://placekitten.com/600/250">
-					<img alt="s1" src="http://placekitten.com/600/250">
-				</a>
-				<a class="bookmark" href="http://placekitten.com/600/250">
-					<span class="entry-title">s1</span>
-				</a>
-				<span class="entry-content"><p>hello world 1</p></span>
-			</li>
-
-			<li class="hentry hmedia">
-				<a rel="enclosure" href="http://placekitten.com/600/250">
-					<img alt="s1" src="http://placekitten.com/600/250">
-				</a>
-				<a class="bookmark" href="http://placekitten.com/600/250">
-					<span class="entry-title">s1</span>
-				</a>
-				<span class="entry-content"><p>hello world 1</p></span>
-			</li>
-
-			<li class="hentry hmedia">
-				<a rel="enclosure" href="http://placekitten.com/600/250">
-					<img alt="s1" src="http://placekitten.com/600/250">
-				</a>
-				<a class="bookmark" href="http://placekitten.com/600/250">
-					<span class="entry-title">s1</span>
-				</a>
-				<span class="entry-content"><p>hello world 1</p></span>
-			</li>
-
-			<li class="hentry hmedia">
-				<a rel="enclosure" href="http://placekitten.com/600/250">
-					<img alt="s1" src="http://placekitten.com/600/250">
-				</a>
-				<a class="bookmark" href="http://placekitten.com/600/250">
-					<span class="entry-title">s1</span>
-				</a>
-				<span class="entry-content"><p>hello world 1</p></span>
-			</li>
-		</ul>
-	</div>
-</div>
-
-<div id="getnow">
+<div class="highlight column-group">
 	<div class="ink-grid">
+		<div class="hide-small medium-15 large-20"></div>
+
+		<div class="small-100 medium-70 large-60 vertical-space">
+			<h1 class="content-center">Get Inspired. Make Games.</h1>
+			<p>HaxePunk is an open source framework, ported from <a href="useflashpunk.net">FlashPunk</a>, and designed to let you build your game on any platform. It provides the tools to quickly prototype ideas and the performance to make them great.</p>
+		</div>
+
 		<div class="column-group horizontal-gutters">
 			<div class="hide-small medium-20 large-20"></div>
 
 			<div class="small-50 medium-30 large-30">
-				<a href="{{site.baseurl}}documentation/download/">Download v2.5.0</a>
+				<a class="button" href="{{site.baseurl}}documentation/download/">Download v2.5.0</a>
 			</div>
 
 			<div class="small-50 medium-30 large-30">
-				<a href="{{site.baseurl}}documentation/getting_started/">Getting started</a>
+				<a class="button" href="{{site.baseurl}}documentation/getting_started/">Getting started</a>
 			</div>
-
-			<div class="hide-small medium-20 large-20"></div>
 		</div>
 	</div>
 </div>
@@ -81,22 +30,29 @@ home: true
 <div class="ink-grid vspace mainpoints">
 	<div class="column-group gutters">
 		<div class="small-100 medium-50 large-33">
-			<h1>Make Games <i class="icon-lightbulb"></i></h1>
-			<p>If you have experience developing games in AS3 or any other scripting language you'll have no trouble getting started with HaxePunk. Easy enough for new programmers to learn and powerful enough for masters. It will handle hundreds of entities with complex collisions and animations without a hiccup!</p>
-			<a href="{{site.baseurl}}documentations/tutorials/">See the tutorials</a>
+			<h1>Technology <i class="icon-rocket"></i></h1>
+			<p>HaxePunk uses <a href="http://openfl.org">OpenFL</a> and <a href="http://haxe.org">Haxe</a>. OpenFL provides a cross-platform Flash based API. Haxe is a strictly typed programming language that saves development time but still compiles high performance executables.</p>
+			<p>Each target is tuned for the best performance. Flash uses blitted rendering exactly like FlashPunk. Native targets, mobile and desktop, draw hardware accelerated tiles using OpenGL.</p>
 		</div>
 
 		<div class="small-100 medium-50 large-33">
-			<h1>Performance <i class="icon-wrench"></i></h1>
-			<p>Each target is tuned for the best performance. Flash uses blitted rendering exactly like how FlashPunk works. Native targets, mobile and desktop, use hardware accelerated tiles in OpenGL.</p>
-			<a href="{{site.baseurl}}demos/">See the demos</a>
+			<h1>Features <i class="icon-puzzle-piece"></i></h1>
+			<p>HaxePunk is packed with features. Pick and choose what is useful for your game.</p>
+			<ul>
+				<li>Images, Spritemaps, Particle Emitters, Tilemaps, and more</li>
+				<li>Mask based collision</li>
+				<li>Joystick and Multi-touch support</li>
+				<li>Tweens</li>
+				<li>Debug Console with mask overlays</li>
+			</ul>
+			<a class="push-down" href="{{site.baseurl}}features/">View all Features</a>
 		</div>
 
 		<div class="clearfix show-medium hide-large"></div>
 
 		<div class="small-100 medium-50 large-33">
 			<h1>Cross-platform <i class="icon-android"></i></h1>
-			<p>HaxePunk runs on multiple platforms without the need to rewrite your entire code base.</p>
+			<p>HaxePunk runs on multiple platforms without the need to rewrite your entire code base. Here are the currently supported platforms.</p>
 			<dl>
 				<dt>Desktop</dt>
 				<dd>Windows, Mac, Linux</dd>
@@ -105,29 +61,31 @@ home: true
 				<dt>Mobile</dt>
 				<dd>iOS, Android</dd>
 			</dl>
-			<a href="{{site.baseurl}}documentation/cross-platform/">Learn more</a>
+			<a class="push-down" href="{{site.baseurl}}documentation/cross-platform/">Learn more</a>
 		</div>
 
 		<div class="clearfix show-large hide-medium"></div>
 
 		<div class="small-100 medium-50 large-33">
 			<h1>Demos <i class="icon-wrench"></i></h1>
-			<p>And though of all men the moody captain of the Pequod was the least given to that sort of shallowest assumption; and though the only homage he ever exacted, was implicit, instantaneous obedience; though he required no man to remove the shoes from his feet ere stepping upon the quarter-deck</p>
-			<a href="{{site.baseurl}}demos/">See the demos</a>
+			<p>See HaxePunk in action!</p>
+			<p>Browse the demos or play around with the source code. The examples compile and run on every supported target.</p>
+			<a class="push-down" href="{{site.baseurl}}demos/">See the demos</a>
 		</div>
 
 		<div class="clearfix show-medium hide-large"></div>
 
 		<div class="small-100 medium-50 large-33">
 			<h1>Open Source <i class="icon-code-fork"></i></h1>
-			<p>The code for HaxePunk is open source and available under the MIT license. This means there are no restrictions for developing commercial games. Although if you make something great with HaxePunk we'd love to hear about it!</p>
-			<a href="{{site.baseurl}}documentation/open_source/">Learn more</a>
+			<p>The code for HaxePunk is open source and available under the MIT license. This means there are no restrictions for developing open source or commercial games.</p>
+			<p>You are free to share the code from your game, if you wish, under whatever license you choose.</p>
 		</div>
 
 		<div class="small-100 medium-50 large-33">
 			<h1>Showcase <i class="icon-gamepad"></i></h1>
-			<p>And though of all men the moody captain of the Pequod was the least given to that sort of shallowest assumption; and though the only homage he ever exacted, was implicit, instantaneous obedience; though he required no man to remove the shoes from his feet ere stepping upon the quarter-deck</p>
-			<a href="{{site.baseurl}}games/">See the games</a>
+			<p>Wanting to show off what you made with HaxePunk? Share it with the world on the showcase page.</p>
+			<p>Anything from game jam entries to commercial games are welcome.</p>
+			<a class="push-down" href="{{site.baseurl}}games/">See the games</a>
 		</div>
 	</div>
 </div>
