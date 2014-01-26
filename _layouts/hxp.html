@@ -25,11 +25,14 @@
     <body>
         <div class="wrap">
             <div class="top-menu">
-                <nav class="ink-navigation ink-grid">
-                    <ul class="menu horizontal orange flat">
-                        <li class="logo">
-							<a href="{{site.baseurl}}"></a>
-						</li>
+                <a href="{{site.baseurl}}" class="logo">
+                    <svg width="96" height="96">
+                        <image xlink:href="{{site.baseurl}}img/HaxePunk.svg" src="{{site.baseurl}}img/HaxePunk.png" width="96" height="96" />
+                    </svg>
+                    HaxePunk
+                </a>
+                <nav class="ink-navigation">
+                    <ul class="menu horizontal orange">
                         <li class="{% if page.home %}active{% endif %}">
 							<a href="{{site.baseurl}}">Home</a>
 						</li>

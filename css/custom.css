@@ -9,25 +9,25 @@ html, body {
 	margin: 0 auto -60px;
 	overflow: auto;
 }
-.push , footer { 
-	height: 60px; 
-	margin-top: 0; 
+.push , footer {
+	height: 60px;
+	margin-top: 0;
 }
-footer { 
-	border: 0; 
-	line-height: 60px; 
-	margin-top: 0 !important; 
+footer {
+	border: 0;
+	line-height: 60px;
+	margin-top: 0 !important;
 	text-align: center;
 }
-footer * { 
-	line-height: inherit; 
+footer * {
+	line-height: inherit;
 }
-footer p { 
-	margin-top: 0; 
+footer p {
+	margin-top: 0;
 }
-footer .ink-navigation ul.menu.horizontal li { 
-	margin-right: 2em; 
-	line-height: inherit; 
+footer .ink-navigation ul.menu.horizontal li {
+	margin-right: 2em;
+	line-height: inherit;
 }
 footer .ink-navigation ul.menu.horizontal li a {
 	padding: 0;
@@ -43,78 +43,89 @@ footer .ink-navigation ul.menu.horizontal li a:hover {
 footer .ink-grid {
 	border-top: 1px solid rgb(204, 204, 204);
 }
-.top-menu {
-	background-color: #f0f0f0;
-	border-bottom: 10px solid rgb(51, 51, 51);
-	padding-top: 57px
-}
 .cta {
 	font-size: 1.8em;
 	margin-left: 0;
 }
-.ink-navigation ul.menu.orange li.active, .ink-navigation ul.menu.orange li.active a:hover {
-	background: rgb(51, 51, 51);
-	color: orange;
+.top-menu {
+	border-bottom: 5px solid #333;
+	position: relative;
+}
+.top-menu .ink-navigation {
+	position: absolute;
+	bottom: 0;
+	right: 2em;
+}
+.ink-navigation ul.menu.orange {
+	background: inherit;
 }
 .ink-navigation ul.menu.orange li a:hover {
-	background: orange;
+	background: #FD8F00;
 	color: white;
 }
-.ink-navigation ul.menu.orange li a, .ink-navigation ul.menu.orange li a:hover {
+.ink-navigation ul.menu.orange li,
+.ink-navigation ul.menu.orange li a,
+.ink-navigation ul.menu.orange li a:hover {
 	border-radius: 6px 6px 0 0;
 }
 .ink-navigation ul.menu.orange li {
-	border-radius: 6px 6px 0 0;
 	margin-top: 4px;
 	margin-left: 4px;
 }
-.caroussel {
-	background: rgb(51, 51, 51);
-	height: 305px;
-}
-
-.ink-navigation ul.menu.flat.orange {
-	background: #f0f0f0;
-}
 .ink-navigation ul.menu.orange li a {
-	color: orange;
+	color: #FD8F00;
 	font-weight: bold;
 }
-.logo {
-	background: url(../img/HaxePunk.gif) bottom center no-repeat;
+.ink-navigation ul.menu.orange li.active,
+.ink-navigation ul.menu.orange li.active a:hover {
+	background: rgb(51, 51, 51);
+}
+.ink-navigation ul.menu.orange li.active a {
+	color: #FFF;
+}
+a.logo {
 	display: inline-block;
-	width: 400px;
-	height: 100px;
-	margin-right: 40px !important;
-	transition-duration: 140ms;
-	transition-timing-function: ease-in-out;
-	margin-top: -57px !important;
-}
-.logo a {
+	margin: 0 40px 0 120px;
 	height: 100%;
+	padding: 0;
+	font-size: 46px;
+	text-decoration: none;
+	color: #FD8F00;
 }
-.logo:hover {
-	background: url(../img/HaxePunk.gif) bottom center no-repeat;
-}
-.logo a:hover {
-	background: none !important;
+a.logo:hover {
+	background: none;
+	color: #FD8F00;
+	text-decoration: none;
 }
 
-#getnow {
-    border-top: 1px solid rgb(136, 136, 136);
-    padding: 0.5em 0px;
-    margin-bottom: 1.5em;
-    box-shadow: 0px 6px 12px 1px rgba(0, 0, 0, 0.1);
+.highlight {
+	background: rgb(51, 51, 51);
+	color: white;
+	padding: 20px 0;
 }
-#getnow a {
+.highlight h1 {
+	color: white;
+}
+.highlight a {
+	color: #FFF;
+	text-decoration: underline;
+}
+
+.button {
+	text-decoration: none !important;
     text-align: center;
     font-weight: bold;
     padding: 0.8em;
     display: block;
-    background: linear-gradient(to bottom, rgb(254, 165, 25) 0%, rgb(242, 153, 13) 100%) repeat scroll 0% 0% transparent;
+    background: #F59C16;
+    background: linear-gradient(to bottom, rgb(254, 165, 53) 0%, rgb(242, 153, 13) 100%) repeat scroll 0% 0% transparent;
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
     border-radius: 4px;
     color: rgb(255, 255, 255);
+}
+.button:hover {
+	background: #EFA73A;
+	background: linear-gradient(to bottom, rgb(255, 187, 102) 0%, rgb(235, 161, 46) 100%) repeat scroll 0% 0% transparent;
 }
 
 .ink-gallery .stage {
@@ -139,7 +150,7 @@ a {
 .mainpoints h1 {
 	color: rgb(242, 153, 13);
 }
-.mainpoints a {
+.push-down {
 	margin-top: 10px;
 	display: inline-block;
 }
@@ -206,4 +217,33 @@ a {
 		color-stop(0.95, #FFD6A1),
 		color-stop(0.97, #FD8F00)
 	);
+}
+
+@media screen and (max-width: 1100px) {
+	a.logo {
+		margin-left: 10px;
+		font-size: 32px;
+	}
+	.github {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 960px) {
+	.top-menu .ink-navigation {
+		position: relative;
+		right: 0;
+	}
+}
+
+@media screen and (max-width: 649px) {
+	.ink-navigation ul.menu.orange li {
+		float: none;
+	}
+	.ink-navigation ul.menu.orange li,
+	.ink-navigation ul.menu.orange li a,
+	.ink-navigation ul.menu.orange li a:hover {
+		border-radius: 0;
+		margin: 0;
+	}
 }
