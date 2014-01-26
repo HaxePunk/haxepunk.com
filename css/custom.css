@@ -87,15 +87,7 @@ a.logo {
 	display: inline-block;
 	margin: 0 40px 0 120px;
 	height: 100%;
-	padding: 0;
-	font-size: 46px;
-	text-decoration: none;
-	color: #FD8F00;
-}
-a.logo:hover {
-	background: none;
-	color: #FD8F00;
-	text-decoration: none;
+	padding: 10px 0 0;
 }
 
 .highlight {
