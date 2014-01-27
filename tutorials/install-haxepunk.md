@@ -1,5 +1,5 @@
 ---
-layout: hxp
+layout: tutorial
 title: Installing HaxePunk
 ---
 

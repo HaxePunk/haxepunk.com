@@ -1,5 +1,5 @@
 ---
-layout: hxp
+layout: tutorial
 title: HaxePunk 102 - Movement and Animation
 ---
 

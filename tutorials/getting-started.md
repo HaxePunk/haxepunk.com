@@ -1,5 +1,5 @@
 ---
-layout: hxp
+layout: tutorial
 title: HaxePunk 101 - Getting Started
 ---
 

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <title>{{ page.title }}</title>
+
+        <meta name="description" content="HaxePunk is a 2d game engine written in Haxe for cross-platform deployment.">
+        <meta name="author" content="HaxePunk.com">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+        <link rel="shortcut icon" type="image/png" href="{{site.baseurl}}img/favicon.png">
+
+        <link rel="stylesheet" type="text/css" href="{{site.baseurl}}css/ink.css">
+        <!--[if IE 7 ]>
+            <link rel="stylesheet" href="/css/ink-ie7.css" type="text/css" media="screen" title="no title" charset="utf-8">
+        <![endif]-->
+        <link rel="stylesheet" type="text/css" href="{{site.baseurl}}css/custom.css">
+    </head>
+
+    <body>
+        <div class="wrap">
+            <div class="top-menu">
+                <a href="{{site.baseurl}}" class="logo">
+                    <image src="{{site.baseurl}}img/HaxePunk.svg" width="300" height="75" alt="HaxePunk" />
+                </a>
+                <nav class="ink-navigation">
+                    <ul class="menu horizontal orange">
+                        <li class="{% if page.home %}active{% endif %}">
+							<a href="{{site.baseurl}}">Home</a>
+						</li>
+                        <li class="{% if page.url contains '/features/' %}active{% endif %}">
+							<a href="{{site.baseurl}}features/">Features</a>
+						</li>
+                        <li class="{% if page.url contains '/demos/' %}active{% endif %}">
+							<a href="{{site.baseurl}}demos/">Demos</a>
+						</li>
+                        <li class="{% if page.url contains '/documentation/' %}active{% endif %}">
+							<a href="{{site.baseurl}}documentation/">Documentation</a>
+						</li>
+                        <li class="{% if page.url contains '/games/' %}active{% endif %}">
+							<a href="{{site.baseurl}}games/">Games</a>
+						</li>
+                        <li>
+							<a href="http://forum.haxepunk.com/">Forum</a>
+						</li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="github">
+				<a href="https://github.com/HaxePunk/HaxePunk">Fork me on GitHub</a>
+			</div>
