@@ -1,4 +1,5 @@
 name: HaxePunk
 markdown: redcarpet
 pygments: true
+pygments_options: ['linenos']
 baseurl: http://haxepunk.github.io/haxepunk.com/
