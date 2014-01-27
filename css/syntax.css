@@ -7,6 +7,9 @@ code,
 .highlight pre {
     margin: 0;
 }
+.highlight code {
+    background: inherit;
+}
 
 .highlight .lineno {
     color: #aaa;

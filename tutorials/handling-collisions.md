@@ -1,6 +1,7 @@
 ---
 layout: tutorial
 title: Handling Collisions
+permalink: /handling-collisions/index.html
 ---
 
 # Handling Collisions
@@ -9,7 +10,7 @@ One of the most useful things to be able to do in a game is make Entities intera
 
 ## Assigning Hitboxes
 
-HaxePunk uses rectangles for all base-level collision between Entities. You define a rectanular collision area for your Entity, called it's **hitbox**, and then you can use HaxePunk's functions to test if an Entity's hitbox intersects with anothers'. So if we have an Entity called **Player**, in it we can define hitbox parameters like this:
+HaxePunk uses rectangles for all base-level collision between Entities. You define a rectanular collision area for your Entity, called its **hitbox**, and then you can use HaxePunk's functions to test if an Entity's hitbox intersects with anothers'. So if we have an Entity called **Player**, in it we can define hitbox parameters like this:
 
 ```haxe
 import com.haxepunk.Entity;

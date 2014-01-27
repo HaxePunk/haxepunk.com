@@ -1,9 +1,10 @@
 ---
 layout: tutorial
 title: HaxePunk Basics
+permalink: /haxepunk-basics/index.html
 ---
 
-# HaxePunk Bassics
+# HaxePunk Basics
 
 This tutorial assumes you have gone through the [Installing HaxePunk](/tutorials/install-haxepunk.html) tutorial.
 
@@ -156,7 +157,10 @@ You will need to add an update function to the Block class and import the Input/
 import com.haxepunk.utils.Input;
 import com.haxepunk.utils.Key;
 
-...
+class Block extends Entity
+{
+
+	// ...
 
 	public override function update()
 	{
@@ -172,6 +176,8 @@ import com.haxepunk.utils.Key;
 
 		super.update();
 	}
+
+}
 ```
 
 So now you have learned how to add graphics, create entities, and move them around on the screen. Challenge yourself to update the code so that the block can move vertically. Happy coding!

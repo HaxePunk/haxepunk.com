@@ -1,6 +1,7 @@
 ---
 layout: tutorial
-title: HaxePunk 102 - Movement and Animation
+title: Movement and Animation
+permalink: /movement-and-animation/index.html
 ---
 
 # Movement and Animation

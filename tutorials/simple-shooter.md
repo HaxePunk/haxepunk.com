@@ -1,6 +1,7 @@
 ---
 layout: tutorial
-title: HaxePunk 103 - A Simple Shooter
+title: A Simple Shooter
+permalink: /simple-shooter/index.html
 ---
 
 # A Simple Shooter

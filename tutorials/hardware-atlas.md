@@ -1,6 +1,7 @@
 ---
 layout: tutorial
-title: HaxePunk 201 - Hardware Atlases
+title: Hardware Atlases
+permalink: /hardware-atlases/index.html
 ---
 
 # Hardware Atlases
