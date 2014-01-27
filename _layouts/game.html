@@ -1,0 +1,7 @@
+{% include head.html %}
+<h1>{{ page.title }}</h1>
+<h2>By {{ page.author }}</h2>
+<img src="{{site.baseurl}}img/{{ page.path | replace:'.md','.jpg' }}" alt="{{ page.title }} thumbnail" />
+<p>{{ page.content }}</p>
+<a href="{{ page.play_url }}">Play {{ page.title }}</a>
+{% include footer.html %}

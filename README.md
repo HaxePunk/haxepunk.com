@@ -19,3 +19,22 @@ This is the source of [haxepunk.com](http://haxepunk.com). It is hosted on GitHu
 ## Contributing
 
 If you want to contribute and improve our website please work on a [fork](https://github.com/HaxePunk/haxepunk.com/fork). Only working and tested changes will be merged. Use the [issue system](https://github.com/HaxePunk/haxepunk.com/issues) for developer support and approval on your changes.
+
+### Adding a Game
+
+Once you've made something in HaxePunk you can submit it to be showcased on the website.
+
+1. Create a `.md` file inside the `games` folder following this example:
+
+	```markdown
+	---
+	layout: game
+	title: My Game Title
+	play_url: http://mygamesite.com/play/
+	author: My Name
+	---
+
+	This is a description of my **really** great game! You can use Markdown to format the description.
+	```
+
+2. Add a screenshot using the same filename of your `.md` file to the `img/games` folder. The image is scaled to 220x124 so it's best to keep to those dimensions.
