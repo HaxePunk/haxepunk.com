@@ -13,7 +13,7 @@ First off let's start with a Player class. Like last time we will extend com.hax
 
 ### src/entities/Player.hx
 
-<pre class="brush: haxe">
+```haxe
 package entities;
 
 import com.haxepunk.HXP;
@@ -103,7 +103,7 @@ class Player extends Entity
 	private var sprite:Spritemap;
 
 }
-</pre>
+```
 
 Add a new Player to your GameScene and try it out!
 
@@ -113,7 +113,7 @@ First we need to change the keyboard to apply acceleration instead of velocity. 
 
 ### src/entities/Player.hx
 
-<pre class="brush: haxe">
+```haxe
 	private function handleInput()
 	{
 		acceleration = 0;
@@ -153,13 +153,13 @@ First we need to change the keyboard to apply acceleration instead of velocity. 
 
 	private var acceleration:Float;
 	private var velocity:Float;
-</pre>
+```
 
 If you test this now you will notice that the player will never slow down automatically. Oops! Well I guess we should decrease the velocity over time. Add this before the call to moveBy().
 
 ### src/entities/Player.hx
 
-<pre class="brush: haxe">
+```haxe
 	if (velocity < 0)
 	{
 		velocity = Math.min(velocity + 0.4, 0);
@@ -168,6 +168,6 @@ If you test this now you will notice that the player will never slow down automa
 	{
 		velocity = Math.max(velocity - 0.4, 0);
 	}
-</pre>
+```
 
 Feel free to play around with the values to add more of a slick feeling or to make it more sticky. Imagine if you knew what type of surface the player was on we could change this dynamically! Even make the animation different depending on how slippery the level is. The possibilities are endless!

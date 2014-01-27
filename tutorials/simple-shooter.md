@@ -11,7 +11,7 @@ Let's start out with a Ship class which holds the basic mechanics for our game.
 
 ### src/entities/Ship.hx
 
-<pre class="brush: haxe">
+```haxe
 package entities;
 
 import com.haxepunk.Entity;
@@ -84,7 +84,7 @@ class Ship extends Entity
 	private static inline var speed:Float = 3;
 	private static inline var drag:Float = 0.4;
 }
-</pre>
+```
 
 This should look very familiar to you since it is essentially the same code from 102. The one major difference is that we are using Image.createRect for the graphic. This will allow you to build out the mechanics without having to worry about graphics. We gave it a color so we can tell the difference between the enemies and the player.
 
@@ -96,7 +96,7 @@ Well, movement is great but we really need to add some action. Let's make a new 
 
 ### src/entities/Bullet.hx
 
-<pre class="brush: haxe">
+```haxe
 package entities;
 
 import com.haxepunk.Entity;
@@ -126,7 +126,7 @@ class Bullet extends Entity
 		super.update();
 	}
 }
-</pre>
+```
 
 Pretty simple right? But what about the moveCollideX function you say? Well, that is simply called from the moveBy function any time there is a collision on the x axis. We added a type to the moveBy function call to specify what type of entity we want to collide with.
 
@@ -134,12 +134,12 @@ So if we build this now, what happens? Nothing! Oh yeah, we need to create an in
 
 ### src/entities/Ship.hx
 
-<pre class="brush: haxe">
+```haxe
 	if (Input.pressed("shoot"))
 	{
 		scene.add(new Bullet(x + width, y + height / 2));
 	}
-</pre>
+```
 
 So cool! All we need now is some enemy ships and we'll have the start of an awesome game.
 
@@ -147,7 +147,7 @@ We're going to make another class called Enemy which is basically a Bullet in re
 
 ### src/entities/Enemy.hx
 
-<pre class="brush: haxe">
+```haxe
 package entities;
 
 import com.haxepunk.Entity;
@@ -177,13 +177,13 @@ class Enemy extends Entity
 		super.update();
 	}
 }
-</pre>
+```
 
 Well the Enemy class is done but we have no way of spawning new ones. So let's build a spawn timer in GameScene.
 
 ### src/scenes/GameScene.hx
 
-<pre class="brush: haxe">
+```haxe
 package scenes;
 
 import com.haxepunk.Scene;
@@ -221,7 +221,7 @@ class GameScene extends Scene
 
 	private var spawnTimer:Float;
 }
-</pre>
+```
 
 Notice how the timer gets set every time something spawns and counts down until the next one. Play around with randomizing spawn times and enemy movement. Experimenting with different values is the best way to learn.
 

@@ -30,26 +30,26 @@ Now this is where it gets a bit tricky. OpenGL performs better when it's state d
 
 AtlasData stores draw calls for an individual texture. Since it is better to only have a single AtlasData for each texture we keep a pool of AtlasData objects. This also handles special rendering flags such as transparency, tinting, and blending. So blending is specific to a texture and not an object, like it is in Flash. Here's an example:
 
-<pre class="brush: haxe">
+```haxe
 var ad = AtlasData.getAtlasDataByName("assets/graphics/mytexture.png");
 ad.blend = AtlasData.BLEND_NONE; // no blending
 ad.alpha = false; // turn off transparency
-</pre>
+```
 
 ### Sprite Layers
 
 As I mentioned before, each layer is rendered to a separate sprite that has been added to the display list. So what if you want to add an element onto a layer such as video? Well, it's actually pretty simple. Scene keeps track of each sprite layer so you can just call a method to get the appropriate Sprite object.
 
-<pre class="brush: haxe">
+```haxe
 var sprite = scene.getSpriteByLayer(this.layer);
 sprite.addChild(myDisplayObject);
-</pre>
+```
 
 ### Just Give Me Buffer Rendering!
 
 If you're not happy with hardware rendering, or have used BitmapData to do some fancy effects, you can force HaxePunk to use buffer rendering. This is not suggested for mobile devices as you will most likely get around 5fps, if you're lucky.
 
-<pre class="brush: haxe">
+```haxe
 import com.haxepunk.RenderMode;
 import com.haxepunk.Engine;
 
@@ -61,6 +61,6 @@ class MyEngine extends Engine
 		super(0, 0, rate, fixed, RenderMode.BUFFER);
 	}
 }
-</pre>
+```
 
 _Note: This mode is not guaranteed to work in all cases as there are some minor differences between OpenFL and Flash._
