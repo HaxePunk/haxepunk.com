@@ -1,0 +1,78 @@
+---
+layout: api
+title: HaxePunk API
+---
+
+<div class="ink-grid">
+    <div class="column-group">
+        <div class="hide-small medium-10 large-10"></div>
+        <div class="api small-100 medium-80 large-80">
+            <a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">extern </span><span class="kwd">class </span>flash.geom.Point</div><div class="classdoc"><p>The Point object represents a location in a two-dimensional coordinate
+  system, where <i>x</i> represents the horizontal axis and <i>y</i>
+  represents the vertical axis.</p>
+<p><p>The following code creates a point at(0,0):</p></p>
+<p><p>Methods and properties of the following classes use Point objects:</p></p>
+<p><ul>
+    <li>BitmapData</li>
+    <li>DisplayObject</li>
+    <li>DisplayObjectContainer</li>
+    <li>DisplacementMapFilter</li>
+    <li>NativeWindow</li>
+    <li>Matrix</li>
+    <li>Rectangle</li>
+  </ul></p>
+<p><p>You can use the <code>new Point()</code> constructor to create a Point
+  object.</p></p></div><dl><dt><span class="kwd">var </span>length(default,null) : <a href="../../Float.html" class="type">Float</a></dt><dd> The length of the line segment from(0,0) to this point.</dd><dt><span class="kwd">var </span>x : <a href="../../Float.html" class="type">Float</a></dt><dd> The horizontal coordinate of the point. The default value is 0.</dd><dt><span class="kwd">var </span>y : <a href="../../Float.html" class="type">Float</a></dt><dd> The vertical coordinate of the point. The default value is 0.</dd><dt><span class="kwd">function </span>new(?x : <a href="../../Float.html" class="type">Float</a>, ?y : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd><p>Creates a new point. If you pass no parameters to this method, a point is
+	  created at(0,0).</p>
+<p>@param x The horizontal coordinate.
+	  @param y The vertical coordinate.</p></dd><dt><span class="kwd">function </span>add(v : <a href="../../flash/geom/Point.html" class="type">Point</a>) : <a href="../../flash/geom/Point.html" class="type">Point</a></dt><dd><p>Adds the coordinates of another point to the coordinates of this point to
+	  create a new point.</p>
+<p>@param v The point to be added.
+	  @return The new point.</p></dd><dt><span class="kwd">function </span>clone() : <a href="../../flash/geom/Point.html" class="type">Point</a></dt><dd><p>Creates a copy of this Point object.</p>
+<p>@return The new Point object.</p></dd><dt><span class="kwd">function </span>copyFrom(sourcePoint : <a href="../../flash/geom/Point.html" class="type">Point</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>equals(toCompare : <a href="../../flash/geom/Point.html" class="type">Point</a>) : <a href="../../Bool.html" class="type">Bool</a></dt><dd><p>Determines whether two points are equal. Two points are equal if they have
+	  the same <i>x</i> and <i>y</i> values.</p>
+<p>@param toCompare The point to be compared.
+	  @return A value of <code>true</code> if the object is equal to this Point
+	          object; <code>false</code> if it is not equal.</p></dd><dt><span class="kwd">function </span>normalize(thickness : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd><p>Scales the line segment between(0,0) and the current point to a set
+	  length.</p>
+<p>@param thickness The scaling value. For example, if the current point is
+	                  (0,5), and you normalize it to 1, the point returned is
+	                   at(0,1).
+	  @return The normalized point.</p></dd><dt><span class="kwd">function </span>offset(dx : <a href="../../Float.html" class="type">Float</a>, dy : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd><p>Offsets the Point object by the specified amount. The value of
+	  <code>dx</code> is added to the original value of <i>x</i> to create the
+	  new <i>x</i> value. The value of <code>dy</code> is added to the original
+	  value of <i>y</i> to create the new <i>y</i> value.</p>
+<p>@param dx The amount by which to offset the horizontal coordinate,
+	            <i>x</i>.
+	  @param dy The amount by which to offset the vertical coordinate, <i>y</i>.</p></dd><dt><span class="kwd">function </span>setTo(xa : <a href="../../Float.html" class="type">Float</a>, ya : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>subtract(v : <a href="../../flash/geom/Point.html" class="type">Point</a>) : <a href="../../flash/geom/Point.html" class="type">Point</a></dt><dd><p>Subtracts the coordinates of another point from the coordinates of this
+	  point to create a new point.</p>
+<p>@param v The point to be subtracted.
+	  @return The new point.</p></dd><dt><span class="kwd">function </span>toString() : <a href="../../String.html" class="type">String</a></dt><dd><p>Returns a string that contains the values of the <i>x</i> and <i>y</i>
+	  coordinates. The string has the form <code>"(x=<i>x</i>,
+	  y=<i>y</i>)"</code>, so calling the <code>toString()</code> method for a
+	  point at 23,17 would return <code>"(x=23, y=17)"</code>.</p>
+<p>@return The string representation of the coordinates.</p></dd><dt><span class="kwd">static </span><span class="kwd">function </span>distance(pt1 : <a href="../../flash/geom/Point.html" class="type">Point</a>, pt2 : <a href="../../flash/geom/Point.html" class="type">Point</a>) : <a href="../../Float.html" class="type">Float</a></dt><dd><p>Returns the distance between <code>pt1</code> and <code>pt2</code>.</p>
+<p>@param pt1 The first point.
+	  @param pt2 The second point.
+	  @return The distance between the first and second points.</p></dd><dt><span class="kwd">static </span><span class="kwd">function </span>interpolate(pt1 : <a href="../../flash/geom/Point.html" class="type">Point</a>, pt2 : <a href="../../flash/geom/Point.html" class="type">Point</a>, f : <a href="../../Float.html" class="type">Float</a>) : <a href="../../flash/geom/Point.html" class="type">Point</a></dt><dd><p>Determines a point between two specified points. The parameter
+	  <code>f</code> determines where the new interpolated point is located
+	  relative to the two end points specified by parameters <code>pt1</code>
+	  and <code>pt2</code>. The closer the value of the parameter <code>f</code>
+	  is to <code>1.0</code>, the closer the interpolated point is to the first
+	  point(parameter <code>pt1</code>). The closer the value of the parameter
+	  <code>f</code> is to 0, the closer the interpolated point is to the second
+	  point(parameter <code>pt2</code>).</p>
+<p>@param pt1 The first point.
+	  @param pt2 The second point.
+	  @param f   The level of interpolation between the two points. Indicates
+	             where the new point will be, along the line between
+	             <code>pt1</code> and <code>pt2</code>. If <code>f</code>=1,
+	             <code>pt1</code> is returned; if <code>f</code>=0,
+	             <code>pt2</code> is returned.
+	  @return The new, interpolated point.</p></dd><dt><span class="kwd">static </span><span class="kwd">function </span>polar(len : <a href="../../Float.html" class="type">Float</a>, angle : <a href="../../Float.html" class="type">Float</a>) : <a href="../../flash/geom/Point.html" class="type">Point</a></dt><dd><p>Converts a pair of polar coordinates to a Cartesian point coordinate.</p>
+<p>@param len   The length coordinate of the polar pair.
+	  @param angle The angle, in radians, of the polar pair.
+	  @return The Cartesian point.</p></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+        </div>
+    </div>
+</div>

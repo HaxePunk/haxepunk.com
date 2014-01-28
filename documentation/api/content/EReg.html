@@ -1,0 +1,31 @@
+---
+layout: api
+title: HaxePunk API
+---
+
+<div class="ink-grid">
+    <div class="column-group">
+        <div class="hide-small medium-10 large-10"></div>
+        <div class="api small-100 medium-80 large-80">
+            <a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>EReg</div><div class="classdoc"><p>The EReg class represents regular expressions.</p>
+<p>While basic usage and patterns consistently work across platforms, some more
+	complex operations may yield different results. This is a necessary trade-
+	off to retain a certain level of performance.</p>
+<p>EReg instances can be created by calling the constructor, or with the
+	special syntax ~/pattern/modifier</p>
+<p>EReg instances maintain an internal state, which is affected by several of
+	its methods.</p>
+<p>A detailed explanation of the supported operations is available at
+	http://haxe.org/doc/cross/regexp</p></div><dl><dt><span class="kwd">function </span>new(r : <a href="String.html" class="type">String</a>, opt : <a href="String.html" class="type">String</a>) : <a href="Void.html" class="type">Void</a></dt><dd><p>Creates a new regular expression with pattern `r` and modifiers `opt`.</p>
+<p>This is equivalent to the shorthand syntax `~/r/opt`</p>
+<p>If `r` or `opt` are null, the result is unspecified.</p></dd><dt><span class="kwd">function </span>match(s : <a href="String.html" class="type">String</a>) : <a href="Bool.html" class="type">Bool</a></dt><dd><p>Tells if `this` regular expression matches String `s`.</p>
+<p>This method modifies the internal state.</p>
+<p>If `s` is `null`, the result is unspecified.</p></dd><dt><span class="kwd">function </span>matched(n : <a href="Int.html" class="type">Int</a>) : <a href="String.html" class="type">String</a></dt><dd><p>Returns the matched sub-group `n` of `this` EReg.</p>
+<p>This method should only be called after `this.match` or
+		`this.matchSub`, and then operates on the String of that operation.</p>
+<p>The index `n` corresponds to the n-th set of parentheses in the pattern
+		of `this` EReg. If no such sub-group exists, an exception is thrown.</p>
+<p>If `n` equals 0, the whole matched substring is returned.</p></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../index.html" class="index">Index</a>
+        </div>
+    </div>
+</div>

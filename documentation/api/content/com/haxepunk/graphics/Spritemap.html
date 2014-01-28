@@ -1,0 +1,36 @@
+---
+layout: api
+title: HaxePunk API
+---
+
+<div class="ink-grid">
+    <div class="column-group">
+        <div class="hide-small medium-10 large-10"></div>
+        <div class="api small-100 medium-80 large-80">
+            <a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>com.haxepunk.graphics.Spritemap</div><div class="extends">extends <a href="../../../com/haxepunk/graphics/Image.html" class="type">Image</a></div><div class="classdoc"> Performance-optimized animated Image. Can have multiple animations,
+  which draw frames from the provided source image to the screen.</div><dl><dt><span class="kwd">var </span>callbackFunc : <a href="../../../com/haxepunk/graphics/CallbackFunction.html" class="type">CallbackFunction</a></dt><dd> Optional callback function for animation end.</dd><dt><span class="kwd">var </span>columns(accessor,null) : <a href="../../../Int.html" class="type">Int</a></dt><dd> Columns in the Spritemap.</dd><dt><span class="kwd">var </span>complete : <a href="../../../Bool.html" class="type">Bool</a></dt><dd> If the animation has stopped.</dd><dt><span class="kwd">var </span>currentAnim(accessor,null) : <a href="../../../String.html" class="type">String</a></dt><dd> The currently playing animation.</dd><dt><span class="kwd">var </span>frame(accessor,accessor) : <a href="../../../Int.html" class="type">Int</a></dt><dd> Sets the current frame index. When you set this, any
+	  animations playing will be stopped to force the frame.</dd><dt><span class="kwd">var </span>frameCount(accessor,null) : <a href="../../../Int.html" class="type">Int</a></dt><dd> The amount of frames in the Spritemap.</dd><dt><span class="kwd">var </span>index(accessor,accessor) : <a href="../../../Int.html" class="type">Int</a></dt><dd> Current index of the playing animation.</dd><dt><span class="kwd">var </span>rate : <a href="../../../Float.html" class="type">Float</a></dt><dd> Animation speed factor, alter this to speed up/slow down all animations.</dd><dt><span class="kwd">var </span>rows(accessor,null) : <a href="../../../Int.html" class="type">Int</a></dt><dd> Rows in the Spritemap.</dd><dt><span class="kwd">function </span>new(source : <a href="../../../Dynamic.html" class="type">Dynamic</a>, ?frameWidth : <a href="../../../Int.html" class="type">Int</a>, ?frameHeight : <a href="../../../Int.html" class="type">Int</a>, ?cbFunc : <a href="../../../com/haxepunk/graphics/CallbackFunction.html" class="type">CallbackFunction</a>, ?name : <a href="../../../String.html" class="type">String</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Constructor.
+	  @param	source			Source image.
+	  @param	frameWidth		Frame width.
+	  @param	frameHeight		Frame height.
+	  @param	cbFunc			Optional callback function for animation end.
+	  @param	name			Optional name, necessary to identify the bitmapData if you are using flipped.</dd><dt><span class="kwd">function </span>add(name : <a href="../../../String.html" class="type">String</a>, frames : <a href="../../../Array.html" class="type">Array</a>&lt;<a href="../../../Int.html" class="type">Int</a>&gt;, ?frameRate : <a href="../../../Float.html" class="type">Float</a>, ?loop : <a href="../../../Bool.html" class="type">Bool</a>) : <a href="../../../com/haxepunk/graphics/Animation.html" class="type">Animation</a></dt><dd> Add an Animation.
+	  @param	name		Name of the animation.
+	  @param	frames		Array of frame indices to animate through.
+	  @param	frameRate	Animation speed (in frames per second, 0 defaults to assigned frame rate)
+	  @param	loop		If the animation should loop
+	  @return	A new Anim object for the animation.</dd><dt><span class="kwd">inline </span><span class="kwd">function </span>getFrame(?column : <a href="../../../Int.html" class="type">Int</a>, ?row : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../Int.html" class="type">Int</a></dt><dd> Gets the frame index based on the column and row of the source image.
+	  @param	column		Frame column.
+	  @param	row			Frame row.
+	  @return	Frame index.</dd><dt><span class="kwd">function </span>play(?name : <a href="../../../String.html" class="type">String</a>, ?reset : <a href="../../../Bool.html" class="type">Bool</a>) : <a href="../../../com/haxepunk/graphics/Animation.html" class="type">Animation</a></dt><dd> Plays an animation.
+	  @param	name		Name of the animation to play.
+	  @param	reset		If the animation should force-restart if it is already playing.
+	  @return	Anim object representing the played animation.</dd><dt><span class="kwd">function </span>randFrame() : <a href="../../../Void.html" class="type">Void</a></dt><dd> Assigns the Spritemap to a random frame.</dd><dt><span class="kwd">function </span>setAnimFrame(name : <a href="../../../String.html" class="type">String</a>, index : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Sets the frame to the frame index of an animation.
+	  @param	name	Animation to draw the frame frame.
+	  @param	index	Index of the frame of the animation to set to.</dd><dt><span class="kwd">function </span>setFrame(?column : <a href="../../../Int.html" class="type">Int</a>, ?row : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Sets the current display frame based on the column and row of the source image.
+	  When you set the frame, any animations playing will be stopped to force the frame.
+	  @param	column		Frame column.
+	  @param	row			Frame row.</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../../index.html" class="index">Index</a>
+        </div>
+    </div>
+</div>

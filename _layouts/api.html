@@ -1,0 +1,41 @@
+{% include head.html %}
+
+{{ content }}
+
+<script>
+var api = document.getElementsByClassName('api')[0],
+	first = api.children[0];
+if (first.nodeName == 'UL') {
+	var i, size, divs = api.getElementsByTagName('div');
+
+	for (i = 0, size = divs.length; i < size; i++) {
+		divs[i].className += ' hide-all';
+	}
+
+	var heading = document.createElement("h1");
+	heading.appendChild(document.createTextNode('HaxePunk API'));
+	api.insertBefore(heading, first);
+}
+
+function toggleClass(e, cls) {
+	var c = e.className,
+		index = c.indexOf(cls);
+	if (index != -1) {
+		c = c.slice(0, index) + c.substr(index + 8);
+		c = c.trim();
+	} else {
+		c += ' ' + cls;
+	}
+	e.className = c;
+}
+
+function toggle(id) {
+	var e = document.getElementById(id);
+	toggleClass(e, 'hide-all');
+	toggleClass(e.parentNode, 'expand');
+
+	return false;
+}
+</script>
+
+{% include footer.html %}

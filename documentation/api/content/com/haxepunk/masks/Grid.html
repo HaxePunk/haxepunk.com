@@ -1,0 +1,48 @@
+---
+layout: api
+title: HaxePunk API
+---
+
+<div class="ink-grid">
+    <div class="column-group">
+        <div class="hide-small medium-10 large-10"></div>
+        <div class="api small-100 medium-80 large-80">
+            <a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>com.haxepunk.masks.Grid</div><div class="extends">extends <a href="../../../com/haxepunk/masks/Hitbox.html" class="type">Hitbox</a></div><div class="classdoc"> Uses a hash grid to determine collision, faster than
+  using hundreds of Entities for tiled levels, etc.</div><dl><dt><span class="kwd">var </span>columns(default,null) : <a href="../../../Int.html" class="type">Int</a></dt><dd> How many columns the grid has</dd><dt><span class="kwd">var </span>data(default,null) : <a href="../../../Array.html" class="type">Array</a>&lt;<a href="../../../Array.html" class="type">Array</a>&lt;<a href="../../../Bool.html" class="type">Bool</a>&gt;&gt;</dt><dd> The grid data.</dd><dt><span class="kwd">var </span>rows(default,null) : <a href="../../../Int.html" class="type">Int</a></dt><dd> How many rows the grid has.</dd><dt><span class="kwd">var </span>tileHeight(accessor,null) : <a href="../../../Int.html" class="type">Int</a></dt><dd> The tile height.</dd><dt><span class="kwd">var </span>tileWidth(accessor,null) : <a href="../../../Int.html" class="type">Int</a></dt><dd> The tile width.</dd><dt><span class="kwd">var </span>usePositions : <a href="../../../Bool.html" class="type">Bool</a></dt><dd> If x/y positions should be used instead of columns/rows (the default). Columns/rows means
+	  screen coordinates relative to the width/height specified in the constructor. X/y means
+	  grid coordinates, relative to the grid size.</dd><dt><span class="kwd">function </span>new(width : <a href="../../../Int.html" class="type">Int</a>, height : <a href="../../../Int.html" class="type">Int</a>, tileWidth : <a href="../../../Int.html" class="type">Int</a>, tileHeight : <a href="../../../Int.html" class="type">Int</a>, ?x : <a href="../../../Int.html" class="type">Int</a>, ?y : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Constructor. The actual size of the grid is determined by dividing the width/height by
+	  tileWidth/tileHeight, and stored in the properties columns/rows.
+	  @param	width			Width of the grid, in pixels.
+	  @param	height			Height of the grid, in pixels.
+	  @param	tileWidth		Width of a grid tile, in pixels.
+	  @param	tileHeight		Height of a grid tile, in pixels.
+	  @param	x				X offset of the grid.
+	  @param	y				Y offset of the grid.</dd><dt><span class="kwd">inline </span><span class="kwd">function </span>clearRect(?column : <a href="../../../Int.html" class="type">Int</a>, ?row : <a href="../../../Int.html" class="type">Int</a>, ?width : <a href="../../../Int.html" class="type">Int</a>, ?height : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Makes the rectangular region of tiles non-solid.
+	  @param	column		First column.
+	  @param	row			First row.
+	  @param	width		Columns to fill.
+	  @param	height		Rows to fill.</dd><dt><span class="kwd">inline </span><span class="kwd">function </span>clearTile(?column : <a href="../../../Int.html" class="type">Int</a>, ?row : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Makes the tile non-solid.
+	  @param	column		Tile column.
+	  @param	row			Tile row.</dd><dt><span class="kwd">function </span>clone() : <a href="../../../com/haxepunk/masks/Grid.html" class="type">Grid</a></dt><dd><p>Make a copy of the grid.</p>
+<p>@return Return a copy of the grid.</p></dd><dt><span class="kwd">function </span>getTile(?column : <a href="../../../Int.html" class="type">Int</a>, ?row : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../Bool.html" class="type">Bool</a></dt><dd> Gets the value of a tile.
+	  @param	column		Tile column.
+	  @param	row			Tile row.
+	  @return	tile value.</dd><dt><span class="kwd">function </span>loadFrom2DArray(array : <a href="../../../Array.html" class="type">Array</a>&lt;<a href="../../../Array.html" class="type">Array</a>&lt;<a href="../../../Int.html" class="type">Int</a>&gt;&gt;) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Loads the grid data from an array.
+	 @param	array	The array data, which is a set of tile values (0 or 1)</dd><dt><span class="kwd">function </span>loadFromString(str : <a href="../../../String.html" class="type">String</a>, ?columnSep : <a href="../../../String.html" class="type">String</a>, ?rowSep : <a href="../../../String.html" class="type">String</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Loads the grid data from a string.
+	 @param	str			The string data, which is a set of tile values (0 or 1) separated by the columnSep and rowSep strings.
+	 @param	columnSep	The string that separates each tile value on a row, default is ",".
+	 @param	rowSep		The string that separates each row of tiles, default is "\n".</dd><dt><span class="kwd">function </span>saveToString(?columnSep : <a href="../../../String.html" class="type">String</a>, ?rowSep : <a href="../../../String.html" class="type">String</a>, ?solid : <a href="../../../String.html" class="type">String</a>, ?empty : <a href="../../../String.html" class="type">String</a>) : <a href="../../../String.html" class="type">String</a></dt><dd><p>Saves the grid data to a string.
+	 @param	columnSep	The string that separates each tile value on a row, default is ",".
+	 @param	rowSep		The string that separates each row of tiles, default is "\n".</p>
+<p>@return The string version of the grid.</p></dd><dt><span class="kwd">function </span>setRect(?column : <a href="../../../Int.html" class="type">Int</a>, ?row : <a href="../../../Int.html" class="type">Int</a>, ?width : <a href="../../../Int.html" class="type">Int</a>, ?height : <a href="../../../Int.html" class="type">Int</a>, ?solid : <a href="../../../Bool.html" class="type">Bool</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Sets the value of a rectangle region of tiles.
+	  @param	column		First column.
+	  @param	row			First row.
+	  @param	width		Columns to fill.
+	  @param	height		Rows to fill.
+	  @param	solid		Value to fill.</dd><dt><span class="kwd">function </span>setTile(?column : <a href="../../../Int.html" class="type">Int</a>, ?row : <a href="../../../Int.html" class="type">Int</a>, ?solid : <a href="../../../Bool.html" class="type">Bool</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Sets the value of the tile.
+	  @param	column		Tile column.
+	  @param	row			Tile row.
+	  @param	solid		If the tile should be solid.</dd><dt><span class="kwd">function </span>squareProjection(axis : <a href="../../../flash/geom/Point.html" class="type">flash.geom.Point</a>, point : <a href="../../../flash/geom/Point.html" class="type">flash.geom.Point</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../../index.html" class="index">Index</a>
+        </div>
+    </div>
+</div>

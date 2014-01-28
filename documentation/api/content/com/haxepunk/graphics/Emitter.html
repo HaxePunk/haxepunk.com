@@ -1,0 +1,62 @@
+---
+layout: api
+title: HaxePunk API
+---
+
+<div class="ink-grid">
+    <div class="column-group">
+        <div class="hide-small medium-10 large-10"></div>
+        <div class="api small-100 medium-80 large-80">
+            <a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>com.haxepunk.graphics.Emitter</div><div class="extends">extends <a href="../../../com/haxepunk/Graphic.html" class="type">com.haxepunk.Graphic</a></div><div class="classdoc"> Particle emitter used for emitting and rendering particle sprites.
+  Good rendering performance with large amounts of particles.</div><dl><dt><span class="kwd">var </span>particleCount(default,null) : <a href="../../../Int.html" class="type">Int</a></dt><dd> Amount of currently existing particles.</dd><dt><span class="kwd">function </span>new(source : <a href="../../../Dynamic.html" class="type">Dynamic</a>, ?frameWidth : <a href="../../../Int.html" class="type">Int</a>, ?frameHeight : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Constructor. Sets the source image to use for newly added particle types.
+	  @param	source			Source image.
+	  @param	frameWidth		Frame width.
+	  @param	frameHeight		Frame height.</dd><dt><span class="kwd">function </span>emit(name : <a href="../../../String.html" class="type">String</a>, ?x : <a href="../../../Float.html" class="type">Float</a>, ?y : <a href="../../../Float.html" class="type">Float</a>) : <a href="../../../com/haxepunk/graphics/Particle.html" class="type">Particle</a></dt><dd> Emits a particle.
+	  @param	name		Particle type to emit.
+	  @param	x			X point to emit from.
+	  @param	y			Y point to emit from.
+	  @return	The Particle emited.</dd><dt><span class="kwd">function </span>emitInCircle(name : <a href="../../../String.html" class="type">String</a>, x : <a href="../../../Float.html" class="type">Float</a>, y : <a href="../../../Float.html" class="type">Float</a>, radius : <a href="../../../Float.html" class="type">Float</a>) : <a href="../../../com/haxepunk/graphics/Particle.html" class="type">Particle</a></dt><dd><p>Randomly emits the particle inside the specified radius
+	  @param	name		Particle type to emit.
+	  @param	x			X point to emit from.
+	  @param	y			Y point to emit from.
+	  @param	radius		Radius to emit inside.</p>
+<p>@return The Particle emited.</p></dd><dt><span class="kwd">function </span>emitInRectangle(name : <a href="../../../String.html" class="type">String</a>, x : <a href="../../../Float.html" class="type">Float</a>, y : <a href="../../../Float.html" class="type">Float</a>, width : <a href="../../../Float.html" class="type">Float</a>, height : <a href="../../../Float.html" class="type">Float</a>) : <a href="../../../com/haxepunk/graphics/Particle.html" class="type">Particle</a></dt><dd><p>Randomly emits the particle inside the specified area
+	  @param	name		Particle type to emit
+	  @param	x			X point to emit from.
+	  @param	y			Y point to emit from.
+	  @param	width		Width of the area to emit from.
+	  @param	height		height of the area to emit from.</p>
+<p>@return The Particle emited.</p></dd><dt><span class="kwd">function </span>newType(name : <a href="../../../String.html" class="type">String</a>, ?frames : <a href="../../../Array.html" class="type">Array</a>&lt;<a href="../../../Int.html" class="type">Int</a>&gt;) : <a href="../../../com/haxepunk/graphics/ParticleType.html" class="type">ParticleType</a></dt><dd> Creates a new Particle type for this Emitter.
+	  @param	name		Name of the particle type.
+	  @param	frames		Array of frame indices for the particles to animate.
+	  @return	A new ParticleType object.</dd><dt><span class="kwd">function </span>setAlpha(name : <a href="../../../String.html" class="type">String</a>, ?start : <a href="../../../Float.html" class="type">Float</a>, ?finish : <a href="../../../Float.html" class="type">Float</a>, ?ease : <a href="../../../com/haxepunk/utils/EaseFunction.html" class="type">com.haxepunk.utils.EaseFunction</a>) : <a href="../../../com/haxepunk/graphics/ParticleType.html" class="type">ParticleType</a></dt><dd> Sets the alpha range of the particle type.
+	  @param	name		The particle type.
+	  @param	start		The starting alpha.
+	  @param	finish		The finish alpha.
+	  @param	ease		Optional easer function.
+	  @return	This ParticleType object.</dd><dt><span class="kwd">function </span>setColor(name : <a href="../../../String.html" class="type">String</a>, ?start : <a href="../../../Int.html" class="type">Int</a>, ?finish : <a href="../../../Int.html" class="type">Int</a>, ?ease : <a href="../../../com/haxepunk/utils/EaseFunction.html" class="type">com.haxepunk.utils.EaseFunction</a>) : <a href="../../../com/haxepunk/graphics/ParticleType.html" class="type">ParticleType</a></dt><dd> Sets the color range of the particle type.
+	  @param	name		The particle type.
+	  @param	start		The starting color.
+	  @param	finish		The finish color.
+	  @param	ease		Optional easer function.
+	  @return	This ParticleType object.</dd><dt><span class="kwd">function </span>setGravity(name : <a href="../../../String.html" class="type">String</a>, ?gravity : <a href="../../../Float.html" class="type">Float</a>, ?gravityRange : <a href="../../../Float.html" class="type">Float</a>) : <a href="../../../com/haxepunk/graphics/ParticleType.html" class="type">ParticleType</a></dt><dd> Sets the gravity range for a particle type.
+	  @param	name      		The particle type.
+	  @param	gravity      	Gravity amount to affect to the particle y velocity.
+	  @param	gravityRange	Random amount to add to the particle's gravity.
+	  @return	This ParticleType object.</dd><dt><span class="kwd">function </span>setMotion(name : <a href="../../../String.html" class="type">String</a>, angle : <a href="../../../Float.html" class="type">Float</a>, distance : <a href="../../../Float.html" class="type">Float</a>, duration : <a href="../../../Float.html" class="type">Float</a>, ?angleRange : <a href="../../../Float.html" class="type">Float</a>, ?distanceRange : <a href="../../../Float.html" class="type">Float</a>, ?durationRange : <a href="../../../Float.html" class="type">Float</a>, ?ease : <a href="../../../com/haxepunk/utils/EaseFunction.html" class="type">com.haxepunk.utils.EaseFunction</a>, ?backwards : <a href="../../../Bool.html" class="type">Bool</a>) : <a href="../../../com/haxepunk/graphics/ParticleType.html" class="type">ParticleType</a></dt><dd> Defines the motion range for a particle type.
+	  @param	name			The particle type.
+	  @param	angle			Launch Direction.
+	  @param	distance		Distance to travel.
+	  @param	duration		Particle duration.
+	  @param	angleRange		Random amount to add to the particle's direction.
+	  @param	distanceRange	Random amount to add to the particle's distance.
+	  @param	durationRange	Random amount to add to the particle's duration.
+	  @param	ease			Optional ease function.
+	  @param	backwards		If the motion should be played backwards.
+	  @return	This ParticleType object.</dd><dt><span class="kwd">function </span>setSource(source : <a href="../../../Dynamic.html" class="type">Dynamic</a>, ?frameWidth : <a href="../../../Int.html" class="type">Int</a>, ?frameHeight : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Changes the source image to use for newly added particle types.
+	  @param	source			Source image.
+	  @param	frameWidth		Frame width.
+	  @param	frameHeight		Frame height.</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../../index.html" class="index">Index</a>
+        </div>
+    </div>
+</div>

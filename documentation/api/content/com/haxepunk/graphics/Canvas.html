@@ -1,0 +1,32 @@
+---
+layout: api
+title: HaxePunk API
+---
+
+<div class="ink-grid">
+    <div class="column-group">
+        <div class="hide-small medium-10 large-10"></div>
+        <div class="api small-100 medium-80 large-80">
+            <a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>com.haxepunk.graphics.Canvas</div><div class="extends">extends <a href="../../../com/haxepunk/Graphic.html" class="type">com.haxepunk.Graphic</a></div><div class="classdoc"> A  multi-purpose drawing canvas, can be sized beyond the normal Flash BitmapData limits.</div><dl><dt><span class="kwd">var </span>alpha(accessor,accessor) : <a href="../../../Float.html" class="type">Float</a></dt><dd> Change the opacity of the Canvas, a value from 0 to 1.</dd><dt><span class="kwd">var </span>angle : <a href="../../../Float.html" class="type">Float</a></dt><dd> Rotation of the canvas, in degrees.</dd><dt><span class="kwd">var </span>blend : <a href="../../../flash/display/BlendMode.html" class="type">flash.display.BlendMode</a></dt><dd> Optional blend mode to use (see flash.display.BlendMode for blending modes).</dd><dt><span class="kwd">var </span>color(accessor,accessor) : <a href="../../../Int.html" class="type">Int</a></dt><dd> The tinted color of the Canvas. Use 0xFFFFFF to draw the it normally.</dd><dt><span class="kwd">var </span>height(accessor,null) : <a href="../../../Int.html" class="type">Int</a></dt><dd> Height of the canvas.</dd><dt><span class="kwd">var </span>scale : <a href="../../../Float.html" class="type">Float</a></dt><dd> Scale of the canvas, effects both x and y scale.</dd><dt><span class="kwd">var </span>scaleX : <a href="../../../Float.html" class="type">Float</a></dt><dd> X scale of the canvas.</dd><dt><span class="kwd">var </span>scaleY : <a href="../../../Float.html" class="type">Float</a></dt><dd> Y scale of the canvas.</dd><dt><span class="kwd">var </span>width(accessor,null) : <a href="../../../Int.html" class="type">Int</a></dt><dd> Width of the canvas.</dd><dt><span class="kwd">function </span>new(width : <a href="../../../Int.html" class="type">Int</a>, height : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Constructor.
+	  @param	width		Width of the canvas.
+	  @param	height		Height of the canvas.</dd><dt><span class="kwd">function </span>draw(x : <a href="../../../Int.html" class="type">Int</a>, y : <a href="../../../Int.html" class="type">Int</a>, source : <a href="../../../flash/display/BitmapData.html" class="type">flash.display.BitmapData</a>, ?rect : <a href="../../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Draws to the canvas.
+	  @param	x			X position to draw.
+	  @param	y			Y position to draw.
+	  @param	source		Source BitmapData.
+	  @param	rect		Optional area of the source image to draw from. If null, the entire BitmapData will be drawn.</dd><dt><span class="kwd">function </span>drawGraphic(x : <a href="../../../Int.html" class="type">Int</a>, y : <a href="../../../Int.html" class="type">Int</a>, source : <a href="../../../com/haxepunk/Graphic.html" class="type">com.haxepunk.Graphic</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Draws the Graphic object to the canvas.
+	  @param	x			X position to draw.
+	  @param	y			Y position to draw.
+	  @param	source		Graphic to draw.</dd><dt><span class="kwd">function </span>drawRect(rect : <a href="../../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>, ?color : <a href="../../../Int.html" class="type">Int</a>, ?alpha : <a href="../../../Float.html" class="type">Float</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Draws over a rectangular area of the canvas.
+	  @param	rect		Drawing rectangle.
+	  @param	color		Draw color.
+	  @param	alpha		Draw alpha. If < 1, this rectangle will blend with existing contents of the canvas.</dd><dt><span class="kwd">function </span>fill(rect : <a href="../../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>, ?color : <a href="../../../Int.html" class="type">Int</a>, ?alpha : <a href="../../../Float.html" class="type">Float</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Fills the rectangular area of the canvas. The previous contents of that area are completely removed.
+	  @param	rect		Fill rectangle.
+	  @param	color		Fill color.
+	  @param	alpha		Fill alpha.</dd><dt><span class="kwd">function </span>fillTexture(rect : <a href="../../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>, texture : <a href="../../../flash/display/BitmapData.html" class="type">flash.display.BitmapData</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Fills the rectangle area of the canvas with the texture.
+	  @param	rect		Fill rectangle.
+	  @param	texture		Fill texture.</dd><dt><span class="kwd">function </span>shift(?x : <a href="../../../Int.html" class="type">Int</a>, ?y : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Shifts the canvas' pixels by the offset.
+	  @param	x	Horizontal shift.
+	  @param	y	Vertical shift.</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../../index.html" class="index">Index</a>
+        </div>
+    </div>
+</div>

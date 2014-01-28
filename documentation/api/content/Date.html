@@ -1,0 +1,37 @@
+---
+layout: api
+title: HaxePunk API
+---
+
+<div class="ink-grid">
+    <div class="column-group">
+        <div class="hide-small medium-10 large-10"></div>
+        <div class="api small-100 medium-80 large-80">
+            <a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../index.html" class="index">Index</a><div class="classname"><span class="kwd">extern </span><span class="kwd">class </span>Date</div><div class="classdoc"><p>The Date class provides a basic structure for date and time related
+	information. Date instances can be created by</p>
+<p>- `new Date()` for a specific date,
+	- `Date.now()` to obtain information about the current time,
+	- `Date.fromTime()` with a given timestamp or
+	- `Date.fromString()` by parsing from a String.</p>
+<p>There is some extra functions available in the `DateTools` class.</p>
+<p>In the context of haxe dates, a timestamp is defined as the number of
+	milliseconds elapsed since 1st January 1970.</p></div><dl><dt><span class="kwd">function </span>new(year : <a href="Int.html" class="type">Int</a>, month : <a href="Int.html" class="type">Int</a>, day : <a href="Int.html" class="type">Int</a>, hour : <a href="Int.html" class="type">Int</a>, min : <a href="Int.html" class="type">Int</a>, sec : <a href="Int.html" class="type">Int</a>) : <a href="Void.html" class="type">Void</a></dt><dd><p>Creates a new date object from the given arguments.</p>
+<p>The behaviour of a Date instance is only consistent across platforms if
+		the the arguments describe a valid date.</p>
+<p>- month: 0 to 11
+		- day: 1 to 31
+		- hour: 0 to 23
+		- min: 0 to 59
+		- sec: 0 to 59</p></dd><dt><span class="kwd">function </span>getDate() : <a href="Int.html" class="type">Int</a></dt><dd>Returns the day of `this` Date (1-31 range).</dd><dt><span class="kwd">function </span>getDay() : <a href="Int.html" class="type">Int</a></dt><dd>Returns the day of the week of `this` Date (0-6 range).</dd><dt><span class="kwd">function </span>getFullYear() : <a href="Int.html" class="type">Int</a></dt><dd>Returns the full year of `this` Date (4-digits).</dd><dt><span class="kwd">function </span>getHours() : <a href="Int.html" class="type">Int</a></dt><dd>Returns the hours of `this` Date (0-23 range).</dd><dt><span class="kwd">function </span>getMinutes() : <a href="Int.html" class="type">Int</a></dt><dd>Returns the minutes of `this` Date (0-59 range).</dd><dt><span class="kwd">function </span>getMonth() : <a href="Int.html" class="type">Int</a></dt><dd>Returns the month of `this` Date (0-11 range).</dd><dt><span class="kwd">function </span>getSeconds() : <a href="Int.html" class="type">Int</a></dt><dd>Returns the seconds of the `this` Date (0-59 range).</dd><dt><span class="kwd">function </span>getTime() : <a href="Float.html" class="type">Float</a></dt><dd>Returns the timestamp of the date. It might only have a per-second
+		precision depending on the platforms.</dd><dt><span class="kwd">function </span>toString() : <a href="String.html" class="type">String</a></dt><dd>Returns a string representation of `this` Date, by using the
+		standard format <code>YYYY-MM-DD HH:MM:SS</code>. See `DateTools.format` for
+		other formating rules.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>fromString(s : <a href="String.html" class="type">String</a>) : <a href="Date.html" class="type">Date</a></dt><dd><p>Returns a Date from a formated string `s`, with the following accepted
+		formats:</p>
+<p>- `"YYYY-MM-DD hh:mm:ss"`
+		- `"YYYY-MM-DD"`
+		- `"hh:mm:ss"`</p>
+<p>The first two formats are expressed in local time, the third in UTC
+		Epoch.</p></dd><dt><span class="kwd">static </span><span class="kwd">function </span>fromTime(t : <a href="Float.html" class="type">Float</a>) : <a href="Date.html" class="type">Date</a></dt><dd>Returns a Date from timestamp `t`.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>now() : <a href="Date.html" class="type">Date</a></dt><dd>Returns a Date representing the current local time.</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../index.html" class="index">Index</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+---
+layout: api
+title: HaxePunk API
+---
+
+<div class="ink-grid">
+    <div class="column-group">
+        <div class="hide-small medium-10 large-10"></div>
+        <div class="api small-100 medium-80 large-80">
+            <a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">extern </span><span class="kwd">class </span>flash.text.Font</div><div class="classdoc"> The Font class is used to manage embedded fonts in SWF files. Embedded
+  fonts are represented as a subclass of the Font class. The Font class is
+  currently useful only to find out information about embedded fonts; you
+  cannot alter a font by using this class. You cannot use the Font class to
+  load external fonts, or to create an instance of a Font object by itself.
+  Use the Font class as an abstract base class.</div><dl><dt><span class="kwd">var </span>fontName(default,null) : <a href="../../String.html" class="type">String</a></dt><dd> The name of an embedded font.</dd><dt><span class="kwd">var </span>fontStyle(default,null) : <a href="../../flash/text/FontStyle.html" class="type">FontStyle</a></dt><dd> The style of the font. This value can be any of the values defined in the
+	  FontStyle class.</dd><dt><span class="kwd">var </span>fontType(default,null) : <a href="../../flash/text/FontType.html" class="type">FontType</a></dt><dd> The type of the font. This value can be any of the constants defined in
+	  the FontType class.</dd><dt><span class="kwd">function </span>new() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>hasGlyphs(str : <a href="../../String.html" class="type">String</a>) : <a href="../../Bool.html" class="type">Bool</a></dt><dd><p>Specifies whether a provided string can be displayed using the currently
+	  assigned font.</p>
+<p>@param str The string to test against the current font.
+	  @return A value of <code>true</code> if the specified string can be fully
+	          displayed using this font.</p></dd><dt><span class="kwd">static </span><span class="kwd">function </span>enumerateFonts(?enumerateDeviceFonts : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../flash/text/Font.html" class="type">Font</a>&gt;</dt><dd><p>Specifies whether to provide a list of the currently available embedded
+	  fonts.</p>
+<p>@param enumerateDeviceFonts Indicates whether you want to limit the list
+	                              to only the currently available embedded
+	                              fonts. If this is set to <code>true</code>
+	                              then a list of all fonts, both device fonts
+	                              and embedded fonts, is returned. If this is
+	                              set to <code>false</code> then only a list of
+	                              embedded fonts is returned.
+	  @return A list of available fonts as an array of Font objects.</p></dd><dt><span class="kwd">static </span><span class="kwd">function </span>registerFont(font : <a href="../../Class.html" class="type">Class</a>&lt;<a href="../../Dynamic.html" class="type">Dynamic</a>&gt;) : <a href="../../Void.html" class="type">Void</a></dt><dd> Registers a font class in the global font list.
+</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+        </div>
+    </div>
+</div>

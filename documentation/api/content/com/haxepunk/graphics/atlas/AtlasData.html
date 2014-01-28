@@ -1,0 +1,47 @@
+---
+layout: api
+title: HaxePunk API
+---
+
+<div class="ink-grid">
+    <div class="column-group">
+        <div class="hide-small medium-10 large-10"></div>
+        <div class="api small-100 medium-80 large-80">
+            <a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>com.haxepunk.graphics.atlas.AtlasData</div><dl><dt><span class="kwd">var </span>alpha(accessor,accessor) : <a href="../../../../Bool.html" class="type">Bool</a></dt><dd> Sets the render flag to enable/disable alpha
+	  Default: true</dd><dt><span class="kwd">var </span>blend(accessor,accessor) : <a href="../../../../Int.html" class="type">Int</a></dt><dd> Sets the blend mode for rendering (BLEND_NONE, BLEND_NORMAL, BLEND_ADD)
+	  Default: BLEND_NORMAL</dd><dt><span class="kwd">var </span>height(default,null) : <a href="../../../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>rgb(accessor,accessor) : <a href="../../../../Bool.html" class="type">Bool</a></dt><dd> Sets the render flag to enable/disable rgb tinting
+	  Default: true</dd><dt><span class="kwd">var </span>width(default,null) : <a href="../../../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">inline </span><span class="kwd">function </span>createRegion(rect : <a href="../../../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>, ?center : <a href="../../../../flash/geom/Point.html" class="type">flash.geom.Point</a>) : <a href="../../../../com/haxepunk/graphics/atlas/AtlasRegion.html" class="type">AtlasRegion</a></dt><dd><p>Creates a new AtlasRegion
+	  @param	rect	Defines the rectangle of the tile on the tilesheet
+	  @param	center	Positions the local center point to pivot on</p>
+<p>@return The new AtlasRegion object.</p></dd><dt><span class="kwd">function </span>destroy() : <a href="../../../../Void.html" class="type">Void</a></dt><dd> Removes the object from memory</dd><dt><span class="kwd">inline </span><span class="kwd">function </span>flush() : <a href="../../../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">inline </span><span class="kwd">function </span>prepareTile(tile : <a href="../../../../Int.html" class="type">Int</a>, x : <a href="../../../../Float.html" class="type">Float</a>, y : <a href="../../../../Float.html" class="type">Float</a>, layer : <a href="../../../../Int.html" class="type">Int</a>, scaleX : <a href="../../../../Float.html" class="type">Float</a>, scaleY : <a href="../../../../Float.html" class="type">Float</a>, angle : <a href="../../../../Float.html" class="type">Float</a>, red : <a href="../../../../Float.html" class="type">Float</a>, green : <a href="../../../../Float.html" class="type">Float</a>, blue : <a href="../../../../Float.html" class="type">Float</a>, alpha : <a href="../../../../Float.html" class="type">Float</a>) : <a href="../../../../Void.html" class="type">Void</a></dt><dd> Prepares a tile to be drawn
+	  @param  tile   The tile index to draw
+	  @param  x      The x-axis value
+	  @param  y      The y-axis value
+	  @param  layer  The layer to draw on
+	  @param  scaleX X-Axis scale
+	  @param  scaleY Y-Axis scale
+	  @param  angle  Angle (in degrees)
+	  @param  red    Red color value
+	  @param  green  Green color value
+	  @param  blue   Blue color value
+	  @param  alpha  Alpha value</dd><dt><span class="kwd">inline </span><span class="kwd">function </span>prepareTileMatrix(tile : <a href="../../../../Int.html" class="type">Int</a>, layer : <a href="../../../../Int.html" class="type">Int</a>, tx : <a href="../../../../Float.html" class="type">Float</a>, ty : <a href="../../../../Float.html" class="type">Float</a>, a : <a href="../../../../Float.html" class="type">Float</a>, b : <a href="../../../../Float.html" class="type">Float</a>, c : <a href="../../../../Float.html" class="type">Float</a>, d : <a href="../../../../Float.html" class="type">Float</a>, red : <a href="../../../../Float.html" class="type">Float</a>, green : <a href="../../../../Float.html" class="type">Float</a>, blue : <a href="../../../../Float.html" class="type">Float</a>, alpha : <a href="../../../../Float.html" class="type">Float</a>) : <a href="../../../../Void.html" class="type">Void</a></dt><dd> Prepares a tile to be drawn using a matrix
+	  @param  tile  The tile index to draw
+	  @param  layer The layer to draw on
+	  @param  tx    X-Axis translation
+	  @param  ty    Y-Axis translation
+	  @param  a     Top-left
+	  @param  b     Top-right
+	  @param  c     Bottom-left
+	  @param  d     Bottom-right
+	  @param  red   Red color value
+	  @param  green Green color value
+	  @param  blue  Blue color value
+	  @param  alpha Alpha value</dd><dt><span class="kwd">static </span><span class="kwd">inline </span><span class="kwd">var </span>BLEND_ADD : <a href="../../../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">inline </span><span class="kwd">var </span>BLEND_NONE : <a href="../../../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">inline </span><span class="kwd">var </span>BLEND_NORMAL : <a href="../../../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>create(source : <a href="../../../../Dynamic.html" class="type">Dynamic</a>) : <a href="../../../../com/haxepunk/graphics/atlas/AtlasData.html" class="type">AtlasData</a></dt><dd> Creates a new AtlasData object
+	  @param	source	The image to initialize AtlasData with
+	  @return	An AtlasData object</dd><dt><span class="kwd">static </span><span class="kwd">function </span>destroyAll() : <a href="../../../../Void.html" class="type">Void</a></dt><dd> Removes all atlases from the display list</dd><dt><span class="kwd">static </span><span class="kwd">inline </span><span class="kwd">function </span>endScene() : <a href="../../../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">inline </span><span class="kwd">function </span>getAtlasDataByName(name : <a href="../../../../String.html" class="type">String</a>, ?create : <a href="../../../../Bool.html" class="type">Bool</a>) : <a href="../../../../com/haxepunk/graphics/atlas/AtlasData.html" class="type">AtlasData</a></dt><dd> Get's the atlas data for a specific texture, useful for setting rendering flags
+	  @param	name	The name of the image file
+	  @return	An AtlasData object (will create one if it doesn't already exist)</dd><dt><span class="kwd">static </span><span class="kwd">inline </span><span class="kwd">function </span>startScene(scene : <a href="../../../../com/haxepunk/Scene.html" class="type">com.haxepunk.Scene</a>) : <a href="../../../../Void.html" class="type">Void</a></dt><dd> Sets the scene object
+	  @param	scene	The scene object to set</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../../../index.html" class="index">Index</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+---
+layout: api
+title: HaxePunk API
+---
+
+<div class="ink-grid">
+    <div class="column-group">
+        <div class="hide-small medium-10 large-10"></div>
+        <div class="api small-100 medium-80 large-80">
+            <a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>com.haxepunk.utils.Joystick</div><dl><dt><span class="kwd">var </span>axis(null,default) : <a href="../../../Array.html" class="type">Array</a>&lt;<a href="../../../Float.html" class="type">Float</a>&gt;</dt><dd> Each axis contained in an array.</dd><dt><span class="kwd">var </span>ball : <a href="../../../flash/geom/Point.html" class="type">flash.geom.Point</a></dt><dd> A Point containing the joystick's ball value.</dd><dt><span class="kwd">var </span>buttons : <a href="../../../Map.html" class="type">Map</a>&lt;<a href="../../../Int.html" class="type">Int</a>, <a href="../../../com/haxepunk/utils/JoyButtonState.html" class="type">JoyButtonState</a>&gt;</dt><dd> A map of buttons and their states</dd><dt><span class="kwd">var </span>connected(accessor,accessor) : <a href="../../../Bool.html" class="type">Bool</a></dt><dd> If the joystick is currently connected.</dd><dt><span class="kwd">var </span>hat : <a href="../../../flash/geom/Point.html" class="type">flash.geom.Point</a></dt><dd> A Point containing the joystick's hat value.</dd><dt><span class="kwd">function </span>new() : <a href="../../../Void.html" class="type">Void</a></dt><dd> Creates and initializes a new Joystick.</dd><dt><span class="kwd">function </span>check(button : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../Bool.html" class="type">Bool</a></dt><dd> If the joystick button is held down.
+	  @param  button The button index to check.</dd><dt><span class="kwd">inline </span><span class="kwd">function </span>getAxis(a : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../Float.html" class="type">Float</a></dt><dd> Returns the axis value (from 0 to 1)
+	  @param  a The axis index to retrieve starting at 0</dd><dt><span class="kwd">function </span>pressed(button : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../Bool.html" class="type">Bool</a></dt><dd> If the joystick button was pressed this frame.
+	  @param  button The button index to check.</dd><dt><span class="kwd">function </span>update() : <a href="../../../Void.html" class="type">Void</a></dt><dd> Updates the joystick's state.</dd><dt><span class="kwd">static </span><span class="kwd">inline </span><span class="kwd">var </span>deadZone : <a href="../../../Float.html" class="type">Float</a></dt><dd> Determines the joystick's deadZone. Anything under this value will be considered 0 to prevent jitter.</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../../index.html" class="index">Index</a>
+        </div>
+    </div>
+</div>

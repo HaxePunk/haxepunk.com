@@ -210,6 +210,21 @@ a {
 	);
 }
 
+/* API Pages */
+.api { padding: 30px 0; overflow: auto }
+.api h1 { text-align: center; }
+.api .classname { font-size: 1.4em; font-weight: bold; margin-top: 30px }
+.api .extends { margin: 5px 30px 15px; font-size: 0.8em }
+.api .classdoc { color: #888; font-size: 0.9em; font-style: italic }
+.api .kwd { color: #09598A; font-weight: bold }
+.api ul { list-style: none; }
+.api dl { margin-bottom: 30px }
+.api dt { border-top: 1px dotted #BBB; margin-top: 20px; padding-top; 5px }
+.api dd { color: #888; white-space: pre; font-size: 0.9em }
+.api .package { color: #333; }
+.api .package:after { content:"\f105"; font-family: FontAwesome; padding-left: 5px; }
+.api .expand > .package:after { content:"\f107"; }
+
 @media screen and (max-width: 1100px) {
 	a.logo {
 		margin-left: 10px;

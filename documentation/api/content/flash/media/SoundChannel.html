@@ -1,0 +1,32 @@
+---
+layout: api
+title: HaxePunk API
+---
+
+<div class="ink-grid">
+    <div class="column-group">
+        <div class="hide-small medium-10 large-10"></div>
+        <div class="api small-100 medium-80 large-80">
+            <a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">extern </span><span class="kwd">class </span>flash.media.SoundChannel</div><div class="extends">extends <a href="../../flash/events/EventDispatcher.html" class="type">flash.events.EventDispatcher</a></div><div class="classdoc"><p>The SoundChannel class controls a sound in an application. Every sound is
+  assigned to a sound channel, and the application can have multiple sound
+  channels that are mixed together. The SoundChannel class contains a
+  <code>stop()</code> method, properties for monitoring the amplitude
+  (volume) of the channel, and a property for assigning a SoundTransform
+  object to the channel.</p>
+<p>@event soundComplete Dispatched when a sound has finished playing.</p></div><dl><dt><span class="kwd">var </span>leftPeak(default,null) : <a href="../../Float.html" class="type">Float</a></dt><dd> The current amplitude(volume) of the left channel, from 0(silent) to 1
+	  (full amplitude).</dd><dt><span class="kwd">var </span>position : <a href="../../Float.html" class="type">Float</a></dt><dd><p>When the sound is playing, the <code>position</code> property indicates in
+	  milliseconds the current point that is being played in the sound file.
+	  When the sound is stopped or paused, the <code>position</code> property
+	  indicates the last point that was played in the sound file.</p>
+<p><p>A common use case is to save the value of the <code>position</code>
+	  property when the sound is stopped. You can resume the sound later by
+	  restarting it from that saved position. </p></p>
+<p><p>If the sound is looped, <code>position</code> is reset to 0 at the
+	  beginning of each loop.</p></p></dd><dt><span class="kwd">var </span>rightPeak(default,null) : <a href="../../Float.html" class="type">Float</a></dt><dd> The current amplitude(volume) of the right channel, from 0(silent) to 1
+	  (full amplitude).</dd><dt><span class="kwd">var </span>soundTransform : <a href="../../flash/media/SoundTransform.html" class="type">SoundTransform</a></dt><dd> The SoundTransform object assigned to the sound channel. A SoundTransform
+	  object includes properties for setting volume, panning, left speaker
+	  assignment, and right speaker assignment.</dd><dt><span class="kwd">function </span>new() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>stop() : <a href="../../Void.html" class="type">Void</a></dt><dd> Stops the sound playing in the channel.
+</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+---
+layout: api
+title: HaxePunk API
+---
+
+<div class="ink-grid">
+    <div class="column-group">
+        <div class="hide-small medium-10 large-10"></div>
+        <div class="api small-100 medium-80 large-80">
+            <a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">extern </span><span class="kwd">class </span>flash.events.KeyboardEvent</div><div class="extends">extends <a href="../../flash/events/Event.html" class="type">Event</a></div><div class="classdoc"><p>A KeyboardEvent object id dispatched in response to user input through a
+  keyboard. There are two types of keyboard events:
+  <code>KeyboardEvent.KEY_DOWN</code> and <code>KeyboardEvent.KEY_UP</code></p>
+<p><p>Because mappings between keys and specific characters vary by device and
+  operating system, use the TextEvent event type for processing character
+  input.</p></p>
+<p><p>To listen globally for key events, listen on the Stage for the capture
+  and target or bubble phase.</p></p></div><dl><dt><span class="kwd">var </span>altKey : <a href="../../Bool.html" class="type">Bool</a></dt><dd> Indicates whether the Alt key is active(<code>true</code>) or inactive
+	  (<code>false</code>) on Windows; indicates whether the Option key is
+	  active on Mac OS.</dd><dt><span class="kwd">var </span>charCode : <a href="../../Int.html" class="type">Int</a></dt><dd><p>Contains the character code value of the key pressed or released. The
+	  character code values are English keyboard values. For example, if you
+	  press Shift+3, <code>charCode</code> is # on a Japanese keyboard, just as
+	  it is on an English keyboard.</p>
+<p><p><b>Note: </b>When an input method editor(IME) is running,
+	  <code>charCode</code> does not report accurate character codes.</p></p></dd><dt><span class="kwd">var </span>ctrlKey : <a href="../../Bool.html" class="type">Bool</a></dt><dd> On Windows and Linux, indicates whether the Ctrl key is active
+	  (<code>true</code>) or inactive(<code>false</code>); On Mac OS, indicates
+	  whether either the Ctrl key or the Command key is active.</dd><dt><span class="kwd">var </span>keyCode : <a href="../../Int.html" class="type">Int</a></dt><dd><p>The key code value of the key pressed or released.</p>
+<p><p><b>Note: </b>When an input method editor(IME) is running,
+	  <code>keyCode</code> does not report accurate key codes.</p></p></dd><dt><span class="kwd">var </span>keyLocation : <a href="../../flash/ui/KeyLocation.html" class="type">flash.ui.KeyLocation</a></dt><dd> Indicates the location of the key on the keyboard. This is useful for
+	  differentiating keys that appear more than once on a keyboard. For
+	  example, you can differentiate between the left and right Shift keys by
+	  the value of this property: <code>KeyLocation.LEFT</code> for the left and
+	  <code>KeyLocation.RIGHT</code> for the right. Another example is
+	  differentiating between number keys pressed on the standard keyboard
+	  (<code>KeyLocation.STANDARD</code>) versus the numeric keypad
+	  (<code>KeyLocation.NUM_PAD</code>).</dd><dt><span class="kwd">var </span>shiftKey : <a href="../../Bool.html" class="type">Bool</a></dt><dd> Indicates whether the Shift key modifier is active(<code>true</code>) or
+	  inactive(<code>false</code>).</dd><dt><span class="kwd">function </span>new(type : <a href="../../String.html" class="type">String</a>, ?bubbles : <a href="../../Bool.html" class="type">Bool</a>, ?cancelable : <a href="../../Bool.html" class="type">Bool</a>, ?charCodeValue : <a href="../../Int.html" class="type">Int</a>, ?keyCodeValue : <a href="../../Int.html" class="type">Int</a>, ?keyLocationValue : <a href="../../flash/ui/KeyLocation.html" class="type">flash.ui.KeyLocation</a>, ?ctrlKeyValue : <a href="../../Bool.html" class="type">Bool</a>, ?altKeyValue : <a href="../../Bool.html" class="type">Bool</a>, ?shiftKeyValue : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd><p>Creates an Event object that contains specific information about keyboard
+	  events. Event objects are passed as parameters to event listeners.</p>
+<p>@param type             The type of the event. Possible values are:
+	                          <code>KeyboardEvent.KEY_DOWN</code> and
+	                          <code>KeyboardEvent.KEY_UP</code>
+	  @param bubbles          Determines whether the Event object participates
+	                          in the bubbling stage of the event flow.
+	  @param cancelable       Determines whether the Event object can be
+	                          canceled.
+	  @param charCodeValue    The character code value of the key pressed or
+	                          released. The character code values returned are
+	                          English keyboard values. For example, if you press
+	                          Shift+3, the <code>Keyboard.charCode()</code>
+	                          property returns # on a Japanese keyboard, just as
+	                          it does on an English keyboard.
+	  @param keyCodeValue     The key code value of the key pressed or released.
+	  @param keyLocationValue The location of the key on the keyboard.
+	  @param ctrlKeyValue     On Windows, indicates whether the Ctrl key is
+	                          activated. On Mac, indicates whether either the
+	                          Ctrl key or the Command key is activated.
+	  @param altKeyValue      Indicates whether the Alt key modifier is
+	                          activated(Windows only).
+	  @param shiftKeyValue    Indicates whether the Shift key modifier is
+	                          activated.</p></dd><dt><span class="kwd">function </span>updateAfterEvent() : <a href="../../Void.html" class="type">Void</a></dt><dd> Indicates that the display should be rendered after processing of this
+	  event completes, if the display list has been modified
+</dd><dt><span class="kwd">static </span><span class="kwd">var </span>KEY_DOWN : <a href="../../String.html" class="type">String</a></dt><dd><p>The <code>KeyboardEvent.KEY_DOWN</code> constant defines the value of the
+	  <code>type</code> property of a <code>keyDown</code> event object.</p>
+<p><p>This event has the following properties:</p></p></dd><dt><span class="kwd">static </span><span class="kwd">var </span>KEY_UP : <a href="../../String.html" class="type">String</a></dt><dd><p>The <code>KeyboardEvent.KEY_UP</code> constant defines the value of the
+	  <code>type</code> property of a <code>keyUp</code> event object.</p>
+<p><p>This event has the following properties:</p></p></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+        </div>
+    </div>
+</div>

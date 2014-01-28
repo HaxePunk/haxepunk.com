@@ -1,0 +1,47 @@
+---
+layout: api
+title: HaxePunk API
+---
+
+<div class="ink-grid">
+    <div class="column-group">
+        <div class="hide-small medium-10 large-10"></div>
+        <div class="api small-100 medium-80 large-80">
+            <a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>Reflect</div><div class="classdoc">The Reflect API is a way to manipulate values dynamicly through an
+	abstract interface in an untyped manner. Use with care.</div><dl><dt><span class="kwd">static </span><span class="kwd">function </span>deleteField(o : <a href="Dynamic.html" class="type">Dynamic</a>, field : <a href="String.html" class="type">String</a>) : <a href="Bool.html" class="type">Bool</a></dt><dd><p>Removes the field named `field` from structure `o`.</p>
+<p>This method is only guaranteed to work on anonymous structures.</p>
+<p>If `o` or `field` are null, the result is unspecified.</p></dd><dt><span class="kwd">static </span><span class="kwd">function </span>field(o : <a href="Dynamic.html" class="type">Dynamic</a>, field : <a href="String.html" class="type">String</a>) : <a href="Dynamic.html" class="type">Dynamic</a></dt><dd><p>Returns the value of the field named `field` on object `o`.</p>
+<p>If `o` is not an object or has no field named `field`, the result is
+		null.</p>
+<p>If the field is defined as a property, its accessors are ignored. Refer
+		to `Reflect.getProperty` for a function supporting property accessors.</p>
+<p>If `field` is null, the result is unspecified.</p>
+<p>(As3) If used on a property field, the getter will be invoked. It is
+		not possible to obtain the value directly.</p></dd><dt><span class="kwd">static </span><span class="kwd">function </span>fields(o : <a href="Dynamic.html" class="type">Dynamic</a>) : <a href="Array.html" class="type">Array</a>&lt;<a href="String.html" class="type">String</a>&gt;</dt><dd><p>Returns the fields of structure `o`.</p>
+<p>This method is only guaranteed to work on anonymous structures. Refer to
+		`Type.getInstanceFields` for a function supporting class instances.</p>
+<p>If `o` is null, the result is unspecified.</p></dd><dt><span class="kwd">static </span><span class="kwd">function </span>getProperty(o : <a href="Dynamic.html" class="type">Dynamic</a>, field : <a href="String.html" class="type">String</a>) : <a href="Dynamic.html" class="type">Dynamic</a></dt><dd><p>Returns the value of the field named `field` on object `o`, taking
+		property getter functions into account.</p>
+<p>If the field is not a property, this function behaves like
+		`Reflect.field`, but might be slower.</p>
+<p>If `o` or `field` are null, the result is unspecified.</p></dd><dt><span class="kwd">static </span><span class="kwd">function </span>hasField(o : <a href="Dynamic.html" class="type">Dynamic</a>, field : <a href="String.html" class="type">String</a>) : <a href="Bool.html" class="type">Bool</a></dt><dd><p>Tells if structure `o` has a field named `field`.</p>
+<p>This is only guaranteed to work for anonymous structures. Refer to
+		`Type.getInstanceFields` for a function supporting class instances.</p>
+<p>If `o` or `field` are null, the result is unspecified.</p></dd><dt><span class="kwd">static </span><span class="kwd">function </span>isEnumValue(v : <a href="Dynamic.html" class="type">Dynamic</a>) : <a href="Bool.html" class="type">Bool</a></dt><dd><p>Tells if `v` is an enum value.</p>
+<p>The result is true if `v` is of type EnumValue, i.e. an enum
+		constructor.</p>
+<p>Otherwise, including if `v` is null, the result is false.</p></dd><dt><span class="kwd">static </span><span class="kwd">function </span>isObject(v : <a href="Dynamic.html" class="type">Dynamic</a>) : <a href="Bool.html" class="type">Bool</a></dt><dd><p>Tells if `v` is an object.</p>
+<p>The result is true if `v` is one of the following:</p>
+<p>- class instance
+		- structure
+		- Class<T>
+		- Enum<T></p>
+<p>Otherwise, including if `v` is null, the result is false.</p></dd><dt><span class="kwd">static </span><span class="kwd">function </span>makeVarArgs(f : <a href="Array.html" class="type">Array</a>&lt;<a href="Dynamic.html" class="type">Dynamic</a>&gt; -> <a href="Dynamic.html" class="type">Dynamic</a>) : <a href="Dynamic.html" class="type">Dynamic</a></dt><dd>Transform a function taking an array of arguments into a function that can
+		be called with any number of arguments.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>setProperty(o : <a href="Dynamic.html" class="type">Dynamic</a>, field : <a href="String.html" class="type">String</a>, value : <a href="Dynamic.html" class="type">Dynamic</a>) : <a href="Void.html" class="type">Void</a></dt><dd><p>Sets the field named `field` of object `o` to value `value`, taking
+		property setter functions into account.</p>
+<p>If the field is not a property, this function behaves like
+		`Reflect.setField`, but might be slower.</p>
+<p>If `field` is null, the result is unspecified.</p></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../index.html" class="index">Index</a>
+        </div>
+    </div>
+</div>
