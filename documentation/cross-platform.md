@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Cross-Platform Deployment
-permalink: /cross-platform/index.html
+permalink: cross-platform/index.html
 ---
 
 # Cross-Platform Deployment

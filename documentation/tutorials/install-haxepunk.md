@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Installing HaxePunk
-permalink: /install-haxepunk/index.html
+permalink: install-haxepunk/index.html
 ---
 
 # Installing HaxePunk and Setting up a Dev Environment

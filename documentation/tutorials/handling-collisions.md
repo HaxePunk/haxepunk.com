@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Handling Collisions
-permalink: /handling-collisions/index.html
+permalink: handling-collisions/index.html
 ---
 
 # Handling Collisions

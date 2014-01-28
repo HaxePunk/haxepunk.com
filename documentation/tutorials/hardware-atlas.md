@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Hardware Atlases
-permalink: /hardware-atlases/index.html
+permalink: hardware-atlases/index.html
 ---
 
 # Hardware Atlases

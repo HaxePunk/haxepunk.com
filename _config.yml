@@ -2,3 +2,4 @@ name: HaxePunk
 markdown: redcarpet
 pygments: true
 baseurl: http://haxepunk.github.io/haxepunk.com/
+relative_permalinks: true

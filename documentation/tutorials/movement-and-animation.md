@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Movement and Animation
-permalink: /movement-and-animation/index.html
+permalink: movement-and-animation/index.html
 ---
 
 # Movement and Animation

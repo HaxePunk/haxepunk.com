@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: FlashDevelop
-permalink: /flashdevelop/index.html
+permalink: flashdevelop/index.html
 ---
 
 # FlashDevelop
