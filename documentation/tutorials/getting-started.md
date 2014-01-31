@@ -1,10 +1,10 @@
 ---
 layout: tutorial
-title: Installing HaxePunk
-permalink: install-haxepunk/index.html
+title: Getting Started
+permalink: getting-started/index.html
 ---
 
-# Installing HaxePunk and Setting up a Dev Environment
+# Getting Started with HaxePunk
 
 Before using HaxePunk you'll need to setup your development environment. This tutorial will guide you through the steps of getting everything installed and ready for HaxePunk development.
 
