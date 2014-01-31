@@ -6,7 +6,7 @@ permalink: haxepunk-basics/index.html
 
 # HaxePunk Basics
 
-This tutorial assumes you have gone through the [Installing HaxePunk](/tutorials/install-haxepunk.html) tutorial.
+This tutorial assumes you have gone through the [Getting Started](/documentation/tutorials/getting-started/) tutorial.
 
 Now that you have HaxePunk installed it is time to start making a game. We will start with a new project to keep things simple.
 
@@ -16,7 +16,7 @@ haxelib run HaxePunk new Tut01
 
 Now we need to make our main game scene. Create a folder and name it scenes and put a file named GameScene.hx into that folder. You will also need to copy this block graphic and put in assets/graphics.
 
-<img src="http://haxepunk.com/images/learn/block.png" alt="Block" class="pixelated" width="64" height="64" />
+![Block Image](/documentation/tutorials/images/block.png)
 
 ### src/scenes/GameScene.hx
 

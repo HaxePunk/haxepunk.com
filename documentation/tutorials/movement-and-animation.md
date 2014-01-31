@@ -10,7 +10,7 @@ Welcome back to the next tutorial in the series! We will be covering animations 
 
 First off let's start with a Player class. Like last time we will extend com.haxepunk.Entity so we can add it to the scene later. This may look daunting but I have added comments to make it easier to tell what is happening. You can use the player image below or create your own.
 
-<img src="http://haxepunk.com/images/learn/player.png" alt="player.png" class="pixelated" width="128" height="32" />
+![Player Image](/documentation/tutorials/images/player.png)
 
 ### src/entities/Player.hx
 

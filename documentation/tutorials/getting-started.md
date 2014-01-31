@@ -73,4 +73,4 @@ cd MyProject
 lime test neko # build and run
 ```
 
-You now have HaxePunk installed and are ready to start developing games! Start with [the basics](/tutorials/haxepunk-basics) which will teach you how to add entities and move them in the scene.
+You now have HaxePunk installed and are ready to start developing games! Start with [the basics](/documentation/tutorials/haxepunk-basics) which will teach you how to add entities and move them in the scene.
