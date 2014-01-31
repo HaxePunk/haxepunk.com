@@ -1,0 +1,28 @@
+---
+layout: hxp
+title: 404
+home: true
+---
+
+<div class="ink-grid vertical-space">
+	<h1>It's around here somewhere...</h1>
+	<p>The page you're looking for has probably moved to a different location or vanished off the face of the earth. Either way there's no sense in crying about it.</p>
+	<div class="column-group gutters">
+		<div class="small-100 medium-50 large-33">
+			<h2>Looking for tutorials?</h2>
+			{% for page in site.pages %}
+				{% if page.layout == 'tutorial' %}
+				<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+				{% endif %}
+			{% endfor %}
+		</div>
+		<div class="small-100 medium-50 large-33">
+			<h2>Or API Docs?</h2>
+			<p>We are using <code>haxedoc</code> to generate the HaxePunk <a href="{{site.baseurl}}documentation/api/">API documentation</a>. You can also just <a href="https://github.com/HaxePunk/HaxePunk">browse the code</a> on GitHub if you want to dig into the source.</p>
+		</div>
+		<div class="small-100 medium-50 large-33">
+			<h2>Got a question?</h2>
+			<p>Jump over to the <a href="http://forum.haxepunk.com">forum</a> and ask away! We also have an IRC channel <code>#HaxePunk</code> on <code>chat.freenode.net</code>.</p>
+		</div>
+	</div>
+</div>
