@@ -31,6 +31,11 @@ title: HaxePunk
 
 					<dl class="large-33 medium-33 small-33">
 						<dt>Cookbook</dt>
+						{% for page in site.pages %}
+							{% if page.layout == 'cookbook' %}
+							<dd><a href="{{ page.url }}">{{ page.title }}</a></dd>
+							{% endif %}
+						{% endfor %}
 					</dl>
 
 					<dl class="large-33 medium-33 small-33">

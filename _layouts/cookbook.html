@@ -1,0 +1,21 @@
+{% include head.html %}
+
+<div class="ink-grid vspace mainpoints">
+	<div class="column-group">
+		<div class="hide-small medium-10 large-15"></div>
+		<div class="small-100 medium-80 large-70">
+			<h1>{{ page.title }}</h1>
+			<h4>Since v{{ page.version }} by {{ page.author }}</h4>
+			{{ content }}
+
+			<h2>Cookbook</h2>
+			{% for p in site.pages %}
+				{% if p.layout == 'cookbook' and p.path != page.path %}
+				<li><a href="{{ p.url }}">{{ p.title }}</a></li>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+{% include footer.html %}
