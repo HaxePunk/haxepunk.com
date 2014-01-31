@@ -1,0 +1,24 @@
+{% include head.html %}
+
+<div class="top-highlight" style="padding: 1em">
+	<div class="push-center" style="max-width:{{ page.width }}px">
+		<object data="{{ site.baseurl }}demos/swf/{{ page.title }}.swf" type="application/x-shockwave-flash" width="100%" height="{{ page.height }}">
+			<param name="movie" value="{{ site.baseurl }}demos/swf/{{ page.title }}.swf" />
+			<param name="bgcolor" value="#ffffff" />
+			<param name="quality" value="high" />
+		</object>
+	</div>
+</div>
+<div class="ink-grid vspace mainpoints">
+	<div class="column-group">
+		<div class="hide-small medium-10 large-15"></div>
+		<div class="small-100 medium-80 large-70">
+			<a href="{{ page.source }}" class="button push-right"><i class="icon-code"></i> Source</a>
+			<h1>{{ page.title }}</h1>
+			<hr />
+			{{ content }}
+		</div>
+	</div>
+</div>
+
+{% include footer.html %}

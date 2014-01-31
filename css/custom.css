@@ -112,9 +112,10 @@ a.logo {
     background: linear-gradient(to bottom, rgb(254, 165, 53) 0%, rgb(242, 153, 13) 100%) repeat scroll 0% 0% transparent;
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
     border-radius: 4px;
-    color: rgb(255, 255, 255);
+    color: #F0F0F0;
 }
 .button:hover {
+	color: #FFF;
 	background: #EFA73A;
 	background: linear-gradient(to bottom, rgb(255, 187, 102) 0%, rgb(235, 161, 46) 100%) repeat scroll 0% 0% transparent;
 }

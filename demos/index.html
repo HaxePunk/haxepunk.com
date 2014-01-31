@@ -7,35 +7,14 @@ title: HaxePunk
 	<div class="column-group">
 		<div class="large-100 medium-100 small-100">
 			<h1>Demos <i class="icon-wrench"></i></h1>
-			
-			<h2>Demo 1</h2>
-			<ul>
-				<li>aa</li>
-				<li>aa</li>
-				<li>aa</li>
-				<li>aa</li>
-				<li>aa</li>
-				<li>aa</li>
-			</ul>
-			
-			<h2>Demo 2</h2>
-			<ul>
-				<li>aa</li>
-				<li>aa</li>
-				<li>aa</li>
-				<li>aa</li>
-				<li>aa</li>
-				<li>aa</li>
-			</ul>
-			
-			<h2>Demo 3</h2>
-			<ul>
-				<li>aa</li>
-				<li>aa</li>
-				<li>aa</li>
-				<li>aa</li>
-				<li>aa</li>
-				<li>aa</li>
-			</ul>
+
+			{% for page in site.pages %}
+				{% if page.layout == 'demo' %}
+				<h2>{{ page.title }}</h2>
+				<a href="{{ page.url }}">
+					<img src="{{ site.baseurl }}demos/thumb/{{ page.title }}.jpg" alt="{{ page.title }}" />
+				</a>
+				{% endif %}
+			{% endfor %}
 	</div>
 </div>
