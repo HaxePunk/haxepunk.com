@@ -10,37 +10,51 @@ title: HaxePunk
 
 			<div class="ink-grid vspace">
 				<div class="column-group gutters">
-					<dl class="large-33 medium-33 small-33">
-						<dt>Getting Started</dt>
-						<dd><a href="{{site.baseurl}}documentation/tutorials/flashdevelop/">Setting up FlashDevelop</a></dd>
-						<dd><a href="{{site.baseurl}}documentation/tutorials/getting-started/">Getting Started with HaxePunk</a></dd>
+					<div class="small-100 medium-50 large-33">
+						<h3>Tutorials</h3>
+						<dl>
+							<dt>Getting Started</dt>
+							<dd><a href="{{site.baseurl}}documentation/tutorials/flashdevelop/">Setting up FlashDevelop</a></dd>
+							<dd><a href="{{site.baseurl}}documentation/tutorials/getting-started/">Getting Started with HaxePunk</a></dd>
 
-						<dt>Basic</dt>
-						<dd><a href="{{site.baseurl}}documentation/tutorials/haxepunk-basics/">HaxePunk Basics</a></dd>
-						<dd><a href="{{site.baseurl}}documentation/tutorials/handling-collisions/">Handling Collision</a></dd>
-						<dd><a href="{{site.baseurl}}documentation/tutorials/movement-and-animation/">Movement and Animation</a></dd>
-						<dd><a href="{{site.baseurl}}documentation/tutorials/sound-effects/">Sound Effects</a></dd>
+							<dt>Basic</dt>
+							<dd><a href="{{site.baseurl}}documentation/tutorials/haxepunk-basics/">HaxePunk Basics</a></dd>
+							<dd><a href="{{site.baseurl}}documentation/tutorials/handling-collisions/">Handling Collision</a></dd>
+							<dd><a href="{{site.baseurl}}documentation/tutorials/movement-and-animation/">Movement and Animation</a></dd>
+							<dd><a href="{{site.baseurl}}documentation/tutorials/sound-effects/">Sound Effects</a></dd>
 
-						<dt>Intermediate</dt>
-						<dd><a href="{{site.baseurl}}documentation/tutorials/simple-shooter/">Simple Shooter</a></dd>
-						<dd><a href="{{site.baseurl}}documentation/cross-platform/">Cross-Platform Development</a></dd>
+							<dt>Intermediate</dt>
+							<dd><a href="{{site.baseurl}}documentation/tutorials/simple-shooter/">Simple Shooter</a></dd>
+							<dd><a href="{{site.baseurl}}documentation/cross-platform/">Cross-Platform Development</a></dd>
 
-						<dt>Advanced</dt>
-						<dd><a href="{{site.baseurl}}documentation/tutorials/hardware-atlases/">Hardware Atlases</a></dd>
-					</dl>
+							<dt>Advanced</dt>
+							<dd><a href="{{site.baseurl}}documentation/tutorials/hardware-atlases/">Hardware Atlases</a></dd>
+						</dl>
+					</div>
 
-					<dl class="large-33 medium-33 small-33">
-						<dt>Cookbook</dt>
+					<div class="small-100 medium-50 large-33">
+						<h3>Cookbook</h3>
+						<ul>
 						{% for page in site.pages %}
 							{% if page.layout == 'cookbook' %}
-							<dd><a href="{{ page.url }}">{{ page.title }}</a></dd>
+							<li><a href="{{ page.url }}">{{ page.title }}</a></li>
 							{% endif %}
 						{% endfor %}
-					</dl>
+						</ul>
+					</div>
 
-					<dl class="large-33 medium-33 small-33">
-						<dt>FAQ</dt>
-					</dl>
+					<div class="small-100 medium-50 large-33">
+						<h3>API</h3>
+						<p>Get the full documentation on all HaxePunk and OpenFL classes.</p>
+						<p><a href="{{site.baseurl}}documentation/api/">HaxePunk API</a></p>
+						<h3>FAQ</h3>
+						<dl>
+							<dt>What is the easiest way to get started using HaxePunk?</dt>
+							<dd>The tutorials are a good place to start. It covers the basics you'll need to know. Then take a look at the API docs and Cookbook. Those will help you figure out the more detailed parts of HaxePunk. Finally, if you've got other questions, you can make a post on the forum.</dd>
+							<dt>Can I add my game to HaxePunk.com?</dt>
+							<dd>Absolutely! The game must be made in HaxePunk and publicly released. You can then submit a pull request with the game page to the site's <a href="https://github.com/HaxePunk/haxepunk.com">GitHub repository</a>.</dd>
+						</dl>
+					</div>
 				</div>
 			</div>
 		</div>
