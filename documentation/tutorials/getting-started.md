@@ -21,6 +21,8 @@ haxelib install HaxePunk
 haxelib run HaxePunk setup
 ```
 
+If you downloaded a zip version of HaxePunk replace the first command with `haxelib local nameOfTheArchive.zip`.
+
 You may need to run the second command as an administrator. It will prompt you to install the Lime tool which I suggest doing. This gives you the shortcut `lime` instead of having to type `haxelib run lime`.
 
 ## Upgrading haxelib
