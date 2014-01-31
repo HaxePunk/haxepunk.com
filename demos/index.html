@@ -4,17 +4,17 @@ title: HaxePunk
 ---
 
 <div class="ink-grid vspace mainpoints">
-	<div class="column-group">
-		<div class="large-100 medium-100 small-100">
-			<h1>Demos <i class="icon-wrench"></i></h1>
-
-			{% for page in site.pages %}
-				{% if page.layout == 'demo' %}
-				<h2>{{ page.title }}</h2>
-				<a href="{{ page.url }}">
-					<img src="{{ site.baseurl }}demos/thumb/{{ page.title }}.jpg" alt="{{ page.title }}" />
-				</a>
-				{% endif %}
-			{% endfor %}
+	<h1>Demos <i class="icon-wrench"></i></h1>
+	<div class="column-group gutters">
+	{% for page in site.pages %}
+		{% if page.layout == 'demo' %}
+		<div class="small-100 medium-50 large-33">
+			<h2>{{ page.title }}</h2>
+			<a href="{{ page.url }}">
+				<img src="{{ site.baseurl }}demos/thumb/{{ page.title }}.jpg" alt="{{ page.title }}" />
+			</a>
+		</div>
+		{% endif %}
+	{% endfor %}
 	</div>
 </div>
