@@ -8,6 +8,8 @@ permalink: post-process/index.html
 
 Fullscreen post processing effects are possible in HaxePunk with two additional classes and some tweaking to your main class. A full example is on GitHub under the [post-process project](https://github.com/HaxePunk/post-process).
 
+![Post processing shaders](/documentation/tutorials/images/shaders.jpg)
+
 First grab the classes [PostProcess.hx](https://raw.github.com/HaxePunk/post-process/master/src/PostProcess.hx) and [Shader.hx](https://raw.github.com/HaxePunk/post-process/master/src/Shader.hx) from the GitHub project. Put these in the root of your project folder. Now we are going to add a few overrides to the main class in your project, normally called _Main.hx_.
 
 ### Main.hx
