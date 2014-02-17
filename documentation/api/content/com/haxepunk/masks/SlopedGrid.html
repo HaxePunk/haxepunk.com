@@ -20,7 +20,10 @@ title: HaxePunk API
 	  @param	width		Columns to fill.
 	  @param	height		Rows to fill.</dd><dt><span class="kwd">inline </span><span class="kwd">function </span>clearTile(?column : <a href="../../../Int.html" class="type">Int</a>, ?row : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Makes the tile non-solid.
 	  @param	column		Tile column.
-	  @param	row			Tile row.</dd><dt><span class="kwd">inline </span><span class="kwd">function </span>getTile(?column : <a href="../../../Int.html" class="type">Int</a>, ?row : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../com/haxepunk/masks/Tile.html" class="type">Tile</a></dt><dd> Gets the value of a tile.
+	  @param	row			Tile row.</dd><dt><span class="kwd">function </span>collidePoint(cx : <a href="../../../Float.html" class="type">Float</a>, cy : <a href="../../../Float.html" class="type">Float</a>) : <a href="../../../Bool.html" class="type">Bool</a></dt><dd> Checks collision against SlopedGrid from a point
+	  @param cx  x-axis of the collision point
+	  @param cy  y-axis of the collision point
+	  @return If the point collides with SlopedGrid</dd><dt><span class="kwd">inline </span><span class="kwd">function </span>getTile(?column : <a href="../../../Int.html" class="type">Int</a>, ?row : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../com/haxepunk/masks/Tile.html" class="type">Tile</a></dt><dd> Gets the value of a tile.
 	  @param	column		Tile column.
 	  @param	row			Tile row.
 	  @return	tile value.</dd><dt><span class="kwd">function </span>setRect(?column : <a href="../../../Int.html" class="type">Int</a>, ?row : <a href="../../../Int.html" class="type">Int</a>, ?width : <a href="../../../Int.html" class="type">Int</a>, ?height : <a href="../../../Int.html" class="type">Int</a>, ?type : <a href="../../../com/haxepunk/masks/TileType.html" class="type">TileType</a>, ?slope : <a href="../../../Float.html" class="type">Float</a>, ?yOffset : <a href="../../../Float.html" class="type">Float</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Sets the value of a rectangle region of tiles.
@@ -30,12 +33,12 @@ title: HaxePunk API
 	  @param	height		Rows to fill.
 	  @param	type		The type of the tiles
 	  @param	slope		The slope of the tiles
-	  @param	yOffset		The y offset of the tiles</dd><dt><span class="kwd">function </span>setTile(?column : <a href="../../../Int.html" class="type">Int</a>, ?row : <a href="../../../Int.html" class="type">Int</a>, ?type : <a href="../../../com/haxepunk/masks/TileType.html" class="type">TileType</a>, ?slope : <a href="../../../Float.html" class="type">Float</a>, ?yOffset : <a href="../../../Float.html" class="type">Float</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Sets the value of the tile.
+	  @param	yOffset		The y offset of the tiles</dd><dt><span class="kwd">function </span>setTile(?column : <a href="../../../Int.html" class="type">Int</a>, ?row : <a href="../../../Int.html" class="type">Int</a>, ?type : <a href="../../../com/haxepunk/masks/TileType.html" class="type">TileType</a>, ?slope : <a href="../../../Float.html" class="type">Float</a>, ?yOffset : <a href="../../../Float.html" class="type">Float</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Sets the value of a tile.
 	  @param	column		Tile column.
 	  @param	row			Tile row.
 	  @param	type		The type of the tile
 	  @param	slope		The slope of the tile
-	  @param	yOffset		The y offset of the tile</dd><dt><span class="kwd">function </span>squareProjection(axis : <a href="../../../flash/geom/Point.html" class="type">flash.geom.Point</a>, point : <a href="../../../flash/geom/Point.html" class="type">flash.geom.Point</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../../index.html" class="index">Index</a>
+	  @param	yOffset		The y offset of the tile</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../../index.html" class="index">Index</a>
         </div>
     </div>
 </div>

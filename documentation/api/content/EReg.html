@@ -25,7 +25,20 @@ title: HaxePunk API
 		`this.matchSub`, and then operates on the String of that operation.</p>
 <p>The index `n` corresponds to the n-th set of parentheses in the pattern
 		of `this` EReg. If no such sub-group exists, an exception is thrown.</p>
-<p>If `n` equals 0, the whole matched substring is returned.</p></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../index.html" class="index">Index</a>
+<p>If `n` equals 0, the whole matched substring is returned.</p></dd><dt><span class="kwd">function </span>matchedPos() : { pos : <a href="Int.html" class="type">Int</a>, len : <a href="Int.html" class="type">Int</a>}</dt><dd><p>Returns the position and length of the last matched substring, within
+		the String which was last used as argument to `this.match` or
+		`this.matchSub`.</p>
+<p>If the most recent call to `this.match` or `this.matchSub` did not
+		match anything, the result is unspecified.</p>
+<p>If the global g modifier was in place for the matching, the position and
+		length of the leftmost substring is returned.</p></dd><dt><span class="kwd">function </span>replace(s : <a href="String.html" class="type">String</a>, by : <a href="String.html" class="type">String</a>) : <a href="String.html" class="type">String</a></dt><dd><p>Replaces the first substring of `s` which `this` EReg matches with `by`.</p>
+<p>If `this` EReg does not match any substring, the result is `s`.</p>
+<p>By default, this method replaces only the first matched substring. If
+		the global g modifier is in place, all matched substrings are replaced.</p>
+<p>If `by` contains `$1` to `$9`, the digit corresponds to number of a
+		matched sub-group and its value is used instead. If no such sub-group
+		exists, the replacement is unspecified. The string `$$` becomes `$`.</p>
+<p>If `s` or `by` are null, the result is unspecified.</p></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../index.html" class="index">Index</a>
         </div>
     </div>
 </div>
