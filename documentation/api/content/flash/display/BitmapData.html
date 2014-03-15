@@ -601,7 +601,7 @@ title: HaxePunk API
 	  @throws TypeError The numPixels value is negative</p></dd><dt><span class="kwd">function </span>scroll(x : <a href="../../Int.html" class="type">Int</a>, y : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd><p>Scrolls an image by a certain(<i>x</i>, <i>y</i>) pixel amount. Edge
 	  regions outside the scrolling area are left unchanged.</p>
 <p>@param x The amount by which to scroll horizontally.
-	  @param y The amount by which to scroll vertically.</p></dd><dt><span class="kwd">function </span>setPixel(x : <a href="../../Int.html" class="type">Int</a>, y : <a href="../../Int.html" class="type">Int</a>, color : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd><p>Sets a single pixel of a BitmapData object. The current alpha channel
+	  @param y The amount by which to scroll vertically.</p></dd><dt><span class="kwd">function </span>setPixel(x : <a href="../../Int.html" class="type">Int</a>, y : <a href="../../Int.html" class="type">Int</a>, color : <a href="../../UInt.html" class="type">UInt</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd><p>Sets a single pixel of a BitmapData object. The current alpha channel
 	  value of the image pixel is preserved during this operation. The value of
 	  the RGB color parameter is treated as an unmultiplied color value.</p>
 <p><p><b>Note:</b> To increase performance, when you use the
@@ -613,7 +613,7 @@ title: HaxePunk API
 	  updating until you finish making the pixel changes.</p></p>
 <p>@param x     The <i>x</i> position of the pixel whose value changes.
 	  @param y     The <i>y</i> position of the pixel whose value changes.
-	  @param color The resulting RGB color for the pixel.</p></dd><dt><span class="kwd">function </span>setPixel32(x : <a href="../../Int.html" class="type">Int</a>, y : <a href="../../Int.html" class="type">Int</a>, color : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd><p>Sets the color and alpha transparency values of a single pixel of a
+	  @param color The resulting RGB color for the pixel.</p></dd><dt><span class="kwd">function </span>setPixel32(x : <a href="../../Int.html" class="type">Int</a>, y : <a href="../../Int.html" class="type">Int</a>, color : <a href="../../UInt.html" class="type">UInt</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd><p>Sets the color and alpha transparency values of a single pixel of a
 	  BitmapData object. This method is similar to the <code>setPixel()</code>
 	  method; the main difference is that the <code>setPixel32()</code> method
 	  takes an ARGB color value that contains alpha channel information.</p>
@@ -658,7 +658,7 @@ title: HaxePunk API
 	  in the Vector is expected to be 32-bit ARGB pixel values.</p>
 <p>@param rect Specifies the rectangular region of the BitmapData object.
 	  @throws RangeError The vector array is not large enough to read all the
-	                     pixel data.</p></dd><dt><span class="kwd">function </span>threshold(sourceBitmapData : <a href="../../flash/display/BitmapData.html" class="type">BitmapData</a>, sourceRect : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>, destPoint : <a href="../../flash/geom/Point.html" class="type">flash.geom.Point</a>, operation : <a href="../../String.html" class="type">String</a>, threshold : <a href="../../Int.html" class="type">Int</a>, ?color : <a href="../../UInt.html" class="type">UInt</a>, ?mask : <a href="../../UInt.html" class="type">UInt</a>, ?copySource : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../UInt.html" class="type">UInt</a></dt><dd><p>Tests pixel values in an image against a specified threshold and sets
+	                     pixel data.</p></dd><dt><span class="kwd">function </span>threshold(sourceBitmapData : <a href="../../flash/display/BitmapData.html" class="type">BitmapData</a>, sourceRect : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>, destPoint : <a href="../../flash/geom/Point.html" class="type">flash.geom.Point</a>, operation : <a href="../../String.html" class="type">String</a>, threshold : <a href="../../UInt.html" class="type">UInt</a>, ?color : <a href="../../UInt.html" class="type">UInt</a>, ?mask : <a href="../../UInt.html" class="type">UInt</a>, ?copySource : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../UInt.html" class="type">UInt</a></dt><dd><p>Tests pixel values in an image against a specified threshold and sets
 	  pixels that pass the test to new color values. Using the
 	  <code>threshold()</code> method, you can isolate and replace color ranges
 	  in an image and perform other logical operations on image pixels.</p>

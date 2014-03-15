@@ -156,7 +156,7 @@ title: HaxePunk API
 <p><p>Changes are not sent to the server until the <code>sync</code> event
 	  has been dispatched. That is, if the response time from the server is
 	  slow, updates may be sent to the server less frequently than the value
-	  specified in this property. </p></p></dd><dt><span class="kwd">var </span>objectEncoding : <a href="../../Int.html" class="type">Int</a></dt><dd><p>The object encoding(AMF version) for this shared object. When a local
+	  specified in this property. </p></p></dd><dt><span class="kwd">var </span>objectEncoding : <a href="../../UInt.html" class="type">UInt</a></dt><dd><p>The object encoding(AMF version) for this shared object. When a local
 	  shared object is written to disk, the <code>objectEncoding</code> property
 	  indicates which Action Message Format version should be used: the
 	  ActionScript 3.0 format(AMF3) or the ActionScript 1.0 or 2.0 format
@@ -189,7 +189,7 @@ title: HaxePunk API
 	                         shared object. This property is read-only for
 	                         remote shared objects because its value is
 	                         determined by the associated NetConnection
-	                         instance.</p></dd><dt><span class="kwd">var </span>size(default,null) : <a href="../../Int.html" class="type">Int</a></dt><dd><p>The current size of the shared object, in bytes.</p>
+	                         instance.</p></dd><dt><span class="kwd">var </span>size(default,null) : <a href="../../UInt.html" class="type">UInt</a></dt><dd><p>The current size of the shared object, in bytes.</p>
 <p><p>Flash calculates the size of a shared object by stepping through all of
 	  its data properties; the more data properties the object has, the longer
 	  it takes to estimate its size. Estimating object size can take significant
@@ -309,7 +309,7 @@ title: HaxePunk API
 	  subscribed clients.</p></p>
 <p>@param propertyName The name of the property in the shared object.
 	  @param value        The value of the property(an ActionScript object), or
-	                      <code>null</code> to delete the property.</p></dd><dt><span class="kwd">static </span><span class="kwd">var </span>defaultObjectEncoding : <a href="../../Int.html" class="type">Int</a></dt><dd><p>The default object encoding(AMF version) for all local shared objects
+	                      <code>null</code> to delete the property.</p></dd><dt><span class="kwd">static </span><span class="kwd">var </span>defaultObjectEncoding : <a href="../../UInt.html" class="type">UInt</a></dt><dd><p>The default object encoding(AMF version) for all local shared objects
 	  created in the SWF file. When local shared objects are written to disk,
 	  the <code>SharedObject.defaultObjectEncoding</code> property indicates
 	  which Action Message Format version should be used: the ActionScript 3.0

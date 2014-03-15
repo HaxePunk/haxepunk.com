@@ -128,8 +128,8 @@ title: HaxePunk API
 <p><p>For more information related to security, see the
 	                        Flash Player Developer Center Topic: <a
 	                        href="http://www.adobe.com/go/devnet_security_en"
-	                        scope="external">Security</a>.</p></p></dd><dt><span class="kwd">var </span>bytesLoaded(default,null) : <a href="../../Int.html" class="type">Int</a></dt><dd> The number of bytes that are loaded for the media. When this number equals
-	  the value of <code>bytesTotal</code>, all of the bytes are loaded.</dd><dt><span class="kwd">var </span>bytesTotal(default,null) : <a href="../../Int.html" class="type">Int</a></dt><dd><p>The number of compressed bytes in the entire media file.</p>
+	                        scope="external">Security</a>.</p></p></dd><dt><span class="kwd">var </span>bytesLoaded(default,null) : <a href="../../UInt.html" class="type">UInt</a></dt><dd> The number of bytes that are loaded for the media. When this number equals
+	  the value of <code>bytesTotal</code>, all of the bytes are loaded.</dd><dt><span class="kwd">var </span>bytesTotal(default,null) : <a href="../../UInt.html" class="type">UInt</a></dt><dd><p>The number of compressed bytes in the entire media file.</p>
 <p><p>Before the first <code>progress</code> event is dispatched by this
 	  LoaderInfo object's corresponding Loader object, <code>bytesTotal</code>
 	  is 0. After the first <code>progress</code> event from the Loader object,
@@ -256,7 +256,7 @@ title: HaxePunk API
 	  security boundaries. Even when the Loader object and the loaded content
 	  originate from security domains that do not trust one another, both can
 	  access <code>sharedEvents</code> and send and receive events via this
-	  object.</dd><dt><span class="kwd">var </span>swfVersion(default,null) : <a href="../../Int.html" class="type">Int</a></dt><dd><p>The file format version of the loaded SWF file. The file format is
+	  object.</dd><dt><span class="kwd">var </span>swfVersion(default,null) : <a href="../../UInt.html" class="type">UInt</a></dt><dd><p>The file format version of the loaded SWF file. The file format is
 	  specified using the enumerations in the SWFVersion class, such as
 	  <code>SWFVersion.FLASH7</code> and <code>SWFVersion.FLASH9</code>.</p>
 <p>@throws Error If the file is not downloaded sufficiently to retrieve the
