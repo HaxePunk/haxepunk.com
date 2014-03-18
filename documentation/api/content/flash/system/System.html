@@ -24,7 +24,7 @@ title: HaxePunk API
 <p><p>AIR developers should use this property to determine the entire memory
 	  consumption of an application.</p></p>
 <p><p>For Flash Player, this includes the memory used by the container
-	  application, such as the web browser.</p></p></dd><dt><span class="kwd">static </span><span class="kwd">var </span>processCPUUsage(default,null) : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>totalMemory(default,null) : <a href="../../Int.html" class="type">Int</a></dt><dd><p>The amount of memory(in bytes) currently in use that has been directly
+	  application, such as the web browser.</p></p></dd><dt><span class="kwd">static </span><span class="kwd">var </span>processCPUUsage(default,null) : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>totalMemory(default,null) : <a href="../../UInt.html" class="type">UInt</a></dt><dd><p>The amount of memory(in bytes) currently in use that has been directly
 	  allocated by Flash Player or AIR.</p>
 <p><p>This property does not return <i>all</i> memory used by an Adobe AIR
 	  application or by the application(such as a browser) containing Flash
@@ -82,7 +82,7 @@ title: HaxePunk API
 	  collection. This method will remove parent and child connections between
 	  all the nodes for the specified XML node.</p>
 <p>@param node XML reference that should be made available for garbage
-	              collection.</p></dd><dt><span class="kwd">static </span><span class="kwd">function </span>exit(code : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd><p>Closes Flash Player.</p>
+	              collection.</p></dd><dt><span class="kwd">static </span><span class="kwd">function </span>exit(code : <a href="../../UInt.html" class="type">UInt</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd><p>Closes Flash Player.</p>
 <p><p><i>For the standalone Flash Player debugger version only.</i></p></p>
 <p><p>AIR applications should call the <code>NativeApplication.exit()</code>
 	  method to exit the application.</p></p>

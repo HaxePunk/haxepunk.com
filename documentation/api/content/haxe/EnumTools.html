@@ -7,36 +7,36 @@ title: HaxePunk API
     <div class="column-group">
         <div class="hide-small medium-10 large-10"></div>
         <div class="api small-100 medium-80 large-80">
-            <a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a><div class="classname"><span class="kwd">extern </span><span class="kwd">class </span>haxe.EnumTools</div><dl><dt><span class="kwd">static </span><span class="kwd">inline </span><span class="kwd">function </span>createAll&lt;T&gt;(e : <a href="../Enum.html" class="type">Enum</a>&lt;T&gt;) : <a href="../Array.html" class="type">Array</a>&lt;T&gt;</dt><dd><p>Returns a list of all constructors of enum `e` that require no
+            <a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a><div class="classname"><span class="kwd">extern </span><span class="kwd">class </span>haxe.EnumTools</div><dl><dt><span class="kwd">static </span><span class="kwd">inline </span><span class="kwd">function </span>createAll&lt;T&gt;(e : <a href="../Enum.html" class="type">Enum</a>&lt;T&gt;) : <a href="../Array.html" class="type">Array</a>&lt;T&gt;</dt><dd><p>Returns a list of all constructors of enum <code>e</code> that require no
 		arguments.</p>
-<p>This may return the empty Array <code></code> if all constructors of `e` require
+<p>This may return the empty Array <code></code> if all constructors of <code>e</code> require
 		arguments.</p>
-<p>Otherwise an instance of `e` constructed through each of its non-
+<p>Otherwise an instance of <code>e</code> constructed through each of its non-
 		argument constructors is returned, in the order of the constructor
 		declaration.</p>
-<p>If `e` is null, the result is unspecified.</p></dd><dt><span class="kwd">static </span><span class="kwd">inline </span><span class="kwd">function </span>createByIndex&lt;T&gt;(e : <a href="../Enum.html" class="type">Enum</a>&lt;T&gt;, index : <a href="../Int.html" class="type">Int</a>, ?params : <a href="../Array.html" class="type">Array</a>&lt;<a href="../Dynamic.html" class="type">Dynamic</a>&gt;) : T</dt><dd><p>Creates an instance of enum `e` by calling its constructor number
-		`index` with arguments `params`.</p>
+<p>If <code>e</code> is null, the result is unspecified.</p></dd><dt><span class="kwd">static </span><span class="kwd">inline </span><span class="kwd">function </span>createByIndex&lt;T&gt;(e : <a href="../Enum.html" class="type">Enum</a>&lt;T&gt;, index : <a href="../Int.html" class="type">Int</a>, ?params : <a href="../Array.html" class="type">Array</a>&lt;<a href="../Dynamic.html" class="type">Dynamic</a>&gt;) : T</dt><dd><p>Creates an instance of enum <code>e</code> by calling its constructor number
+		<code>index</code> with arguments <code>params</code>.</p>
 <p>The constructor indices are preserved from haxe syntax, so the first
 		declared is index 0, the next index 1 etc.</p>
-<p>If `e` or `constr` is null, or if enum `e` has no constructor named
-		`constr`, or if the number of elements in `params` does not match the
+<p>If <code>e</code> or <code>constr</code> is null, or if enum <code>e</code> has no constructor named
+		<code>constr</code>, or if the number of elements in <code>params</code> does not match the
 		expected number of constructor arguments, or if any argument has an
-		invalid type, the result is unspecified.</p></dd><dt><span class="kwd">static </span><span class="kwd">inline </span><span class="kwd">function </span>createByName&lt;T&gt;(e : <a href="../Enum.html" class="type">Enum</a>&lt;T&gt;, constr : <a href="../String.html" class="type">String</a>, ?params : <a href="../Array.html" class="type">Array</a>&lt;<a href="../Dynamic.html" class="type">Dynamic</a>&gt;) : T</dt><dd><p>Creates an instance of enum `e` by calling its constructor `constr` with
-		arguments `params`.</p>
-<p>If `e` or `constr` is null, or if enum `e` has no constructor named
-		`constr`, or if the number of elements in `params` does not match the
+		invalid type, the result is unspecified.</p></dd><dt><span class="kwd">static </span><span class="kwd">inline </span><span class="kwd">function </span>createByName&lt;T&gt;(e : <a href="../Enum.html" class="type">Enum</a>&lt;T&gt;, constr : <a href="../String.html" class="type">String</a>, ?params : <a href="../Array.html" class="type">Array</a>&lt;<a href="../Dynamic.html" class="type">Dynamic</a>&gt;) : T</dt><dd><p>Creates an instance of enum <code>e</code> by calling its constructor <code>constr</code> with
+		arguments <code>params</code>.</p>
+<p>If <code>e</code> or <code>constr</code> is null, or if enum <code>e</code> has no constructor named
+		<code>constr</code>, or if the number of elements in <code>params</code> does not match the
 		expected number of constructor arguments, or if any argument has an
-		invalid type, the result is unspecified.</p></dd><dt><span class="kwd">static </span><span class="kwd">inline </span><span class="kwd">function </span>getConstructors&lt;T&gt;(e : <a href="../Enum.html" class="type">Enum</a>&lt;T&gt;) : <a href="../Array.html" class="type">Array</a>&lt;<a href="../String.html" class="type">String</a>&gt;</dt><dd><p>Returns a list of the names of all constructors of enum `e`.</p>
+		invalid type, the result is unspecified.</p></dd><dt><span class="kwd">static </span><span class="kwd">inline </span><span class="kwd">function </span>getConstructors&lt;T&gt;(e : <a href="../Enum.html" class="type">Enum</a>&lt;T&gt;) : <a href="../Array.html" class="type">Array</a>&lt;<a href="../String.html" class="type">String</a>&gt;</dt><dd><p>Returns a list of the names of all constructors of enum <code>e</code>.</p>
 <p>The order of the constructor names in the returned Array is preserved
 		from the original syntax.</p>
-<p>If `c` is null, the result is unspecified.</p></dd><dt><span class="kwd">static </span><span class="kwd">inline </span><span class="kwd">function </span>getName&lt;T&gt;(e : <a href="../Enum.html" class="type">Enum</a>&lt;T&gt;) : <a href="../String.html" class="type">String</a></dt><dd><p>Returns the name of enum `e`, including its path.</p>
-<p>If `e` is inside a package, the package structure is returned dot-
+<p>If <code>c</code> is null, the result is unspecified.</p></dd><dt><span class="kwd">static </span><span class="kwd">inline </span><span class="kwd">function </span>getName&lt;T&gt;(e : <a href="../Enum.html" class="type">Enum</a>&lt;T&gt;) : <a href="../String.html" class="type">String</a></dt><dd><p>Returns the name of enum <code>e</code>, including its path.</p>
+<p>If <code>e</code> is inside a package, the package structure is returned dot-
 		separated, with another dot separating the enum name:
 			pack1.pack2.(...).packN.EnumName
-		If `e` is a sub-type of a haxe module, that module is not part of the
+		If <code>e</code> is a sub-type of a haxe module, that module is not part of the
 		package structure.</p>
-<p>If `e` has no package, the enum name is returned.</p>
-<p>If `e` is null, the result is unspecified.</p>
+<p>If <code>e</code> has no package, the enum name is returned.</p>
+<p>If <code>e</code> is null, the result is unspecified.</p>
 <p>The enum name does not include any type parameters.</p></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a>
         </div>
     </div>

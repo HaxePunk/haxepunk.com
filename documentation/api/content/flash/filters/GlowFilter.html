@@ -50,7 +50,7 @@ title: HaxePunk API
 	  The default value is 6. Values that are a power of 2(such as 2, 4, 8, 16,
 	  and 32) are optimized to render more quickly than other values.</dd><dt><span class="kwd">var </span>blurY : <a href="../../Float.html" class="type">Float</a></dt><dd> The amount of vertical blur. Valid values are 0 to 255(floating point).
 	  The default value is 6. Values that are a power of 2(such as 2, 4, 8, 16,
-	  and 32) are optimized to render more quickly than other values.</dd><dt><span class="kwd">var </span>color : <a href="../../Int.html" class="type">Int</a></dt><dd> The color of the glow. Valid values are in the hexadecimal format
+	  and 32) are optimized to render more quickly than other values.</dd><dt><span class="kwd">var </span>color : <a href="../../UInt.html" class="type">UInt</a></dt><dd> The color of the glow. Valid values are in the hexadecimal format
 	  0x<i>RRGGBB</i>. The default value is 0xFF0000.</dd><dt><span class="kwd">var </span>inner : <a href="../../Bool.html" class="type">Bool</a></dt><dd> Specifies whether the glow is an inner glow. The value <code>true</code>
 	  indicates an inner glow. The default is <code>false</code>, an outer glow
 	  (a glow around the outer edges of the object).</dd><dt><span class="kwd">var </span>knockout : <a href="../../Bool.html" class="type">Bool</a></dt><dd> Specifies whether the object has a knockout effect. A value of
@@ -68,7 +68,7 @@ title: HaxePunk API
 	  a similar effect, and with faster rendering, by simply increasing the
 	  values of the <code>blurX</code> and <code>blurY</code> properties.</p></p></dd><dt><span class="kwd">var </span>strength : <a href="../../Float.html" class="type">Float</a></dt><dd> The strength of the imprint or spread. The higher the value, the more
 	  color is imprinted and the stronger the contrast between the glow and the
-	  background. Valid values are 0 to 255. The default is 2.</dd><dt><span class="kwd">function </span>new(?color : <a href="../../Int.html" class="type">Int</a>, ?alpha : <a href="../../Float.html" class="type">Float</a>, ?blurX : <a href="../../Float.html" class="type">Float</a>, ?blurY : <a href="../../Float.html" class="type">Float</a>, ?strength : <a href="../../Float.html" class="type">Float</a>, ?quality : <a href="../../Int.html" class="type">Int</a>, ?inner : <a href="../../Bool.html" class="type">Bool</a>, ?knockout : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd><p>Initializes a new GlowFilter instance with the specified parameters.</p>
+	  background. Valid values are 0 to 255. The default is 2.</dd><dt><span class="kwd">function </span>new(?color : <a href="../../UInt.html" class="type">UInt</a>, ?alpha : <a href="../../Float.html" class="type">Float</a>, ?blurX : <a href="../../Float.html" class="type">Float</a>, ?blurY : <a href="../../Float.html" class="type">Float</a>, ?strength : <a href="../../Float.html" class="type">Float</a>, ?quality : <a href="../../Int.html" class="type">Int</a>, ?inner : <a href="../../Bool.html" class="type">Bool</a>, ?knockout : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd><p>Initializes a new GlowFilter instance with the specified parameters.</p>
 <p>@param color    The color of the glow, in the hexadecimal format
 	                  0x<i>RRGGBB</i>. The default value is 0xFF0000.
 	  @param alpha    The alpha transparency value for the color. Valid values

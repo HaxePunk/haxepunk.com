@@ -59,7 +59,15 @@ title: HaxePunk API
 	  @param	width		Width of the rectangle.
 	  @param	height		Height of the rectangle.
 	  @param	color		Color of the rectangle.
-	  @param	alpha		Alpha of the rectangle.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>resetTarget() : <a href="../../../Void.html" class="type">Void</a></dt><dd> Resets the drawing target to the default. The same as calling Draw.setTarget(HXP.buffer, HXP.camera).</dd><dt><span class="kwd">static </span><span class="kwd">function </span>setTarget(target : <a href="../../../flash/display/BitmapData.html" class="type">flash.display.BitmapData</a>, ?camera : <a href="../../../flash/geom/Point.html" class="type">flash.geom.Point</a>, ?blend : <a href="../../../flash/display/BlendMode.html" class="type">flash.display.BlendMode</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Sets the drawing target for Draw functions.
+	  @param	alpha		Alpha of the rectangle.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>rectPlus(x : <a href="../../../Float.html" class="type">Float</a>, y : <a href="../../../Float.html" class="type">Float</a>, width : <a href="../../../Float.html" class="type">Float</a>, height : <a href="../../../Float.html" class="type">Float</a>, ?color : <a href="../../../Int.html" class="type">Int</a>, ?alpha : <a href="../../../Float.html" class="type">Float</a>, ?fill : <a href="../../../Bool.html" class="type">Bool</a>, ?thick : <a href="../../../Float.html" class="type">Float</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Draws a rectangle.
+	  @param	x			X position of the rectangle.
+	  @param	y			Y position of the rectangle.
+	  @param	width		Width of the rectangle.
+	  @param	height		Height of the rectangle.
+	  @param	color		Color of the rectangle.
+	  @param	alpha		Alpha of the rectangle.
+	  @param	fill		If the rectangle should be filled with the color (true) or just an outline (false).
+	  @param	thick		How thick the outline should be (only applicable when fill = false).</dd><dt><span class="kwd">static </span><span class="kwd">function </span>resetTarget() : <a href="../../../Void.html" class="type">Void</a></dt><dd> Resets the drawing target to the default. The same as calling Draw.setTarget(HXP.buffer, HXP.camera).</dd><dt><span class="kwd">static </span><span class="kwd">function </span>setTarget(target : <a href="../../../flash/display/BitmapData.html" class="type">flash.display.BitmapData</a>, ?camera : <a href="../../../flash/geom/Point.html" class="type">flash.geom.Point</a>, ?blend : <a href="../../../flash/display/BlendMode.html" class="type">flash.display.BlendMode</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Sets the drawing target for Draw functions.
 	  @param	target		The buffer to draw to.
 	  @param	camera		The camera offset (use null for none).
 	  @param	blend		The blend mode to use.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>text(text : <a href="../../../String.html" class="type">String</a>, ?x : <a href="../../../Float.html" class="type">Float</a>, ?y : <a href="../../../Float.html" class="type">Float</a>, ?options : <a href="../../../com/haxepunk/graphics/TextOptions.html" class="type">com.haxepunk.graphics.TextOptions</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd> Draws text.

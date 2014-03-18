@@ -16,29 +16,29 @@ title: HaxePunk API
 <p>EReg instances maintain an internal state, which is affected by several of
 	its methods.</p>
 <p>A detailed explanation of the supported operations is available at
-	http://haxe.org/doc/cross/regexp</p></div><dl><dt><span class="kwd">function </span>new(r : <a href="String.html" class="type">String</a>, opt : <a href="String.html" class="type">String</a>) : <a href="Void.html" class="type">Void</a></dt><dd><p>Creates a new regular expression with pattern `r` and modifiers `opt`.</p>
-<p>This is equivalent to the shorthand syntax `~/r/opt`</p>
-<p>If `r` or `opt` are null, the result is unspecified.</p></dd><dt><span class="kwd">function </span>match(s : <a href="String.html" class="type">String</a>) : <a href="Bool.html" class="type">Bool</a></dt><dd><p>Tells if `this` regular expression matches String `s`.</p>
+	http://haxe.org/doc/cross/regexp</p></div><dl><dt><span class="kwd">function </span>new(r : <a href="String.html" class="type">String</a>, opt : <a href="String.html" class="type">String</a>) : <a href="Void.html" class="type">Void</a></dt><dd><p>Creates a new regular expression with pattern <code>r</code> and modifiers <code>opt</code>.</p>
+<p>This is equivalent to the shorthand syntax ~/r/opt</p>
+<p>If <code>r</code> or <code>opt</code> are null, the result is unspecified.</p></dd><dt><span class="kwd">function </span>match(s : <a href="String.html" class="type">String</a>) : <a href="Bool.html" class="type">Bool</a></dt><dd><p>Tells if <code>this</code> regular expression matches String <code>s</code>.</p>
 <p>This method modifies the internal state.</p>
-<p>If `s` is `null`, the result is unspecified.</p></dd><dt><span class="kwd">function </span>matched(n : <a href="Int.html" class="type">Int</a>) : <a href="String.html" class="type">String</a></dt><dd><p>Returns the matched sub-group `n` of `this` EReg.</p>
-<p>This method should only be called after `this.match` or
-		`this.matchSub`, and then operates on the String of that operation.</p>
-<p>The index `n` corresponds to the n-th set of parentheses in the pattern
-		of `this` EReg. If no such sub-group exists, an exception is thrown.</p>
-<p>If `n` equals 0, the whole matched substring is returned.</p></dd><dt><span class="kwd">function </span>matchedPos() : { pos : <a href="Int.html" class="type">Int</a>, len : <a href="Int.html" class="type">Int</a>}</dt><dd><p>Returns the position and length of the last matched substring, within
-		the String which was last used as argument to `this.match` or
-		`this.matchSub`.</p>
-<p>If the most recent call to `this.match` or `this.matchSub` did not
+<p>If <code>s</code> is null, the result is unspecified.</p></dd><dt><span class="kwd">function </span>matched(n : <a href="Int.html" class="type">Int</a>) : <a href="String.html" class="type">String</a></dt><dd><p>Returns the matched sub-group <code>n</code> of <code>this</code> EReg.</p>
+<p>This method should only be called after <code>this</code>.match() or
+		<code>this</code>.matchSub(), and then operates on the String of that operation.</p>
+<p>The index <code>n</code> corresponds to the n-th set of parentheses in the pattern
+		of <code>this</code> EReg. If no such sub-group exists, an exception is thrown.</p>
+<p>If <code>n</code> equals 0, the whole matched substring is returned.</p></dd><dt><span class="kwd">function </span>matchedPos() : { pos : <a href="Int.html" class="type">Int</a>, len : <a href="Int.html" class="type">Int</a>}</dt><dd><p>Returns the position and length of the last matched substring, within
+		the String which was last used as argument to <code>this</code>.match() or
+		<code>this</code>.matchSub().</p>
+<p>If the most recent call to <code>this</code>.match() or <code>this</code>.matchSub() did not
 		match anything, the result is unspecified.</p>
 <p>If the global g modifier was in place for the matching, the position and
-		length of the leftmost substring is returned.</p></dd><dt><span class="kwd">function </span>replace(s : <a href="String.html" class="type">String</a>, by : <a href="String.html" class="type">String</a>) : <a href="String.html" class="type">String</a></dt><dd><p>Replaces the first substring of `s` which `this` EReg matches with `by`.</p>
-<p>If `this` EReg does not match any substring, the result is `s`.</p>
+		length of the leftmost substring is returned.</p></dd><dt><span class="kwd">function </span>replace(s : <a href="String.html" class="type">String</a>, by : <a href="String.html" class="type">String</a>) : <a href="String.html" class="type">String</a></dt><dd><p>Replaces the first substring of <code>s</code> which <code>this</code> EReg matches with <code>by</code>.</p>
+<p>If <code>this</code> EReg does not match any substring, the result is <code>s</code>.</p>
 <p>By default, this method replaces only the first matched substring. If
 		the global g modifier is in place, all matched substrings are replaced.</p>
-<p>If `by` contains `$1` to `$9`, the digit corresponds to number of a
+<p>If <code>by</code> contains <code>$1</code> to <code>$9</code>, the digit corresponds to number of a
 		matched sub-group and its value is used instead. If no such sub-group
-		exists, the replacement is unspecified. The string `$$` becomes `$`.</p>
-<p>If `s` or `by` are null, the result is unspecified.</p></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../index.html" class="index">Index</a>
+		exists, the replacement is unspecified. The string <code>$$</code> becomes <code>$</code>.</p>
+<p>If <code>s</code> or <code>by</code> are null, the result is unspecified.</p></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../index.html" class="index">Index</a>
         </div>
     </div>
 </div>
