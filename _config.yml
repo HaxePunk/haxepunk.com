@@ -1,5 +1,5 @@
 name: HaxePunk
 markdown: redcarpet
-pygments: true
+highlighter: pygments
 baseurl: http://haxepunk.com/
 relative_permalinks: true
