@@ -1,6 +1,6 @@
 ---
 layout: game
 title: GNP
-play_url: http://www.themusicinnoise.net/Programs/GNP/GNP.html
+play_url: http://deathsbreedgames.github.io/games/GNP/
 author: Nicolas A. Ortega
 ---
