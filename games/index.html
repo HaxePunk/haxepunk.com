@@ -17,7 +17,7 @@ title: Games | HaxePunk
 			<p itemprop="author" itemscope="" itemtype="http://www.schema.org/Person">
 				<span>By {{ page.author }}</span>
 			</p>
-			<a href="{{site.baseurl}}{{ page.url }}"><img width="220" height="124" src="{{site.baseurl}}img/{{ page.path | replace:'.md','.jpg' }}" alt="{{ page.title }}"></a>
+			<a href="{{ page.url }}"><img width="220" height="124" src="{{site.baseurl}}img/{{ page.path | replace:'.md','.jpg' }}" alt="{{ page.title }}"></a>
 		</div>
 		{% if clear != '' %}<div class="{{ clear }}"></div>{% endif %}
 		{% endif %}
