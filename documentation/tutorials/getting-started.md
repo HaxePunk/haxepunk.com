@@ -10,7 +10,7 @@ Before using HaxePunk you'll need to setup your development environment. This tu
 
 ## Install Haxe
 
-Download Haxe from [http://www.haxe.org/download](http://www.haxe.org/download). Make sure to install 3.0.1 instead of 2.10. The installer also includes the Neko vm which is necessary for several of Haxe's command line tools.
+For Windows and Mac, download and install the latest Haxe from [http://www.haxe.org/download](http://www.haxe.org/download). These installers also includes the Neko VM which is necessary for several of Haxe's command line tools. If you're on Linux, OpenFL provides an [install script](http://www.openfl.org/documentation/getting-started/installing-openfl/) that will automate the installation of both Haxe and Neko.
 
 ## Install HaxePunk
 
