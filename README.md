@@ -37,4 +37,4 @@ Once you've made something in HaxePunk you can submit it to be showcased on the 
 	This is a description of my **really** great game! You can use Markdown to format the description.
 	```
 
-2. Add a screenshot using the same filename of your `.md` file to the `img/games` folder. The image is scaled to 220x124 so it's best to keep to those dimensions.
+2. Add a jpeg screenshot using the same filename of your `.md` file to the `img/games` folder with the `.jpg` extension. The image is scaled to 220x124 so it's best to keep to those dimensions.
