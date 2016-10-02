@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Sound Effects
-permalink: sound-effects/index.html
+permalink: documentation/tutorials/sound-effects/index.html
 ---
 
 # Sound Effects

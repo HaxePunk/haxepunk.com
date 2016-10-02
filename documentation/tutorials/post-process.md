@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Post Processing
-permalink: post-process/index.html
+permalink: documentation/tutorials/post-process/index.html
 ---
 
 # Post Processing using GLSL

@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: HaxePunk Basics
-permalink: haxepunk-basics/index.html
+permalink: documentation/tutorials/haxepunk-basics/index.html
 ---
 
 # HaxePunk Basics

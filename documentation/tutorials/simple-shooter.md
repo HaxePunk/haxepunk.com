@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: A Simple Shooter
-permalink: simple-shooter/index.html
+permalink: documentation/tutorials/simple-shooter/index.html
 ---
 
 # A Simple Shooter

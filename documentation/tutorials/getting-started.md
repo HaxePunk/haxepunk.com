@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Getting Started
-permalink: getting-started/index.html
+permalink: documentation/tutorials/getting-started/index.html
 ---
 
 # Getting Started with HaxePunk

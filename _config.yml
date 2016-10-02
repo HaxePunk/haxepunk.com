@@ -2,4 +2,3 @@ name: HaxePunk
 markdown: redcarpet
 highlighter: pygments
 baseurl: http://haxepunk.com/
-relative_permalinks: true
