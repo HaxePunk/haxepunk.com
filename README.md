@@ -1,4 +1,4 @@
-[![Build Status](https://img.shields.io/travis/HaxePunk/haxepunk.com/dev.svg?style=flat)](https://travis-ci.org/HaxePunk/haxepunk.com)
+[![Build Status](https://img.shields.io/travis/HaxePunk/haxepunk.com/gh-pages.svg?style=flat)](https://travis-ci.org/HaxePunk/haxepunk.com)
 
 ## About
 
