@@ -2,7 +2,7 @@ language: ruby
 rvm:
 - 2.1
 
-install: gem install jekyll
+install: gem install bundler && bundle install
 script: jekyll build
 
 # branch whitelist, only for GitHub Pages
