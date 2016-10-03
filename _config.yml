@@ -1,2 +1,3 @@
 name: HaxePunk
 baseurl: http://haxepunk.com/
+exclude: ["vendor"]
