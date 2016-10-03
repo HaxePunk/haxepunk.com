@@ -1,3 +1,5 @@
+[![Build Status](https://img.shields.io/travis/HaxePunk/haxepunk.com/dev.svg?style=flat)](https://travis-ci.org/HaxePunk/haxepunk.com)
+
 ## About
 
 This is the source of [haxepunk.com](http://haxepunk.com). It is hosted on GitHub Pages using [jekyll](http://jekyllrb.com/). You can compile and test this website on your computer with a local install of jekyll, pull requests are welcome.
