@@ -1,4 +1,8 @@
 _site
-
 Thumbs.db
+documentation/api
+demos/*.md
+demos/swf
+demos/thumb
 .DS_Store
+.idea
