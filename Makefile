@@ -30,7 +30,7 @@ demos:
 	cd $(HAXEPUNK_PATH) && make examples COMMAND=openfl TARGET=flash && \
 	for i in `find examples -mindepth 1 -maxdepth 1 -type d`; do \
 		TITLE=`basename $$i`; \
-		cp `find $$i/bin/flash -name "$$TITLE.swf" | head -1` $(SITE_PATH)/demos/swf/$$TITLE.swf; \
+		cp `find $$i/bin -name "*.swf" | head -1` $(SITE_PATH)/demos/swf/$$TITLE.swf; \
 		cp $$i/thumb.jpg $(SITE_PATH)/demos/thumb/$$TITLE.jpg; \
 		echo "---" > $(SITE_PATH)/demos/$$TITLE.md; \
 		echo "$$DEMO_HEADER" | sed "s/TITLE/$$TITLE/g" >> $(SITE_PATH)/demos/$$TITLE.md; \
