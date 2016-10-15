@@ -11,7 +11,7 @@ endef
 
 export DEMO_HEADER
 
-.PHONY: all site serve demos
+.PHONY: all docs demos site serve
 
 all: clean docs demos site
 
