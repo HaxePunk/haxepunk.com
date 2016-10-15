@@ -1,6 +1,6 @@
 ---
 layout: cookbook
-title: Emitter Backward Animation
+title: Emitter backward animation
 version: 2.4.1
 author: XXLTomate
 ---
