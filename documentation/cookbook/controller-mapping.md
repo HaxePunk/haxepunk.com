@@ -1,6 +1,6 @@
 ---
 layout: cookbook
-title: Joystick Button Mapping
+title: Joystick button mapping
 version: 2.4.0
 author: MattTuttle and bendmorris
 ---
