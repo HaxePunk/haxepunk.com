@@ -1,6 +1,6 @@
 ---
 layout: cookbook
-title: Tileset Spacing
+title: Tileset spacing
 version: 2.4.4
 author: elnabo
 ---
