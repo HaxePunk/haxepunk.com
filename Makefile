@@ -1,5 +1,6 @@
 HAXEPUNK_PATH=$(shell haxelib path HaxePunk | head -1)
 SITE_PATH=$(shell pwd)
+COMMAND=openfl
 
 define DEMO_HEADER
 layout: demo
@@ -12,7 +13,7 @@ export DEMO_HEADER
 
 .PHONY: all site serve demos
 
-all: docs demos site clean
+all: clean docs demos site
 
 clean:
 	rm -rf demos/*.md demos/swf/*.swf demos/thumb/*.jpg documentation/api
@@ -27,10 +28,10 @@ docs:
 	cd $(HAXEPUNK_PATH) && make docs && rm -rf $(SITE_PATH)/documentation/api && cp -r doc/pages $(SITE_PATH)/documentation/api
 
 demos:
-	cd $(HAXEPUNK_PATH) && make examples COMMAND=openfl TARGET=flash && \
+	cd $(HAXEPUNK_PATH) && make examples COMMAND=$(COMMAND) TARGET=flash && \
 	for i in `find examples -mindepth 1 -maxdepth 1 -type d`; do \
 		TITLE=`basename $$i`; \
-		cp `find $$i/bin -name "*.swf" | head -1` $(SITE_PATH)/demos/swf/$$TITLE.swf; \
+		cp `find $$i/bin/flash/release -name "*.swf" | head -1` $(SITE_PATH)/demos/swf/$$TITLE.swf; \
 		cp $$i/thumb.jpg $(SITE_PATH)/demos/thumb/$$TITLE.jpg; \
 		echo "---" > $(SITE_PATH)/demos/$$TITLE.md; \
 		echo "$$DEMO_HEADER" | sed "s/TITLE/$$TITLE/g" >> $(SITE_PATH)/demos/$$TITLE.md; \
