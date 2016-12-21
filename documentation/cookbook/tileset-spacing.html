@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Tileset spacing</title>
+
+		<meta name="description" content="HaxePunk is a 2d game engine written in Haxe for cross-platform deployment.">
+		<meta name="author" content="HaxePunk.com">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+		<link rel="shortcut icon" type="image/png" href="http://haxepunk.com/img/favicon.png">
+
+		<link rel="stylesheet" type="text/css" href="http://haxepunk.com/css/ink.css">
+		<link rel="stylesheet" type="text/css" href="http://haxepunk.com/css/syntax.css">
+		<link rel="stylesheet" type="text/css" href="http://haxepunk.com/css/custom.css">
+
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-5069201-6', 'haxepunk.com');
+		ga('send', 'pageview');
+		</script>
+	</head>
+
+	<body>
+		<div class="top-menu">
+			<a href="http://haxepunk.com/" class="logo">
+				<image src="http://haxepunk.com/img/HaxePunk.svg" width="300" height="75" alt="HaxePunk" />
+			</a>
+			<nav class="ink-navigation">
+				<ul class="menu horizontal orange">
+					<li class="">
+						<a href="http://haxepunk.com/">Home</a>
+					</li>
+					<li class="">
+						<a href="http://haxepunk.com/features/">Features</a>
+					</li>
+					<li class="">
+						<a href="http://haxepunk.com/demos/">Demos</a>
+					</li>
+					<li class="active">
+						<a href="http://haxepunk.com/documentation/">Documentation</a>
+					</li>
+					<li class="">
+						<a href="http://haxepunk.com/games/">Games</a>
+					</li>
+					<li>
+						<a href="http://forum.haxepunk.com/">Forum</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="github">
+			<a href="https://github.com/HaxePunk/HaxePunk">Fork me on GitHub</a>
+		</div>
+
+<div class="ink-grid vspace mainpoints">
+	<div class="column-group">
+		<div class="hide-small medium-10 large-15"></div>
+		<div class="small-100 medium-80 large-70">
+			<h1>Tileset spacing</h1>
+			<h4>Since v2.4.4 by elnabo</h4>
+			<div class="highlight"><pre><code class="language-text" data-lang="text">import com.haxepunk.graphics.Tilemap;
+</code></pre></div>
+<p>If your tileset has some space between the tiles you can now specify it when constructing your tilemap. The tileSpacingWidth and tileSpacingHeight arguments are optional.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">new Tilemap(tileset:Dynamic, width:Int, height:Int, tileWidth:Int, tileHeight:Int, ?tileSpacingWidth:Int=0, ?tileSpacingHeight:Int=0);
+</code></pre></div>
+
+			<h2>Cookbook</h2>
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+				<li><a href="/documentation/cookbook/console-trace.html">Trace capture in console</a></li>
+				
+			
+				
+				<li><a href="/documentation/cookbook/controller-mapping.html">Joystick button mapping</a></li>
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+				<li><a href="/documentation/cookbook/drawing-multiple-scenes.html">Drawing multiple scenes</a></li>
+				
+			
+				
+			
+				
+				<li><a href="/documentation/cookbook/emitter-backward-animation.html">Emitter backward animation</a></li>
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+		</div>
+	</div>
+</div>
+
+
+		<footer>
+		<div class="ink-grid">
+		   <div class="large-100 medium-100 small-100">
+				Copyright &copy; 2011-2016 HaxePunk.com
+				&bull;
+				HaxePunk's <a href="https://github.com/HaxePunk">code</a> is licensed under
+				<a href="http://opensource.org/licenses/MIT">MIT</a>
+				&bull;
+				Follow <a href="https://twitter.com/HaxePunk">@HaxePunk</a>
+				&bull;
+				<a href="https://github.com/HaxePunk/haxepunk.com">Site</a> made with <a href="http://ink.sapo.pt/">Ink</a>
+				Powered by <a href="http://pages.github.com/">GitHub Pages</a>
+			</div>
+		</div>
+		</footer>
+
+		<script type="text/javascript" src="http://haxepunk.com/js/holder.js"></script>
+		<script type="text/javascript" src="http://haxepunk.com/js/ink-all.min.js"></script>
+		<script type="text/javascript" src="http://haxepunk.com/js/autoload.js"></script>
+		<script type="text/javascript" src="http://haxepunk.com/js/html5shiv.js"></script>
+	</body>
+
+</html>

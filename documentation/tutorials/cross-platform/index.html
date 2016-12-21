@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Cross-Platform Deployment</title>
+
+		<meta name="description" content="HaxePunk is a 2d game engine written in Haxe for cross-platform deployment.">
+		<meta name="author" content="HaxePunk.com">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+		<link rel="shortcut icon" type="image/png" href="http://haxepunk.com/img/favicon.png">
+
+		<link rel="stylesheet" type="text/css" href="http://haxepunk.com/css/ink.css">
+		<link rel="stylesheet" type="text/css" href="http://haxepunk.com/css/syntax.css">
+		<link rel="stylesheet" type="text/css" href="http://haxepunk.com/css/custom.css">
+
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-5069201-6', 'haxepunk.com');
+		ga('send', 'pageview');
+		</script>
+	</head>
+
+	<body>
+		<div class="top-menu">
+			<a href="http://haxepunk.com/" class="logo">
+				<image src="http://haxepunk.com/img/HaxePunk.svg" width="300" height="75" alt="HaxePunk" />
+			</a>
+			<nav class="ink-navigation">
+				<ul class="menu horizontal orange">
+					<li class="">
+						<a href="http://haxepunk.com/">Home</a>
+					</li>
+					<li class="">
+						<a href="http://haxepunk.com/features/">Features</a>
+					</li>
+					<li class="">
+						<a href="http://haxepunk.com/demos/">Demos</a>
+					</li>
+					<li class="active">
+						<a href="http://haxepunk.com/documentation/">Documentation</a>
+					</li>
+					<li class="">
+						<a href="http://haxepunk.com/games/">Games</a>
+					</li>
+					<li>
+						<a href="http://forum.haxepunk.com/">Forum</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="github">
+			<a href="https://github.com/HaxePunk/HaxePunk">Fork me on GitHub</a>
+		</div>
+
+<div class="ink-grid vspace mainpoints">
+	<h1>Cross-Platform Deployment</h1>
+
+<p>Developing for multiple platforms is simple in HaxePunk. For flash targets the only dependency is <em>openfl</em> but for native targets you&#39;ll need <em>openfl-native</em> as well. Make sure you also have <em>lime</em> and <em>lime-tools</em> installed from haxelib as well, which should already be if you&#39;ve been following the other tutorials.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">lime <span class="nb">test </span>flash
+lime <span class="nb">test </span>neko
+
+<span class="c"># platform specific c++ builds</span>
+lime <span class="nb">test </span>windows
+lime <span class="nb">test </span>mac
+lime <span class="nb">test </span>android
+lime <span class="nb">test </span>ios -simulator
+lime <span class="nb">test </span>linux
+</code></pre></div>
+<p>As long as you are on the appropriate platform OpenFL/Lime will do all the work for you and compile the native version. You may need to run setup for a platform before using it. For example to build for Android you would run the following, which will prompt you to download the SDK and NDK.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">openfl setup android
+</code></pre></div>
+<p>Another handy trick when deploying is the <em>-debug</em> flag. Add it to the end of any test command and you will get a version with debug symbols added. This allows you to see line numbers in a stack trace if something breaks and will enable certain debuggers to hook into your code.</p>
+
+<h2>Blitting vs. Hardware Acceleration</h2>
+
+<p>Unlike FlashPunk it is generally not suggested to use <code>flash.display.BitmapData</code> directly due to the way rendering is handled in HaxePunk. Hardware targets use OpenGL accelerated rendering while Flash uses blitting methods <code>BitmapData.copyPixels</code>.</p>
+
+<p>As long as you are utilizing the base graphic classes HaxePunk provides you should have no problem switching between targets. These are optimized for native by using objects called Atlases. If you are interested in how these work take a look at the <a href="/learn/tutorial/haxepunk-201-hardware-atlases">tutorial</a> or API documentation.</p>
+
+<h2>Conditional Compilation</h2>
+
+<p>If you need to omit a feature because it is platform specific you can use conditional compilation. This is simply done with Haxe directives.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#if flash</span>
+    // custom flash code
+<span class="c">#elseif neko</span>
+    // custom neko code
+<span class="c">#else</span>
+    // every other target
+<span class="c">#end</span>
+</code></pre></div>
+<p>The directive names should match the same target names used in OpenFL. For more information about conditional compilation check out the <a href="http://www.openfl.org/archive/developer/documentation/conditional-compilation/">OpenFL site</a></p>
+
+</div>
+
+
+		<footer>
+		<div class="ink-grid">
+		   <div class="large-100 medium-100 small-100">
+				Copyright &copy; 2011-2016 HaxePunk.com
+				&bull;
+				HaxePunk's <a href="https://github.com/HaxePunk">code</a> is licensed under
+				<a href="http://opensource.org/licenses/MIT">MIT</a>
+				&bull;
+				Follow <a href="https://twitter.com/HaxePunk">@HaxePunk</a>
+				&bull;
+				<a href="https://github.com/HaxePunk/haxepunk.com">Site</a> made with <a href="http://ink.sapo.pt/">Ink</a>
+				Powered by <a href="http://pages.github.com/">GitHub Pages</a>
+			</div>
+		</div>
+		</footer>
+
+		<script type="text/javascript" src="http://haxepunk.com/js/holder.js"></script>
+		<script type="text/javascript" src="http://haxepunk.com/js/ink-all.min.js"></script>
+		<script type="text/javascript" src="http://haxepunk.com/js/autoload.js"></script>
+		<script type="text/javascript" src="http://haxepunk.com/js/html5shiv.js"></script>
+	</body>
+
+</html>

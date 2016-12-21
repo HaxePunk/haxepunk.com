@@ -12,7 +12,7 @@ HXP.engine.scene = new MenuScene();
 ```
 
 Starting in 2.6.0, you can use an alternative method to draw a temporary scene 
-over the previous scene. Set your Scene's `transparent` field to true:
+over the previous scene. Set your Scene's `alpha` to a value less than 1:
 
 ```haxe
 class MenuScene extends Scene
@@ -20,7 +20,7 @@ class MenuScene extends Scene
     public function new()
     {
         super();
-        transparent = true;
+        alpha = 0.5;
     }
 
     public function close()
@@ -37,8 +37,7 @@ HXP.engine.pushScene(new MenuScene());
 ```
 
 The parent scene will no longer be active (update won't be called) but it will 
-be visible underneath your MenuScene. Try setting a semi-transparent colored 
-background on MenuScene to de-emphasize the inactive scene.
+be visible underneath your MenuScene.
 
 When you call `HXP.engine.popScene()`, your scene will be removed from the 
 stack, setting the previous scene active again.

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Movement and Animation</title>
+
+		<meta name="description" content="HaxePunk is a 2d game engine written in Haxe for cross-platform deployment.">
+		<meta name="author" content="HaxePunk.com">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+		<link rel="shortcut icon" type="image/png" href="http://haxepunk.com/img/favicon.png">
+
+		<link rel="stylesheet" type="text/css" href="http://haxepunk.com/css/ink.css">
+		<link rel="stylesheet" type="text/css" href="http://haxepunk.com/css/syntax.css">
+		<link rel="stylesheet" type="text/css" href="http://haxepunk.com/css/custom.css">
+
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-5069201-6', 'haxepunk.com');
+		ga('send', 'pageview');
+		</script>
+	</head>
+
+	<body>
+		<div class="top-menu">
+			<a href="http://haxepunk.com/" class="logo">
+				<image src="http://haxepunk.com/img/HaxePunk.svg" width="300" height="75" alt="HaxePunk" />
+			</a>
+			<nav class="ink-navigation">
+				<ul class="menu horizontal orange">
+					<li class="">
+						<a href="http://haxepunk.com/">Home</a>
+					</li>
+					<li class="">
+						<a href="http://haxepunk.com/features/">Features</a>
+					</li>
+					<li class="">
+						<a href="http://haxepunk.com/demos/">Demos</a>
+					</li>
+					<li class="active">
+						<a href="http://haxepunk.com/documentation/">Documentation</a>
+					</li>
+					<li class="">
+						<a href="http://haxepunk.com/games/">Games</a>
+					</li>
+					<li>
+						<a href="http://forum.haxepunk.com/">Forum</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="github">
+			<a href="https://github.com/HaxePunk/HaxePunk">Fork me on GitHub</a>
+		</div>
+
+<div class="ink-grid vspace mainpoints">
+	<h1>Movement and Animation</h1>
+
+<p>Welcome back to the next tutorial in the series! We will be covering animations in this section as well as some advanced movement.</p>
+
+<p>First off let&#39;s start with a Player class. Like last time we will extend com.haxepunk.Entity so we can add it to the scene later. This may look daunting but I have added comments to make it easier to tell what is happening. You can use the player image below or create your own.</p>
+
+<p><img src="/documentation/tutorials/images/player.png" alt="Player Image"></p>
+
+<h3>src/entities/Player.hx</h3>
+<div class="highlight"><pre><code class="language-haxe" data-lang="haxe"><span class="kn">package</span> <span class="nn">entities</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">com</span><span class="p">.</span><span class="nn">haxepunk</span><span class="p">.</span><span class="nn">HXP</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com</span><span class="p">.</span><span class="nn">haxepunk</span><span class="p">.</span><span class="nn">Entity</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com</span><span class="p">.</span><span class="nn">haxepunk</span><span class="p">.</span><span class="nn">graphics</span><span class="p">.</span><span class="nn">Spritemap</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com</span><span class="p">.</span><span class="nn">haxepunk</span><span class="p">.</span><span class="nn">utils</span><span class="p">.</span><span class="nn">Input</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com</span><span class="p">.</span><span class="nn">haxepunk</span><span class="p">.</span><span class="nn">utils</span><span class="p">.</span><span class="nn">Key</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="n">Player</span> <span class="kd">extends</span> <span class="n">Entity</span>
+<span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">function</span> <span class="nf">new</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="n">Float</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span><span class="n">Float</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">super</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+
+        <span class="c1">// create a new spritemap (image, frameWidth, frameHeight)</span>
+        <span class="n">sprite</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Spritemap</span><span class="p">(</span><span class="s2">&quot;graphics/player.png&quot;</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+        <span class="c1">// define animations by passing frames in an array</span>
+        <span class="n">sprite</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;idle&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+        <span class="c1">// we set a speed to the walk animation</span>
+        <span class="n">sprite</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;walk&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">12</span><span class="p">);</span>
+        <span class="c1">// tell the sprite to play the idle animation</span>
+        <span class="n">sprite</span><span class="p">.</span><span class="n">play</span><span class="p">(</span><span class="s2">&quot;idle&quot;</span><span class="p">);</span>
+
+        <span class="c1">// apply the sprite to our graphic object so we can see the player</span>
+        <span class="n">graphic</span> <span class="o">=</span> <span class="n">sprite</span><span class="p">;</span>
+
+        <span class="c1">// defines left and right as arrow keys and WASD controls</span>
+        <span class="n">Input</span><span class="p">.</span><span class="n">define</span><span class="p">(</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">Key</span><span class="p">.</span><span class="n">LEFT</span><span class="p">,</span> <span class="n">Key</span><span class="p">.</span><span class="n">A</span><span class="p">]);</span>
+        <span class="n">Input</span><span class="p">.</span><span class="n">define</span><span class="p">(</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">Key</span><span class="p">.</span><span class="n">RIGHT</span><span class="p">,</span> <span class="n">Key</span><span class="p">.</span><span class="n">D</span><span class="p">]);</span>
+
+        <span class="n">velocity</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// sets velocity based on keyboard input</span>
+    <span class="kd">private</span> <span class="kd">function</span> <span class="nf">handleInput</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">velocity</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;left&quot;</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">velocity</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;right&quot;</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">velocity</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">function</span> <span class="nf">setAnimations</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">velocity</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// we are stopped, set animation to idle</span>
+            <span class="n">sprite</span><span class="p">.</span><span class="n">play</span><span class="p">(</span><span class="s2">&quot;idle&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="c1">// we are moving, set animation to walk</span>
+            <span class="n">sprite</span><span class="p">.</span><span class="n">play</span><span class="p">(</span><span class="s2">&quot;walk&quot;</span><span class="p">);</span>
+
+            <span class="c1">// this will flip our sprite based on direction</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">velocity</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// left</span>
+            <span class="p">{</span>
+                <span class="n">sprite</span><span class="p">.</span><span class="n">flipped</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="c1">// right</span>
+            <span class="p">{</span>
+                <span class="n">sprite</span><span class="p">.</span><span class="n">flipped</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">override</span> <span class="kd">function</span> <span class="nf">update</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">handleInput</span><span class="p">();</span>
+
+        <span class="n">moveBy</span><span class="p">(</span><span class="n">velocity</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+        <span class="n">setAnimations</span><span class="p">();</span>
+
+        <span class="n">super</span><span class="p">.</span><span class="n">update</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">var</span> velocity<span class="p">:</span><span class="n">Float</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kd">var</span> sprite<span class="p">:</span><span class="n">Spritemap</span><span class="p">;</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<p>Add a new Player to your GameScene and try it out!</p>
+
+<p>As you can see, adding new animations is as simple as calling the sprite.add() method and calling sprite.play() when the time is right. What if we want the player to slide around a bit though? This is especially helpful if we want to create a platformer type game.</p>
+
+<p>First we need to change the keyboard to apply acceleration instead of velocity. We will then add that acceleration every frame in update. Take a look at the code below.</p>
+
+<h3>src/entities/Player.hx</h3>
+<div class="highlight"><pre><code class="language-haxe" data-lang="haxe">    <span class="kd">private</span> <span class="kd">function</span> <span class="nf">handleInput</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">acceleration</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;left&quot;</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">acceleration</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;right&quot;</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">acceleration</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">function</span> <span class="nf">move</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">velocity</span> <span class="o">+=</span> <span class="n">acceleration</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="n">abs</span><span class="p">(</span><span class="n">velocity</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">velocity</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">HXP</span><span class="p">.</span><span class="n">sign</span><span class="p">(</span><span class="n">velocity</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="n">moveBy</span><span class="p">(</span><span class="n">velocity</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">override</span> <span class="kd">function</span> <span class="nf">update</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">handleInput</span><span class="p">();</span>
+
+        <span class="n">move</span><span class="p">();</span>
+
+        <span class="n">setAnimations</span><span class="p">();</span>
+
+        <span class="n">super</span><span class="p">.</span><span class="n">update</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">var</span> acceleration<span class="p">:</span><span class="n">Float</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kd">var</span> velocity<span class="p">:</span><span class="n">Float</span><span class="p">;</span>
+</code></pre></div>
+<p>If you test this now you will notice that the player will never slow down automatically. Oops! Well I guess we should decrease the velocity over time. Add this before the call to moveBy().</p>
+
+<h3>src/entities/Player.hx</h3>
+<div class="highlight"><pre><code class="language-haxe" data-lang="haxe">    <span class="k">if</span> <span class="p">(</span><span class="n">velocity</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">velocity</span> <span class="o">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">min</span><span class="p">(</span><span class="n">velocity</span> <span class="o">+</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">velocity</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">velocity</span> <span class="o">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">max</span><span class="p">(</span><span class="n">velocity</span> <span class="o">-</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+</code></pre></div>
+<p>Feel free to play around with the values to add more of a slick feeling or to make it more sticky. Imagine if you knew what type of surface the player was on we could change this dynamically! Even make the animation different depending on how slippery the level is. The possibilities are endless!</p>
+
+</div>
+
+
+		<footer>
+		<div class="ink-grid">
+		   <div class="large-100 medium-100 small-100">
+				Copyright &copy; 2011-2016 HaxePunk.com
+				&bull;
+				HaxePunk's <a href="https://github.com/HaxePunk">code</a> is licensed under
+				<a href="http://opensource.org/licenses/MIT">MIT</a>
+				&bull;
+				Follow <a href="https://twitter.com/HaxePunk">@HaxePunk</a>
+				&bull;
+				<a href="https://github.com/HaxePunk/haxepunk.com">Site</a> made with <a href="http://ink.sapo.pt/">Ink</a>
+				Powered by <a href="http://pages.github.com/">GitHub Pages</a>
+			</div>
+		</div>
+		</footer>
+
+		<script type="text/javascript" src="http://haxepunk.com/js/holder.js"></script>
+		<script type="text/javascript" src="http://haxepunk.com/js/ink-all.min.js"></script>
+		<script type="text/javascript" src="http://haxepunk.com/js/autoload.js"></script>
+		<script type="text/javascript" src="http://haxepunk.com/js/html5shiv.js"></script>
+	</body>
+
+</html>
