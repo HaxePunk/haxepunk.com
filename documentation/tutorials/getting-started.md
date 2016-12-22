@@ -10,7 +10,7 @@ Before using HaxePunk you'll need to setup your development environment. This tu
 
 ## Install Haxe
 
-For Windows and Mac, download and install the latest Haxe from [http://www.haxe.org/download](http://www.haxe.org/download). These installers also includes the Neko VM which is necessary for several of Haxe's command line tools. If you're on Linux, OpenFL provides an [install script](http://www.openfl.org/documentation/getting-started/installing-openfl/) that will automate the installation of both Haxe and Neko.
+For Windows and Mac, download and install the latest Haxe from [http://www.haxe.org/download](http://www.haxe.org/download). These installers also includes the Neko VM which is necessary for several of Haxe's command line tools.
 
 ## Install HaxePunk
 
@@ -49,6 +49,12 @@ lime setup linux
 # lime test android
 lime setup android
 ```
+
+## NME
+
+NME is an alternative to OpenFL and Lime. While OpenFL tends to change very quickly, NME focuses on stability. Currently, you can substitute NME for all supported targets except HTML5.
+
+To install NME, run `haxelib install nme`. You can then build with `nme test neko`.
 
 ## GitHub <i class="icon-github"></i>
 

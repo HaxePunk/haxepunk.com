@@ -6,7 +6,12 @@ permalink: documentation/tutorials/cross-platform/index.html
 
 # Cross-Platform Deployment
 
-Developing for multiple platforms is simple in HaxePunk. For flash targets the only dependency is _openfl_ but for native targets you'll need _openfl-native_ as well. Make sure you also have _lime_ and _lime-tools_ installed from haxelib as well, which should already be if you've been following the other tutorials.
+To use HaxePunk, you'll need a library which implements the Flash API. There are currently two supported providers:
+
+- `lime` and `openfl` (see [openfl.org](http://www.openfl.org))
+- `NME` (see <https://github.com/haxenme/nme>)
+
+With this installed, deploying for multiple plaforms is simple (if you're using NME, substitute `nme` for `lime`):
 
 ```bash
 lime test flash
@@ -20,10 +25,10 @@ lime test ios -simulator
 lime test linux
 ```
 
-As long as you are on the appropriate platform OpenFL/Lime will do all the work for you and compile the native version. You may need to run setup for a platform before using it. For example to build for Android you would run the following, which will prompt you to download the SDK and NDK.
+As long as you are on the appropriate platform OpenFL/Lime or NME will do all the work for you and compile the native version. You may need to run setup for a platform before using it. For example to build for Android you would run the following, which will prompt you to download the SDK and NDK.
 
 ```bash
-openfl setup android
+lime setup android
 ```
 
 Another handy trick when deploying is the _-debug_ flag. Add it to the end of any test command and you will get a version with debug symbols added. This allows you to see line numbers in a stack trace if something breaks and will enable certain debuggers to hook into your code.
@@ -48,4 +53,4 @@ If you need to omit a feature because it is platform specific you can use condit
 #end
 ```
 
-The directive names should match the same target names used in OpenFL. For more information about conditional compilation check out the [OpenFL site](http://www.openfl.org/archive/developer/documentation/conditional-compilation/)
+The directive names should match the same target names used when building. For more information about conditional compilation check out the [OpenFL site](http://www.openfl.org/archive/developer/documentation/conditional-compilation/)
