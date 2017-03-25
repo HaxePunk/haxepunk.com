@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Shader Effects</title>
+
+		<meta name="description" content="HaxePunk is a 2d game engine written in Haxe for cross-platform deployment.">
+		<meta name="author" content="HaxePunk.com">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+		<link rel="shortcut icon" type="image/png" href="/img/favicon.png">
+
+		<link rel="stylesheet" type="text/css" href="/css/ink.css">
+		<link rel="stylesheet" type="text/css" href="/css/syntax.css">
+		<link rel="stylesheet" type="text/css" href="/css/custom.css">
+
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-5069201-6', 'haxepunk.com');
+		ga('send', 'pageview');
+		</script>
+	</head>
+
+	<body>
+		<div class="top-menu">
+			<a href="/" class="logo">
+				<image src="/img/HaxePunk.svg" width="512" height="128" alt="HaxePunk" />
+			</a>
+			<nav class="ink-navigation">
+				<ul class="menu horizontal orange">
+					<li class="">
+						<a href="/">Home</a>
+					</li>
+					<li class="">
+						<a href="/features/">Features</a>
+					</li>
+					<li class="">
+						<a href="/demos/">Demos</a>
+					</li>
+					<li class="active">
+						<a href="/documentation/">Documentation</a>
+					</li>
+					<li class="">
+						<a href="/games/">Games</a>
+					</li>
+					<li>
+						<a href="http://forum.haxepunk.com/category/1/blog">Blog</a>
+					</li>
+					<li>
+						<a href="http://forum.haxepunk.com/">Forum</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="github">
+			<a href="https://github.com/HaxePunk/HaxePunk">Fork me on GitHub</a>
+		</div>
+
+<div class="ink-grid vspace mainpoints">
+	<h1>Shader Effects</h1>
+
+<p>Starting in version 4.0, per-scene and per-graphic graphical effects are easy to use in HaxePunk.</p>
+
+<p><img src="/documentation/tutorials/images/shaders.jpg" alt="Post processing shaders"></p>
+
+<h3>Scene Shaders</h3>
+
+<p>The easiest way to apply a shader to the entire scene contents is to use <code>haxepunk.graphics.shaders.SceneShader</code>. Simply create one or more SceneShader objects and set your scene&#39;s <code>shaders</code> field:</p>
+<div class="highlight"><pre><code class="language-haxe" data-lang="haxe"><span class="kn">import</span> <span class="nn">haxepunk</span><span class="p">.</span><span class="nn">Scene</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">haxepunk</span><span class="p">.</span><span class="nn">graphics</span><span class="p">.</span><span class="nn">shader</span><span class="p">.</span><span class="nn">SceneShader</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="n">MyScene</span> <span class="kd">extends</span> <span class="n">Scene</span>
+<span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">function</span> <span class="nf">new</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">super</span><span class="p">();</span>
+
+        <span class="kd">var</span> invertShader <span class="o">=</span> <span class="n">SceneShader</span><span class="p">.</span><span class="n">fromAsset</span><span class="p">(</span><span class="s2">&quot;shaders/invert.frg&quot;</span><span class="p">);</span>
+        <span class="n">shaders</span> <span class="o">=</span> <span class="p">[</span><span class="n">invertShader</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Before we run anything, we need to add a shaders folder to assets and hook it into the <code>project.xml</code> file. Add the following line inside your <code>project.xml</code> after the other <code>&lt;assets /&gt;</code> lines. This will let you import anything with a <code>.vert</code> or <code>.frag</code> extension.</p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml">    <span class="nt">&lt;assets</span> <span class="na">path=</span><span class="s">&quot;assets/shaders&quot;</span> <span class="na">rename=</span><span class="s">&quot;shaders&quot;</span> <span class="na">include=</span><span class="s">&quot;*.vert|*.frag&quot;</span> <span class="nt">/&gt;</span>
+</code></pre></div>
+<p>Now comes the really fun part. Drop the following code in a file named <code>assets/shaders/invert.frag</code> and test it.</p>
+
+<h3>assets/shaders/invert.frag</h3>
+<div class="highlight"><pre><code class="language-glsl" data-lang="glsl"><span class="cp">#ifdef GL_ES</span>
+    <span class="k">precision</span> <span class="k">mediump</span> <span class="k">float</span><span class="p">;</span>
+<span class="cp">#endif</span>
+
+<span class="k">varying</span> <span class="k">vec2</span> <span class="n">vTexCoord</span><span class="p">;</span>
+<span class="k">uniform</span> <span class="k">sampler2D</span> <span class="n">uImage0</span><span class="p">;</span>
+
+<span class="k">void</span> <span class="n">main</span><span class="p">(</span><span class="k">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">vec4</span> <span class="n">color</span> <span class="o">=</span> <span class="n">texture2D</span><span class="p">(</span><span class="n">uImage0</span><span class="p">,</span> <span class="n">vTexCoord</span><span class="p">);</span>
+    <span class="n">gl_FragColor</span> <span class="o">=</span> <span class="k">vec4</span><span class="p">(</span><span class="k">vec3</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">-</span> <span class="n">color</span><span class="p">.</span><span class="n">rgb</span><span class="p">,</span> <span class="n">color</span><span class="p">.</span><span class="n">a</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Let&#39;s break this down. The <code>#ifdef GL_ES</code> lines are to specify the precision on mobile devices. We could set it to <code>highp</code> but <code>mediump</code> seems to work well in most cases. Then we have the <code>uniform</code> and <code>varying</code> lines which define variables passed to the shader from our <code>SceneShader</code> object. Finally we define the main function, which simply inverts the color values and retains the alpha.</p>
+
+<p>What if you want to set your own uniform values though? You&#39;re in luck because <code>SceneShader</code> has a way to define them. At the moment it only supports single float values though so you may have to get creative. Take for example the <code>scanline.frag</code> shader. It includes a scale uniform that isn&#39;t defined by <code>SceneShader</code> and initially set to <code>1.0</code>.</p>
+
+<h3>assets/shaders/scanline.frag</h3>
+<div class="highlight"><pre><code class="language-glsl" data-lang="glsl"><span class="cp">#ifdef GL_ES</span>
+    <span class="k">precision</span> <span class="k">mediump</span> <span class="k">float</span><span class="p">;</span>
+<span class="cp">#endif</span>
+
+<span class="k">varying</span> <span class="k">vec2</span> <span class="n">vTexCoord</span><span class="p">;</span>
+<span class="k">uniform</span> <span class="k">vec2</span> <span class="n">uResolution</span><span class="p">;</span>
+<span class="k">uniform</span> <span class="k">sampler2D</span> <span class="n">uImage0</span><span class="p">;</span>
+
+<span class="k">uniform</span> <span class="k">float</span> <span class="n">scale</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+
+<span class="k">void</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">mod</span><span class="p">(</span><span class="n">floor</span><span class="p">(</span><span class="n">vTexCoord</span><span class="p">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">uResolution</span><span class="p">.</span><span class="n">y</span> <span class="o">/</span> <span class="n">scale</span><span class="p">),</span> <span class="mf">2.0</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">gl_FragColor</span> <span class="o">=</span> <span class="k">vec4</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+    <span class="k">else</span>
+        <span class="n">gl_FragColor</span> <span class="o">=</span> <span class="n">texture2D</span><span class="p">(</span><span class="n">uImage0</span><span class="p">,</span> <span class="n">vTexCoord</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>To set the uniform&#39;s value from Haxe you can use the <code>SceneShader</code> object in your <code>Main.hx</code> file.</p>
+<div class="highlight"><pre><code class="language-haxe" data-lang="haxe"><span class="kd">var</span> scanlineShader <span class="o">=</span> <span class="k">new</span> <span class="n">SceneShader</span><span class="p">(</span><span class="s2">&quot;shaders/scanline.frag&quot;</span><span class="p">);</span>
+<span class="n">scanlineShader</span><span class="p">.</span><span class="n">setUniform</span><span class="p">(</span><span class="s2">&quot;scale&quot;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">);</span>
+</code></pre></div>
+<h2>Graphic Shaders</h2>
+
+<p>Besides applying shaders to the entire scene, you can also use custom shaders to render individual graphics. An easy way to create a custom shader for graphics is to use <code>TextureShader</code> and pass in your own fragment shader:</p>
+<div class="highlight"><pre><code class="language-haxe" data-lang="haxe"><span class="kd">var</span> customShader <span class="o">=</span> <span class="k">new</span> <span class="n">TextureShader</span><span class="p">.</span><span class="n">fromAsset</span><span class="p">(</span><span class="s2">&quot;shaders/invert.frag&quot;</span><span class="p">);</span>
+</code></pre></div>
+<p>Each graphic has a <code>shader</code> field which you can set to a custom shader:</p>
+<div class="highlight"><pre><code class="language-haxe" data-lang="haxe"><span class="kd">var</span> img <span class="o">=</span> <span class="k">new</span> <span class="n">Image</span><span class="p">(</span><span class="s2">&quot;graphics/my_image.png&quot;</span><span class="p">);</span>
+<span class="n">img</span><span class="p">.</span><span class="n">shader</span> <span class="o">=</span> <span class="n">customShader</span><span class="p">;</span>
+</code></pre></div>
+</div>
+
+
+		<footer>
+		<div class="ink-grid">
+			<div class="large-100 medium-100 small-100">
+				<strong>HaxePunk</strong> is an open source, cross-platform game engine for the <a href="http://haxe.org">Haxe programming language</a>.
+			</div>
+			<div class="large-100 medium-100 small-100">
+				Copyright &copy; 2011-2018 HaxePunk.com
+				&bull;
+				HaxePunk's <a href="https://github.com/HaxePunk">code</a> is licensed under
+				<a href="http://opensource.org/licenses/MIT">MIT</a>
+				&bull;
+				Follow <a href="https://twitter.com/HaxePunk">@HaxePunk</a>
+				&bull;
+				<a href="https://github.com/HaxePunk/haxepunk.com">Site</a> made with <a href="http://ink.sapo.pt/">Ink</a>
+				Powered by <a href="http://pages.github.com/">GitHub Pages</a>
+			</div>
+		</div>
+		</footer>
+
+		<script type="text/javascript" src="/js/holder.js"></script>
+		<script type="text/javascript" src="/js/ink-all.min.js"></script>
+		<script type="text/javascript" src="/js/autoload.js"></script>
+		<script type="text/javascript" src="/js/html5shiv.js"></script>
+	</body>
+
+</html>

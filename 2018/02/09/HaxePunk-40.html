@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Announcing HaxePunk 4.0!</title>
+
+		<meta name="description" content="HaxePunk is a 2d game engine written in Haxe for cross-platform deployment.">
+		<meta name="author" content="HaxePunk.com">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+		<link rel="shortcut icon" type="image/png" href="/img/favicon.png">
+
+		<link rel="stylesheet" type="text/css" href="/css/ink.css">
+		<link rel="stylesheet" type="text/css" href="/css/syntax.css">
+		<link rel="stylesheet" type="text/css" href="/css/custom.css">
+
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-5069201-6', 'haxepunk.com');
+		ga('send', 'pageview');
+		</script>
+	</head>
+
+	<body>
+		<div class="top-menu">
+			<a href="/" class="logo">
+				<image src="/img/HaxePunk.svg" width="512" height="128" alt="HaxePunk" />
+			</a>
+			<nav class="ink-navigation">
+				<ul class="menu horizontal orange">
+					<li class="">
+						<a href="/">Home</a>
+					</li>
+					<li class="">
+						<a href="/features/">Features</a>
+					</li>
+					<li class="">
+						<a href="/demos/">Demos</a>
+					</li>
+					<li class="">
+						<a href="/documentation/">Documentation</a>
+					</li>
+					<li class="">
+						<a href="/games/">Games</a>
+					</li>
+					<li>
+						<a href="http://forum.haxepunk.com/category/1/blog">Blog</a>
+					</li>
+					<li>
+						<a href="http://forum.haxepunk.com/">Forum</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="github">
+			<a href="https://github.com/HaxePunk/HaxePunk">Fork me on GitHub</a>
+		</div>
+
+<div class="ink-grid vspace mainpoints">
+  <h1>Announcing HaxePunk 4.0!</h1>
+
+  <p>It&#39;s been in development for a long time - over a year, in fact - but a new major version of HaxePunk is now available on <a href="https://lib.haxe.org/p/HaxePunk">haxelib</a>! It&#39;s the same 2D game engine you know and love with a new look, some reorganization, and a ton of improvements and new features. Here are some highlights:</p>
+
+<h2>Shaders</h2>
+
+<p>HaxePunk&#39;s Flash target and software rendering support have been removed, simplifying the code and allowing us to focus on hardware rendering features, such as custom shader support. Custom shaders can be applied to any individual graphic as well as entire Scenes.</p>
+
+<p>In addition, the renderer is more robust and has been heavily optimized.</p>
+
+<p>(<a href="/documentation/tutorials/shader-effects/">Read more</a>)</p>
+
+<h2>Signals</h2>
+
+<p>As an alternative to extending and overriding behavior, many parts of HaxePunk now support Signals, which let you bind one or more functions to be called whenever an event occurs. For example, Scenes have signals that fire before/after update, before/after rendering, on input, when the screen is resized, etc.</p>
+<div class="highlight"><pre><code class="language-haxe" data-lang="haxe"><span class="n">myScene</span><span class="p">.</span><span class="n">preUpdate</span><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="n">myFunc</span><span class="p">);</span>
+</code></pre></div>
+<h2>Improved Input system</h2>
+
+<p>The Input system has been unified, making it easier to mix multiple input devices:</p>
+<div class="highlight"><pre><code class="language-haxe" data-lang="haxe"><span class="n">Input</span><span class="p">.</span><span class="n">define</span><span class="p">(</span><span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">Key</span><span class="p">.</span><span class="n">ENTER</span><span class="p">]);</span>
+<span class="n">Mouse</span><span class="p">.</span><span class="n">define</span><span class="p">(</span><span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="n">MouseButton</span><span class="p">.</span><span class="n">LEFT</span><span class="p">);</span>
+
+<span class="n">trace</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;start&quot;</span><span class="p">));</span>
+</code></pre></div>
+<p>These abstract inputs can also be used as Signals:</p>
+<div class="highlight"><pre><code class="language-haxe" data-lang="haxe"><span class="kd">class</span> <span class="n">MyScene</span> <span class="kd">extends</span> <span class="n">Scene</span>
+<span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">function</span> <span class="nf">new</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">super</span><span class="p">();</span>
+
+        <span class="n">onInputPressed</span><span class="p">.</span><span class="n">start</span><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="n">onStart</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nf">onStart</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">trace</span><span class="p">(</span><span class="s2">&quot;You either pressed enter or clicked the mouse!&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>(<a href="/documentation/cookbook/multi-platform-input.html">Read more</a>)</p>
+
+<h2>Better BitmapText</h2>
+
+<p>BitmapText now supports rich text via XML markup:</p>
+<div class="highlight"><pre><code class="language-haxe" data-lang="haxe"><span class="n">BitmapText</span><span class="p">.</span><span class="n">defineFormatTag</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">color</span><span class="p">:</span> <span class="mh">0xff0000</span><span class="p">});</span>
+
+<span class="kd">var</span> txt <span class="o">=</span> <span class="k">new</span> <span class="n">BitmapText</span><span class="p">(</span><span class="s2">&quot;Here&#39;s some &lt;red&gt;colored&lt;/red&gt; text!&quot;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">font</span><span class="p">:</span> <span class="s2">&quot;fonts/azmoonfleet.64.fnt&quot;</span><span class="p">,</span>
+    <span class="n">size</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>With these tags you can animate characters, render inline images, change fonts, <a href="https://twitter.com/bendmorris/status/854544378806681600">and more</a>.</p>
+
+<h2>Backend abstraction</h2>
+
+<p>HaxePunk now officially supports recent versions of both <a href="http://www.openfl.org/">OpenFL</a> and <a href="http://github.com/haxenme/nme">NME</a>. Support for additional backends such as Kha is on the roadmap!</p>
+
+<h2>Conclusion</h2>
+
+<p>Note that, as a major version, HaxePunk includes many breaking changes - see the <a href="https://github.com/HaxePunk/HaxePunk/blob/dev/MIGRATION.md">Migration Guide</a> for tips on updating existing projects.</p>
+
+<p>Thanks to all the contributors new and old who made HaxePunk 4.0 possible. We hope you enjoy it!</p>
+
+
+  
+  <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://haxepunk-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+</div>
+
+
+		<footer>
+		<div class="ink-grid">
+			<div class="large-100 medium-100 small-100">
+				<strong>HaxePunk</strong> is an open source, cross-platform game engine for the <a href="http://haxe.org">Haxe programming language</a>.
+			</div>
+			<div class="large-100 medium-100 small-100">
+				Copyright &copy; 2011-2018 HaxePunk.com
+				&bull;
+				HaxePunk's <a href="https://github.com/HaxePunk">code</a> is licensed under
+				<a href="http://opensource.org/licenses/MIT">MIT</a>
+				&bull;
+				Follow <a href="https://twitter.com/HaxePunk">@HaxePunk</a>
+				&bull;
+				<a href="https://github.com/HaxePunk/haxepunk.com">Site</a> made with <a href="http://ink.sapo.pt/">Ink</a>
+				Powered by <a href="http://pages.github.com/">GitHub Pages</a>
+			</div>
+		</div>
+		</footer>
+
+		<script type="text/javascript" src="/js/holder.js"></script>
+		<script type="text/javascript" src="/js/ink-all.min.js"></script>
+		<script type="text/javascript" src="/js/autoload.js"></script>
+		<script type="text/javascript" src="/js/html5shiv.js"></script>
+	</body>
+
+</html>
+

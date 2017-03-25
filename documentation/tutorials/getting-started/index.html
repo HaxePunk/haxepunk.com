@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Getting Started</title>
+
+		<meta name="description" content="HaxePunk is a 2d game engine written in Haxe for cross-platform deployment.">
+		<meta name="author" content="HaxePunk.com">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+		<link rel="shortcut icon" type="image/png" href="/img/favicon.png">
+
+		<link rel="stylesheet" type="text/css" href="/css/ink.css">
+		<link rel="stylesheet" type="text/css" href="/css/syntax.css">
+		<link rel="stylesheet" type="text/css" href="/css/custom.css">
+
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-5069201-6', 'haxepunk.com');
+		ga('send', 'pageview');
+		</script>
+	</head>
+
+	<body>
+		<div class="top-menu">
+			<a href="/" class="logo">
+				<image src="/img/HaxePunk.svg" width="512" height="128" alt="HaxePunk" />
+			</a>
+			<nav class="ink-navigation">
+				<ul class="menu horizontal orange">
+					<li class="">
+						<a href="/">Home</a>
+					</li>
+					<li class="">
+						<a href="/features/">Features</a>
+					</li>
+					<li class="">
+						<a href="/demos/">Demos</a>
+					</li>
+					<li class="active">
+						<a href="/documentation/">Documentation</a>
+					</li>
+					<li class="">
+						<a href="/games/">Games</a>
+					</li>
+					<li>
+						<a href="http://forum.haxepunk.com/category/1/blog">Blog</a>
+					</li>
+					<li>
+						<a href="http://forum.haxepunk.com/">Forum</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="github">
+			<a href="https://github.com/HaxePunk/HaxePunk">Fork me on GitHub</a>
+		</div>
+
+<div class="ink-grid vspace mainpoints">
+	<h1>Getting Started with HaxePunk</h1>
+
+<p>Before using HaxePunk you&#39;ll need to setup your development environment. This tutorial will guide you through the steps of getting everything installed and ready for HaxePunk development.</p>
+
+<h2>Install Haxe</h2>
+
+<p>For Windows and Mac, download and install the latest Haxe from <a href="http://www.haxe.org/download">http://www.haxe.org/download</a>. These installers also includes the Neko VM which is necessary for several of Haxe&#39;s command line tools.</p>
+
+<h2>Install a backend</h2>
+
+<h4>Lime and OpenFL</h4>
+
+<p>To install OpenFL and Lime:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">haxelib install openfl
+</code></pre></div>
+<p>OpenFL is a library that implements most of the Flash API for different platforms. Lime is a low level library used by OpenFL for native targets. It also contains the tools you&#39;ll be using to build and test projects.</p>
+
+<p>Some targets need an additional step in order to compile. Use the lime commands below if you plan to target them.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c1"># lime test cpp</span>
+lime setup windows
+lime setup linux
+
+<span class="c1"># lime test android</span>
+lime setup android
+</code></pre></div>
+<h4>NME</h4>
+
+<p>NME is an alternative to OpenFL and Lime. Currently, you can substitute NME for all supported targets except HTML5.</p>
+
+<p>To install NME, run <code>haxelib install nme</code>. You can then build with <code>nme test neko</code>.</p>
+
+<h2>Install HaxePunk</h2>
+
+<p>Run the following commands to install HaxePunk and setup your development environment.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">haxelib install HaxePunk
+haxelib run HaxePunk setup
+</code></pre></div>
+<p>If you downloaded a zip version of HaxePunk replace the first command with <code>haxelib local nameOfTheArchive.zip</code>.</p>
+
+<p>You may need to run the second command as an administrator. It will prompt you to install the Lime tool which I suggest doing. This gives you the shortcut <code>lime</code> instead of having to type <code>haxelib run lime</code>.</p>
+
+<h2>GitHub <i class="icon-github"></i></h2>
+
+<p>Once you&#39;ve been using HaxePunk for a while you may want install the bleeding edge version to test new features. You can install HaxePunk from GitHub using the following commands:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">haxelib git HaxePunk https://github.com/HaxePunk/HaxePunk.git
+haxelib run HaxePunk setup
+</code></pre></div>
+<p>To revert back to the latest stable version you&#39;ll need to disable the development version.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">haxelib dev HaxePunk
+</code></pre></div>
+<h2>Create a new project</h2>
+
+<p>The final step is to create a test project to make sure everything is in working order. By running the following commands you should be presented with a blank window.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">haxelib run HaxePunk new MyProject
+<span class="nb">cd</span> MyProject
+lime <span class="nb">test</span> neko <span class="c1"># build and run</span>
+</code></pre></div>
+<p>You now have HaxePunk installed and are ready to start developing games! Start with <a href="/documentation/tutorials/haxepunk-basics">the basics</a> which will teach you how to add entities and move them in the scene.</p>
+
+</div>
+
+
+		<footer>
+		<div class="ink-grid">
+			<div class="large-100 medium-100 small-100">
+				<strong>HaxePunk</strong> is an open source, cross-platform game engine for the <a href="http://haxe.org">Haxe programming language</a>.
+			</div>
+			<div class="large-100 medium-100 small-100">
+				Copyright &copy; 2011-2018 HaxePunk.com
+				&bull;
+				HaxePunk's <a href="https://github.com/HaxePunk">code</a> is licensed under
+				<a href="http://opensource.org/licenses/MIT">MIT</a>
+				&bull;
+				Follow <a href="https://twitter.com/HaxePunk">@HaxePunk</a>
+				&bull;
+				<a href="https://github.com/HaxePunk/haxepunk.com">Site</a> made with <a href="http://ink.sapo.pt/">Ink</a>
+				Powered by <a href="http://pages.github.com/">GitHub Pages</a>
+			</div>
+		</div>
+		</footer>
+
+		<script type="text/javascript" src="/js/holder.js"></script>
+		<script type="text/javascript" src="/js/ink-all.min.js"></script>
+		<script type="text/javascript" src="/js/autoload.js"></script>
+		<script type="text/javascript" src="/js/html5shiv.js"></script>
+	</body>
+
+</html>
