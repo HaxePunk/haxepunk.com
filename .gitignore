@@ -4,5 +4,7 @@ documentation/api
 demos/*.md
 demos/swf
 demos/thumb
+demos/*.html
+demos/html5
 .DS_Store
 .idea

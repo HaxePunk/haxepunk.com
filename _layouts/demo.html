@@ -2,11 +2,7 @@
 
 <div class="top-highlight" style="padding: 1em">
 	<div class="push-center" style="max-width:{{ page.width }}px">
-		<object data="{{ site.baseurl }}demos/swf/{{ page.swf }}.swf" type="application/x-shockwave-flash" width="100%" height="{{ page.height }}">
-			<param name="movie" value="{{ site.baseurl }}demos/swf/{{ page.swf }}.swf" />
-			<param name="bgcolor" value="#ffffff" />
-			<param name="quality" value="high" />
-		</object>
+		<iframe src="{{ site.baseurl }}demos/html5/{{ page.directory }}/index.html" width="100%" height="{{ page.height }}"></iframe>
 	</div>
 </div>
 <div class="ink-grid vspace mainpoints">
