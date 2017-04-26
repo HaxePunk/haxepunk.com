@@ -13,7 +13,7 @@ One of the most useful things to be able to do in a game is make Entities intera
 HaxePunk uses rectangles for all base-level collision between Entities. You define a rectanular collision area for your Entity, called its **hitbox**, and then you can use HaxePunk's functions to test if an Entity's hitbox intersects with anothers'. So if we have an Entity called **Player**, in it we can define hitbox parameters like this:
 
 ```haxe
-import com.haxepunk.Entity;
+import haxepunk.Entity;
 
 class Player extends Entity
 {
@@ -36,7 +36,7 @@ I set the hitbox values two different ways here. Both ways work the same, so you
 So our Bullet Entity will look like this:
 
 ```haxe
-import com.haxepunk.Entity;
+import haxepunk.Entity;
 
 class Bullet extends Entity
 {
@@ -53,7 +53,7 @@ class Bullet extends Entity
 So we created the bullet Entity and gave it a 10x10 hitbox, but there's one more line we need to add before we can check if they intersect:
 
 ```haxe
-import com.haxepunk.Entity;
+import haxepunk.Entity;
 
 class Bullet extends Entity
 {
@@ -77,7 +77,7 @@ In the next step, I'll show you how to check if our Player is colliding with a B
 Now that we have our Bullet Entity classified under the "bullet" group, we can go back to our Player and use Entity's handy collide() function to check if our Player is intersecting with any instances of the "bullet" type in the Scene:
 
 ```haxe
-import com.haxepunk.Entity;
+import haxepunk.Entity;
 
 class Player extends Entity
 {
@@ -100,7 +100,7 @@ class Player extends Entity
 So here, we use collide() to check if the Player will collide with any "bullet" objects when placed at its current location (x, y). If you wanted to check 10 pixels ahead, you could do so as well:
 
 ```haxe
-import com.haxepunk.Entity;
+import haxepunk.Entity;
 
 class Player extends Entity
 {
@@ -124,8 +124,8 @@ But HaxePunk also supports more specific collision behavior as well. Let's say w
 
 
 ```haxe
-import com.haxepunk.Entity;
-import com.haxepunk.FP;
+import haxepunk.Entity;
+import haxepunk.HXP;
 
 class Bullet extends Entity
 {
@@ -147,7 +147,7 @@ class Bullet extends Entity
 So now, what if we want the Bullet to be destroyed when the Player collides with it? For this, we can use the collide() function in Player again, and do this:
 
 ```haxe
-import com.haxepunk.Entity;
+import haxepunk.Entity;
 
 class Player extends Entity
 {

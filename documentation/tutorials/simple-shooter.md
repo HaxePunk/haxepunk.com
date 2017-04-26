@@ -15,11 +15,11 @@ Let's start out with a Ship class which holds the basic mechanics for our game.
 ```haxe
 package entities;
 
-import com.haxepunk.Entity;
-import com.haxepunk.HXP;
-import com.haxepunk.graphics.Image;
-import com.haxepunk.utils.Input;
-import com.haxepunk.utils.Key;
+import haxepunk.Entity;
+import haxepunk.HXP;
+import haxepunk.graphics.Image;
+import haxepunk.input.Input;
+import haxepunk.input.Key;
 
 class Ship extends Entity
 {
@@ -30,8 +30,8 @@ class Ship extends Entity
 		graphic = Image.createRect(32, 32, 0xDDEEFF);
 		setHitbox(32, 32);
 
-		Input.define("up", [Key.UP, Key.W]);
-		Input.define("down", [Key.DOWN, Key.S]);
+		Key.define("up", [Key.UP, Key.W]);
+		Key.define("down", [Key.DOWN, Key.S]);
 
 		velocity = 0;
 		type = "player";
@@ -100,8 +100,8 @@ Well, movement is great but we really need to add some action. Let's make a new 
 ```haxe
 package entities;
 
-import com.haxepunk.Entity;
-import com.haxepunk.graphics.Image;
+import haxepunk.Entity;
+import haxepunk.graphics.Image;
 
 class Bullet extends Entity
 {
@@ -151,8 +151,8 @@ We're going to make another class called Enemy which is basically a Bullet in re
 ```haxe
 package entities;
 
-import com.haxepunk.Entity;
-import com.haxepunk.graphics.Image;
+import haxepunk.Entity;
+import haxepunk.graphics.Image;
 
 class Enemy extends Entity
 {
@@ -187,8 +187,8 @@ The Enemy class is done but we have no way of spawning new ones. So let's build 
 ```haxe
 package scenes;
 
-import com.haxepunk.Scene;
-import com.haxepunk.HXP;
+import haxepunk.Scene;
+import haxepunk.HXP;
 
 class GameScene extends Scene
 {

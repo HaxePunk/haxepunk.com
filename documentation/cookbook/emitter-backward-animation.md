@@ -6,7 +6,7 @@ author: XXLTomate
 ---
 
 ```
-import com.haxepunk.graphics.Emitter;
+import haxepunk.graphics.Emitter;
 ```
 
 You can specify if you want your emitter to animate the particles backward,

@@ -8,7 +8,7 @@ permalink: documentation/tutorials/movement-and-animation/index.html
 
 Welcome back to the next tutorial in the series! We will be covering animations in this section as well as some advanced movement.
 
-First off let's start with a Player class. Like last time we will extend com.haxepunk.Entity so we can add it to the scene later. This may look daunting but I have added comments to make it easier to tell what is happening. You can use the player image below or create your own.
+First off let's start with a Player class. Like last time we will extend `haxepunk.Entity` so we can add it to the scene later. This may look daunting but I have added comments to make it easier to tell what is happening. You can use the player image below or create your own.
 
 ![Player Image](/documentation/tutorials/images/player.png)
 
@@ -17,11 +17,11 @@ First off let's start with a Player class. Like last time we will extend com.hax
 ```haxe
 package entities;
 
-import com.haxepunk.HXP;
-import com.haxepunk.Entity;
-import com.haxepunk.graphics.Spritemap;
-import com.haxepunk.utils.Input;
-import com.haxepunk.utils.Key;
+import haxepunk.HXP;
+import haxepunk.Entity;
+import haxepunk.graphics.Spritemap;
+import haxepunk.input.Input;
+import haxepunk.input.Key;
 
 class Player extends Entity
 {
@@ -43,8 +43,8 @@ class Player extends Entity
 		graphic = sprite;
 
 		// defines left and right as arrow keys and WASD controls
-		Input.define("left", [Key.LEFT, Key.A]);
-		Input.define("right", [Key.RIGHT, Key.D]);
+		Key.define("left", [Key.LEFT, Key.A]);
+		Key.define("right", [Key.RIGHT, Key.D]);
 
 		velocity = 0;
 	}

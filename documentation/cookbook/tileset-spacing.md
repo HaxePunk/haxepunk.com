@@ -6,7 +6,7 @@ author: elnabo
 ---
 
 ```
-import com.haxepunk.graphics.Tilemap;
+import haxepunk.graphics.Tilemap;
 ```
 
 If your tileset has some space between the tiles you can now specify it when constructing your tilemap. The tileSpacingWidth and tileSpacingHeight arguments are optional.

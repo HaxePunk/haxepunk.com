@@ -12,7 +12,9 @@ HXP.engine.scene = new MenuScene();
 ```
 
 Starting in 2.6.0, you can use an alternative method to draw a temporary scene 
-over the previous scene. Set your Scene's `alpha` to a value less than 1:
+over the previous scene. This is useful for things like popup windows.
+
+Set your Scene's `alpha` to a value less than 1:
 
 ```haxe
 class MenuScene extends Scene
@@ -36,8 +38,8 @@ Then use `pushScene` to push your scene on top of the scene stack:
 HXP.engine.pushScene(new MenuScene());
 ```
 
-The parent scene will no longer be active (update won't be called) but it will 
-be visible underneath your MenuScene.
+The parent scene will no longer be active (update won't be called automatically) 
+but it will be visible underneath your MenuScene.
 
 When you call `HXP.engine.popScene()`, your scene will be removed from the 
 stack, setting the previous scene active again.

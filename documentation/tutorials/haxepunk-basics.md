@@ -23,8 +23,8 @@ Now we need to make our main game scene. Create a folder and name it scenes and 
 ```haxe
 package scenes;
 
-import com.haxepunk.Scene;
-import com.haxepunk.graphics.Image;
+import haxepunk.Scene;
+import haxepunk.graphics.Image;
 
 class GameScene extends Scene
 {
@@ -67,9 +67,9 @@ If everything builds you should see an image of a block in the upper left hand c
 ```haxe
 package scenes;
 
-import com.haxepunk.Entity;
-import com.haxepunk.Scene;
-import com.haxepunk.graphics.Image;
+import haxepunk.Entity;
+import haxepunk.Scene;
+import haxepunk.graphics.Image;
 
 class GameScene extends Scene
 {
@@ -107,8 +107,8 @@ This example isn't very interesting yet and it would be better if we could contr
 ```haxe
 package entities;
 
-import com.haxepunk.Entity;
-import com.haxepunk.graphics.Image;
+import haxepunk.Entity;
+import haxepunk.graphics.Image;
 
 class Block extends Entity
 {
@@ -121,14 +121,14 @@ class Block extends Entity
 }
 ```
 
-To define a new entity we will always extend the com.haxepunk.Entity class. Notice that I am creating the image inside the Block's constructor and applying it to graphic variable. This will cause the Block to show up on the screen once we add it to the scene. Let's go ahead and do that now. Replace the GameScene code with the following:
+To define a new entity we will always extend the `haxepunk.Entity` class. Notice that I am creating the image inside the Block's constructor and applying it to graphic variable. This will cause the Block to show up on the screen once we add it to the scene. Let's go ahead and do that now. Replace the GameScene code with the following:
 
 ### src/scenes/GameScene.hx
 
 ```haxe
 package scenes;
 
-import com.haxepunk.Scene;
+import haxepunk.Scene;
 import entities.Block;
 
 class GameScene extends Scene
@@ -154,22 +154,30 @@ You will need to add an update function to the Block class and import the Input/
 ### src/entities/Block.hx
 
 ```haxe
-import com.haxepunk.utils.Input;
-import com.haxepunk.utils.Key;
+import haxepunk.input.Input;
+import haxepunk.input.Key;
 
 class Block extends Entity
 {
+
+	public function new()
+	{
+		// ...
+
+		Key.define("left", [Key.LEFT, Key.A]);
+		Key.define("right", [Key.RIGHT, Key.D]);
+	}
 
 	// ...
 
 	public override function update()
 	{
-		if (Input.check(Key.LEFT))
+		if (Input.check("left"))
 		{
 			moveBy(-2, 0);
 		}
 
-		if (Input.check(Key.RIGHT))
+		if (Input.check("right"))
 		{
 			moveBy(2, 0);
 		}

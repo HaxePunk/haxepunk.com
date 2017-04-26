@@ -13,8 +13,8 @@ In this tutorial, I will teach you how to embed and play sound effects in your g
 Sounds in HaxePunk are created and played using Sfx objects. Here, I'll create a Sfx object and assign it to a variable in our Player class:
 
 ```haxe
-import com.haxepunk.Entity;
-import com.haxepunk.Sfx;
+import haxepunk.Entity;
+import haxepunk.Sfx;
 
 class Player extends Entity
 {
@@ -32,10 +32,10 @@ class Player extends Entity
 So now, our Player can access this sound effect at any time to play() the sound, like this:
 
 ```haxe
-import com.haxepunk.Entity;
-import com.haxepunk.Sfx;
-import com.haxepunk.utils.Input;
-import com.haxepunk.utils.Key;
+import haxepunk.Entity;
+import haxepunk.Sfx;
+import haxepunk.input.Input;
+import haxepunk.input.Key;
 
 class Player extends Entity
 {
@@ -46,11 +46,12 @@ class Player extends Entity
 		super();
 		// audio files are placed in the assets/audio folder
 		shoot = new Sfx("audio/shoot.mp3");
+		Key.define("shoot", [Key.SPACE]);
 	}
 
 	public override function update()
 	{
-		if (Input.pressed(Key.SPACE))
+		if (Input.pressed("shoot"))
 		{
 			// Play the sound when the spacebar is pressed.
 			shoot.play();
