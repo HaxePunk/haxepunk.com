@@ -49,6 +49,7 @@ footer .ink-grid {
 .top-menu {
 	border-bottom: 5px solid #333;
 	position: relative;
+	background-color: #141419;
 }
 .top-menu .ink-navigation {
 	position: absolute;
@@ -108,16 +109,14 @@ a.logo {
     font-weight: bold;
     padding: 0.8em;
     display: block;
-    background: #F59C16;
-    background: linear-gradient(to bottom, rgb(254, 165, 53) 0%, rgb(242, 153, 13) 100%) repeat scroll 0% 0% transparent;
+    background: #FF3366;
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
     border-radius: 4px;
     color: #F0F0F0;
 }
 .button:hover {
 	color: #FFF;
-	background: #EFA73A;
-	background: linear-gradient(to bottom, rgb(255, 187, 102) 0%, rgb(235, 161, 46) 100%) repeat scroll 0% 0% transparent;
+	background: #CE0034;
 }
 
 .ink-gallery .stage {
@@ -140,7 +139,7 @@ a {
 	text-align: justify;
 }
 .mainpoints h1 {
-	color: rgb(242, 153, 13);
+	color: #EA8220;
 }
 .push-down {
 	margin-top: 10px;
