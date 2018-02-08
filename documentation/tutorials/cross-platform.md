@@ -6,10 +6,12 @@ permalink: documentation/tutorials/cross-platform/index.html
 
 # Cross-Platform Deployment
 
-To use HaxePunk, you'll need a library which implements the Flash API. There are currently two supported providers:
+To use HaxePunk, you'll need a framework which provides the "backend" functionality (rendering, input, asset loading...). There are currently two options:
 
 - `lime` and `openfl` (see [openfl.org](http://www.openfl.org))
 - `NME` (see <https://github.com/haxenme/nme>)
+
+Install your choice with `haxelib install openfl` or `haxelib install lime`.
 
 With this installed, deploying for multiple plaforms is simple (if you're using NME, substitute `nme` for `lime`):
 
@@ -49,4 +51,4 @@ If you need to omit a feature because it is platform specific you can use condit
 #end
 ```
 
-The directive names should match the same target names used when building. For more information about conditional compilation check out the [OpenFL site](http://www.openfl.org/archive/developer/documentation/conditional-compilation/)
+The directive names should match the same target names used when building. For more information about conditional compilation in Haxe check out the [official website](https://haxe.org/manual/lf-condition-compilation.html).
