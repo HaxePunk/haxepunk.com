@@ -6,7 +6,7 @@ define DEMO_HEADER
 layout: demo
 directory: TITLE
 thumb: TITLE.jpg
-source: https://github.com/HaxePunk/HaxePunk-examples/tree/dev/TITLE
+source: https://github.com/HaxePunk/HaxePunk/tree/dev/examples/TITLE
 endef
 
 export DEMO_HEADER
@@ -31,8 +31,10 @@ docs:
 demos:
 	cd $(HAXEPUNK_PATH) && make examples COMMAND=$(COMMAND) TARGET=html5 && \
 	for i in `find examples -mindepth 1 -maxdepth 1 -type d`; do \
+		echo "Processing example" $$i; \
 		TITLE=`basename $$i`; \
-		cp -r $$i/bin/html5/release/bin $(SITE_PATH)/demos/html5/$$TITLE; \
+		rm -r $(SITE_PATH)/demos/html5/$$TITLE; \
+		cp -r $$i/bin/html5/bin $(SITE_PATH)/demos/html5/$$TITLE; \
 		cp $$i/thumb.jpg $(SITE_PATH)/demos/thumb/$$TITLE.jpg; \
 		echo "---" > $(SITE_PATH)/demos/$$TITLE.md; \
 		echo "$$DEMO_HEADER" | sed "s/TITLE/$$TITLE/g" >> $(SITE_PATH)/demos/$$TITLE.md; \
