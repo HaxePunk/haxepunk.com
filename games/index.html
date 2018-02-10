@@ -7,11 +7,35 @@ title: Games | HaxePunk
 	<h1>Games <i class="icon-gamepad"></i></h1>
 	<div class="column-group gutters">
 
+    {% for page in site.pages %}
+        {% if page.layout == 'game' %}
+        {% if page.featured != true %}{% continue %}{% endif %}
+		{% capture clear %}{% cycle '', 'clearfix hide-large', '', 'clearfix' %}{% endcapture %}
+		<div class="small-100 medium-100 large-50" itemscope="" itemtype="http://www.schema.org/CreativeWork">
+			<h3 itemprop="name"><a href="{{ page.url }}">{{ page.title }}</a></h3>
+			<meta itemprop="thumbnailUrl" content="{{site.baseurl}}img/{{ page.path | replace:'.md','.jpg' }}">
+			<meta itemprop="contentLocation" content="{{ page.url }}">
+			<p itemprop="author" itemscope="" itemtype="http://www.schema.org/Person">
+				<span>By {{ page.author }}</span>
+			</p>
+			<a href="{{ page.url }}"><img width="220" height="124" src="{{site.baseurl}}img/{{ page.path | replace:'.md','.jpg' }}" alt="{{ page.title }}"></a>
+		</div>
+		{% if clear != '' %}<div class="{{ clear }}"></div>{% endif %}
+		{% endif %}
+	{% endfor %}
+
+	</div>
+
+	<hr/>
+
+	<div class="column-group gutters">
+
 	{% for page in site.pages %}
 		{% if page.layout == 'game' %}
+        {% if page.featured %}{% continue %}{% endif %}
 		{% capture clear %}{% cycle '', 'clearfix hide-large', '', 'clearfix' %}{% endcapture %}
 		<div class="small-100 medium-50 large-25" itemscope="" itemtype="http://www.schema.org/CreativeWork">
-			<h3 itemprop="name">{{ page.title }}</h3>
+			<h3 itemprop="name"><a href="{{ page.url }}">{{ page.title }}</a></h3>
 			<meta itemprop="thumbnailUrl" content="{{site.baseurl}}img/{{ page.path | replace:'.md','.jpg' }}">
 			<meta itemprop="contentLocation" content="{{ page.url }}">
 			<p itemprop="author" itemscope="" itemtype="http://www.schema.org/Person">
