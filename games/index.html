@@ -10,7 +10,6 @@ title: Games | HaxePunk
     {% for page in site.pages %}
         {% if page.layout == 'game' %}
         {% if page.featured != true %}{% continue %}{% endif %}
-		{% capture clear %}{% cycle '', 'clearfix hide-large', '', 'clearfix' %}{% endcapture %}
 		<div class="small-100 medium-100 large-50" itemscope="" itemtype="http://www.schema.org/CreativeWork">
 			<h3 itemprop="name"><a href="{{ page.url }}">{{ page.title }}</a></h3>
 			<meta itemprop="thumbnailUrl" content="{{site.baseurl}}img/{{ page.path | replace:'.md','.jpg' }}">
@@ -20,7 +19,6 @@ title: Games | HaxePunk
 			</p>
 			<a href="{{ page.url }}"><img width="220" height="124" src="{{site.baseurl}}img/{{ page.path | replace:'.md','.jpg' }}" alt="{{ page.title }}"></a>
 		</div>
-		{% if clear != '' %}<div class="{{ clear }}"></div>{% endif %}
 		{% endif %}
 	{% endfor %}
 
