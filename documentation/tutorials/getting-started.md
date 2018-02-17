@@ -8,9 +8,41 @@ permalink: documentation/tutorials/getting-started/index.html
 
 Before using HaxePunk you'll need to setup your development environment. This tutorial will guide you through the steps of getting everything installed and ready for HaxePunk development.
 
+
 ## Install Haxe
 
 For Windows and Mac, download and install the latest Haxe from [http://www.haxe.org/download](http://www.haxe.org/download). These installers also includes the Neko VM which is necessary for several of Haxe's command line tools.
+
+
+## Install a backend
+
+#### Lime and OpenFL
+
+To install OpenFL and Lime:
+
+```bash
+haxelib install openfl
+```
+
+OpenFL is a library that implements most of the Flash API for different platforms. Lime is a low level library used by OpenFL for native targets. It also contains the tools you'll be using to build and test projects.
+
+Some targets need an additional step in order to compile. Use the lime commands below if you plan to target them.
+
+```bash
+# lime test cpp
+lime setup windows
+lime setup linux
+
+# lime test android
+lime setup android
+```
+
+#### NME
+
+NME is an alternative to OpenFL and Lime. Currently, you can substitute NME for all supported targets except HTML5.
+
+To install NME, run `haxelib install nme`. You can then build with `nme test neko`.
+
 
 ## Install HaxePunk
 
@@ -25,36 +57,6 @@ If you downloaded a zip version of HaxePunk replace the first command with `haxe
 
 You may need to run the second command as an administrator. It will prompt you to install the Lime tool which I suggest doing. This gives you the shortcut `lime` instead of having to type `haxelib run lime`.
 
-## Upgrading haxelib
-
-HaxePunk installs specific versions of its dependencies on setup. The reason is to provide a stable environment for development. Sometimes haxelib will install newer versions of OpenFL if you run <code>haxelib upgrade</code>. You can see a list of all the installed libraries using `haxelib list`. To revert to a previous version of a library you can run this:
-
-```bash
-haxelib set openfl [version] # change [version] to something like 1.2.5
-```
-
-Often reverting a library may not even be necessary but if you're noticing bugs after upgrading haxelib it's a good thing to know how to do.
-
-## Lime and OpenFL
-
-OpenFL is a library that implements most of the Flash API for different platforms. Lime, on the other hand, is a low level library used by OpenFL for native targets. It also contains the tools you'll be using to build and test projects.
-
-Some targets need an additional step in order to compile. Use the lime commands below if you plan to target them.
-
-```bash
-# lime test cpp
-lime setup windows
-lime setup linux
-
-# lime test android
-lime setup android
-```
-
-## NME
-
-NME is an alternative to OpenFL and Lime. While OpenFL tends to change very quickly, NME focuses on stability. Currently, you can substitute NME for all supported targets except HTML5.
-
-To install NME, run `haxelib install nme`. You can then build with `nme test neko`.
 
 ## GitHub <i class="icon-github"></i>
 
