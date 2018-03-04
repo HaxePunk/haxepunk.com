@@ -18,6 +18,7 @@ footer {
 	line-height: 40px;
 	margin-top: 0 !important;
 	text-align: center;
+	box-shadow: 0px 500px 0px 500px #000;
 }
 footer * {
 	line-height: inherit;
