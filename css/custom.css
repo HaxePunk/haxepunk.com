@@ -10,11 +10,12 @@ html, body {
 	overflow: auto;
 }
 .push , footer {
-	height: 60px;
+	height: 80px;
 }
 footer {
 	border: 0;
-	line-height: 60px;
+	background-color: #000000;
+	line-height: 40px;
 	margin-top: 0 !important;
 	text-align: center;
 }
