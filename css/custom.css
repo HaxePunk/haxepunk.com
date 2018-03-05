@@ -9,9 +9,6 @@ html, body {
 	margin: 0 auto -60px;
 	overflow: auto;
 }
-.push , footer {
-	height: 80px;
-}
 footer {
 	border: 0;
 	background-color: #000000;
