@@ -1,7 +1,7 @@
 name: HaxePunk
 baseurl: http://haxepunk.com/
 exclude: ["vendor"]
-markdown: redcarpet
+markdown: kramdown
 highlighter: pygments
 redcarpet:
   extensions: ["tables"]
